@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { validate } from 'echt';
 import { openaiRateLimiter } from '../../middleware/rateLimiter';
-import { vocabularyAgentService } from './agent-service';
+import { directVocabularyService } from './direct-service';
 import { Word } from '../words/model';
 import { getUserLanguages } from '../../utils/getUserLanguages';
 import { generateWordsSchema, getWordDetailsSchema } from './schemas';
@@ -48,7 +48,7 @@ router.post('/generate-words', openaiRateLimiter, validate(generateWordsSchema),
       .map(word => word.value.toLowerCase());
 
     const { baseLanguage, targetLanguage } = await getUserLanguages(validation.userId);
-    const vocabularyWords = await vocabularyAgentService.generateWords(
+    const vocabularyWords = await directVocabularyService.generateWords(
       wordCount, 
       difficulty, 
       context, 
@@ -92,7 +92,7 @@ router.post('/get-word-details', openaiRateLimiter, validate(getWordDetailsSchem
     }
 
     const { baseLanguage, targetLanguage } = await getUserLanguages(validation.userId);
-    const wordInfo = await vocabularyAgentService.getWordDetails(word, context, baseLanguage, targetLanguage);
+    const wordInfo = await directVocabularyService.getWordDetails(word, context, baseLanguage, targetLanguage);
 
     res.json({
       word: wordInfo.word,

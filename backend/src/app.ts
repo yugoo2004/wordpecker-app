@@ -8,6 +8,7 @@ import { connectDB } from './config/mongodb';
 import { configureOpenAIAgents } from './agents';
 
 // Import routes
+import healthRoutes from './api/health/routes';
 import listRoutes from './api/lists/routes';
 import wordRoutes from './api/words/routes';
 import learnRoutes from './api/learn/routes';
@@ -37,6 +38,7 @@ app.use('/api/audio', openaiRateLimiter); // Audio routes use ElevenLabs API
 app.use('/api/voice', openaiRateLimiter); // Voice routes use OpenAI Realtime API
 
 // Routes
+app.use('/api', healthRoutes); // 健康检查路由
 app.use('/api/lists', listRoutes);
 app.use('/api/lists', wordRoutes);
 app.use('/api/learn', learnRoutes);
@@ -61,8 +63,11 @@ if (process.env.NODE_ENV !== 'test') {
     configureOpenAIAgents(),
     connectDB()
   ]).then(() => {
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT} in ${environment.nodeEnv} mode`);
+    // 监听所有网络接口 (0.0.0.0) 以支持 Sealos 部署
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log(`Server running on 0.0.0.0:${PORT} in ${environment.nodeEnv} mode`);
+      console.log(`Health check available at: http://0.0.0.0:${PORT}/api/health`);
+      console.log(`Ready check available at: http://0.0.0.0:${PORT}/api/ready`);
     });
   }).catch(error => {
     console.error('Failed to initialize application:', error);

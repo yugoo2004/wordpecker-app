@@ -8,8 +8,15 @@
     "build": "tsc",
     "lint": "eslint . --ext .ts",
     "test": "jest",
+    "test:unit": "jest --testPathPattern=\"api-key-validation|random-algorithm|error-handling-scenarios\"",
+    "test:integration": "jest --testPathPattern=\"random-image-integration|session-management-integration|pexels-api-integration\" --testTimeout=30000 --forceExit",
+    "test:integration:runner": "ts-node src/tests/integration-test-runner.ts",
+    "test:random-image": "jest --testPathPattern=\"random-image-integration|session-management-integration|pexels-api-integration|api-key-validation|random-algorithm|error-handling-scenarios\" --testTimeout=30000 --forceExit",
     "seed:templates": "ts-node src/scripts/seedTemplatesFromFiles.ts",
-    "seed:templates:legacy": "ts-node src/scripts/seedTemplates.ts"
+    "seed:templates:legacy": "ts-node src/scripts/seedTemplates.ts",
+    "test:mongo": "ts-node src/scripts/testMongoConnection.ts",
+    "test:db-ops": "ts-node src/scripts/testDatabaseOperations.ts",
+    "test:db-complete": "ts-node src/scripts/testDatabaseComplete.ts"
   },
   "dependencies": {
     "@elevenlabs/elevenlabs-js": "^2.6.0",

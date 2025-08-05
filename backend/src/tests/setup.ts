@@ -8,6 +8,10 @@ config();
 process.env.NODE_ENV = 'test';
 process.env.MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/wordpecker_test';
 
+// Set test API keys (using valid format for testing)
+process.env.OPENAI_API_KEY = process.env.OPENAI_API_KEY || 'sk-test-key-for-testing-purposes-only-1234567890';
+process.env.PEXELS_API_KEY = process.env.PEXELS_API_KEY || 'abcdefghijklmnopqrstuvwxyz1234567890123';
+
 // Mock console.log to reduce noise in tests
 if (typeof jest !== 'undefined') {
   // eslint-disable-next-line no-undef
