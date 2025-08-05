@@ -1,0 +1,442 @@
+
+> language-learning-backend@1.0.0 start
+> node dist/app.js
+
+Attempting to connect to MongoDB... (attempt 1/5)
+OpenAI Agents configured with API key. Custom baseURL: https://api.moonshot.cn/v1
+Note: @openai/agents may not support custom baseURL. Consider using direct OpenAI client for Moonshot API.
+✅ Connected to MongoDB successfully
+Server running on 0.0.0.0:3000 in production mode
+Health check available at: http://0.0.0.0:3000/api/health
+Ready check available at: http://0.0.0.0:3000/api/ready
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+Tracing: failed to export traces after 3 attempts
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+✅ Pexels API 密钥验证成功
+🔍 Pexels search query: 汽车走在乡间的路上，沿途风景秀丽
+Tracing: failed to export traces after 3 attempts
+🎯 选择未使用图片: 31416984 (可用未使用图片: 15)
+📊 会话统计 - 总请求: 1, 已使用图片: 1
+✅ 成功获取图片，响应时间: 1719ms (请求ID: req_1754355592666_w5zb6yuye)
+Error validating language: NotFoundError: 404 "url.not_found"
+    at APIError.generate (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/node_modules/openai/core/error.mjs:50:20)
+    at OpenAI.makeStatusError (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/node_modules/openai/client.mjs:156:32)
+    at OpenAI.makeRequest (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/node_modules/openai/client.mjs:301:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async #fetchResponse (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiResponsesModel.mjs:693:26)
+    at async file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiResponsesModel.mjs:712:30
+    at async file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/createSpans.mjs:11:24
+    at async OpenAIResponsesModel.getResponse (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiResponsesModel.mjs:711:26)
+    at async file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/run.mjs:151:51
+    at async file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/context.mjs:45:24 {
+  status: 404,
+  headers: Headers {
+    date: 'Tue, 05 Aug 2025 01:01:11 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '161',
+    connection: 'keep-alive',
+    'set-cookie': 'aliyungf_tc=a298b5b24c395f26be69143c447c988f450d371b92c0b0d870d6ebeb81f0a841; Path=/; HttpOnly',
+    vary: 'Origin',
+    'strict-transport-security': 'max-age=15724800; includeSubDomains'
+  },
+  requestID: null,
+  error: 'url.not_found',
+  code: undefined,
+  param: undefined,
+  type: undefined
+}
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+Tracing: failed to export traces after 3 attempts
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+Voice session creation error: NotFoundError: 404 "url.not_found"
+    at APIError.generate (/home/devbox/project/backend/node_modules/openai/error.js:54:20)
+    at OpenAI.makeStatusError (/home/devbox/project/backend/node_modules/openai/core.js:302:33)
+    at OpenAI.makeRequest (/home/devbox/project/backend/node_modules/openai/core.js:346:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/devbox/project/backend/dist/api/voice/routes.js:59:33 {
+  status: 404,
+  headers: {
+    connection: 'keep-alive',
+    'content-length': '162',
+    'content-type': 'application/json; charset=utf-8',
+    date: 'Tue, 05 Aug 2025 01:06:19 GMT',
+    'set-cookie': 'aliyungf_tc=d5a12d9d144093beb0b48c9624f3b1259a8b6cbba5fdc9f0b1a8951af009858b; Path=/; HttpOnly',
+    'strict-transport-security': 'max-age=15724800; includeSubDomains',
+    vary: 'Origin'
+  },
+  request_id: undefined,
+  error: 'url.not_found',
+  code: undefined,
+  param: undefined,
+  type: undefined
+}
+Tracing: failed to export traces after 3 attempts
+Error starting quiz: NotFoundError: 404 "url.not_found"
+    at APIError.generate (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/node_modules/openai/core/error.mjs:50:20)
+    at OpenAI.makeStatusError (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/node_modules/openai/client.mjs:156:32)
+    at OpenAI.makeRequest (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/node_modules/openai/client.mjs:301:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async #fetchResponse (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiResponsesModel.mjs:693:26)
+    at async file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiResponsesModel.mjs:712:30
+    at async file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/createSpans.mjs:11:24
+    at async OpenAIResponsesModel.getResponse (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiResponsesModel.mjs:711:26)
+    at async file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/run.mjs:151:51
+    at async file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/context.mjs:45:24 {
+  status: 404,
+  headers: Headers {
+    date: 'Tue, 05 Aug 2025 01:06:36 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '161',
+    connection: 'keep-alive',
+    'set-cookie': 'aliyungf_tc=6913ac2b584cc92cb24077cbfbf0790faf20b4d52c83e8d171a198c0a4bca6a0; Path=/; HttpOnly',
+    vary: 'Origin',
+    'strict-transport-security': 'max-age=15724800; includeSubDomains'
+  },
+  requestID: null,
+  error: 'url.not_found',
+  code: undefined,
+  param: undefined,
+  type: undefined
+}
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+Error starting quiz: NotFoundError: 404 "url.not_found"
+    at APIError.generate (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/node_modules/openai/core/error.mjs:50:20)
+    at OpenAI.makeStatusError (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/node_modules/openai/client.mjs:156:32)
+    at OpenAI.makeRequest (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/node_modules/openai/client.mjs:301:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async #fetchResponse (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiResponsesModel.mjs:693:26)
+    at async file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiResponsesModel.mjs:712:30
+    at async file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/createSpans.mjs:11:24
+    at async OpenAIResponsesModel.getResponse (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiResponsesModel.mjs:711:26)
+    at async file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/run.mjs:151:51
+    at async file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/context.mjs:45:24 {
+  status: 404,
+  headers: Headers {
+    date: 'Tue, 05 Aug 2025 01:06:40 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '161',
+    connection: 'keep-alive',
+    'set-cookie': 'aliyungf_tc=d49c254f05813d60ba044f17d78c786726f039504c63c1cfe08930a9cd4542fe; Path=/; HttpOnly',
+    vary: 'Origin',
+    'strict-transport-security': 'max-age=15724800; includeSubDomains'
+  },
+  requestID: null,
+  error: 'url.not_found',
+  code: undefined,
+  param: undefined,
+  type: undefined
+}
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+Tracing: failed to export traces after 3 attempts
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+[non-fatal] Tracing: request failed:  TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+    at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+    at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+  [cause]: AggregateError [ETIMEDOUT]: 
+      at internalConnectMultiple (node:net:1122:18)
+      at internalConnectMultiple (node:net:1190:5)
+      at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+      at listOnTimeout (node:internal/timers:583:11)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEDOUT',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+🎲 随机图片请求 - 查询: "nature", 会话: test-monitoring-session
+🔍 随机图片搜索查询: "nature" (会话: test-monitoring-session)
+🔍 Pexels search query: nature
+🎯 选择未使用图片: 459335 (可用未使用图片: 15)
+📊 会话统计 - 总请求: 1, 已使用图片: 1
+✅ 成功获取图片，响应时间: 960ms (请求ID: req_1754356019511_hqcnxcxn9)
+🎲 随机图片请求 - 查询: "technology", 会话: test-monitoring-session
+🔍 随机图片搜索查询: "technology" (会话: test-monitoring-session)
+🔍 Pexels search query: technology
+Tracing: failed to export traces after 3 attempts
+🎯 选择未使用图片: 158826 (可用未使用图片: 15)
+📊 会话统计 - 总请求: 2, 已使用图片: 2
+✅ 成功获取图片，响应时间: 463ms (请求ID: req_1754356020678_j7b77y6e6)
+🎲 随机图片请求 - 查询: "business", 会话: test-monitoring-session
+🔍 随机图片搜索查询: "business" (会话: test-monitoring-session)
+🔍 Pexels search query: business
+🎯 选择未使用图片: 834863 (可用未使用图片: 15)
+📊 会话统计 - 总请求: 3, 已使用图片: 3
+✅ 成功获取图片，响应时间: 458ms (请求ID: req_1754356021344_clnk98cj0)
+📊 获取 API 使用统计...
+📈 获取性能指标 (限制: 100)
+📈 获取性能指标 (限制: 5)
+📊 获取配额使用情况...
+🔍 开始验证 Pexels API 配置...
+✅ Pexels API 密钥验证成功
+📈 获取性能指标 (限制: NaN)
+📊 获取 API 使用统计...
+📊 获取 API 使用统计...
+📊 获取配额使用情况...
+📈 获取性能指标 (限制: 2)

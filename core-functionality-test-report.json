@@ -1,0 +1,83 @@
+{
+  "timestamp": "2025-08-04T01:10:31.112Z",
+  "testEnvironment": {
+    "backendUrl": "http://localhost:3000",
+    "frontendUrl": "http://localhost:8080",
+    "testUserId": "test-user-e2e-1754269829581"
+  },
+  "summary": {
+    "total": 8,
+    "passed": 4,
+    "failed": 4,
+    "successRate": "50.00%"
+  },
+  "results": [
+    {
+      "test": "1. 后端健康检查",
+      "status": "PASSED",
+      "details": {
+        "status": "healthy",
+        "database": "connected",
+        "openai": "configured",
+        "uptime": 1756.657556799
+      }
+    },
+    {
+      "test": "2. 服务就绪检查",
+      "status": "PASSED",
+      "details": {
+        "ready": true,
+        "checks": {
+          "database": true,
+          "apiKeys": true,
+          "services": true
+        }
+      }
+    },
+    {
+      "test": "3. 前端访问测试",
+      "status": "PASSED",
+      "details": {
+        "status": 200,
+        "contentLength": 621,
+        "hasReactRoot": true
+      }
+    },
+    {
+      "test": "4. 词汇列表管理功能",
+      "status": "PASSED",
+      "details": {
+        "listId": "6890088556d2c1b2a6f6b2f0",
+        "listName": "E2E 测试列表 (已更新)",
+        "wordCount": 0,
+        "averageProgress": 0
+      }
+    },
+    {
+      "test": "5. 词汇生成功能 (OpenAI API)",
+      "status": "FAILED",
+      "error": "词汇生成失败: [object Object]"
+    },
+    {
+      "test": "6. 学习会话功能",
+      "status": "FAILED",
+      "error": "开始学习会话失败: [object Object]"
+    },
+    {
+      "test": "7. 语音对话功能 (OpenAI Realtime API)",
+      "status": "FAILED",
+      "error": "创建语音会话失败: [object Object]"
+    },
+    {
+      "test": "8. 图像描述功能",
+      "status": "FAILED",
+      "error": "开始图像描述失败: [object Object]"
+    }
+  ],
+  "errors": [
+    "5. 词汇生成功能 (OpenAI API): 词汇生成失败: [object Object]",
+    "6. 学习会话功能: 开始学习会话失败: [object Object]",
+    "7. 语音对话功能 (OpenAI Realtime API): 创建语音会话失败: [object Object]",
+    "8. 图像描述功能: 开始图像描述失败: [object Object]"
+  ]
+}
