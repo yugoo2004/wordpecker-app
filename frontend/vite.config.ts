@@ -13,8 +13,8 @@ export default defineConfig({
     // 强制使用指定端口，不自动切换
     strictPort: true,
     // 禁用 Host 检查，允许所有域名访问
-    disableHostCheck: true,
+
     // 允许 Sealos 分配的域名访问
-    allowedHosts: 'all',
+    allowedHosts: true,
   },
 })

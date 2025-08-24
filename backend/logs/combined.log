@@ -1,0 +1,26 @@
+2025-08-12 13:52:13 [INFO] [wordpecker-backend]: 尝试连接MongoDB... (第 1/11 次)
+2025-08-12 13:52:13 [INFO] [wordpecker-backend]: ✅ MongoDB连接成功
+2025-08-12 17:25:32 [INFO] [wordpecker-backend]: 尝试连接MongoDB... (第 1/11 次)
+2025-08-12 17:25:32 [INFO] [wordpecker-backend]: ✅ MongoDB连接成功
+2025-08-12 19:24:50 [INFO] [wordpecker-backend]: 尝试连接MongoDB... (第 1/11 次)
+2025-08-12 19:24:51 [INFO] [wordpecker-backend]: ✅ MongoDB连接成功
+2025-08-12 19:31:09 [INFO] [wordpecker-backend]: 尝试连接MongoDB... (第 1/11 次)
+2025-08-12 19:31:09 [INFO] [wordpecker-backend]: ✅ MongoDB连接成功
+2025-08-19 08:58:27 [INFO] [wordpecker-backend]: 尝试连接MongoDB... (第 1/11 次)
+2025-08-19 08:58:27 [INFO] [wordpecker-backend]: ✅ MongoDB连接成功
+2025-08-19 08:58:47 [WARN] [wordpecker-backend]: MongoDB连接已断开，准备重连...
+2025-08-19 08:58:47 [INFO] [wordpecker-backend]: 1秒后尝试重连... (第 1/10 次)
+2025-08-19 08:58:48 [INFO] [wordpecker-backend]: 尝试连接MongoDB... (第 1/11 次)
+2025-08-19 08:58:48 [INFO] [wordpecker-backend]: MongoDB连接已建立
+2025-08-19 08:58:48 [INFO] [wordpecker-backend]: ✅ MongoDB连接成功
+2025-08-19 09:11:16 [INFO] [wordpecker-backend]: 尝试连接MongoDB... (第 1/11 次)
+2025-08-19 09:11:16 [INFO] [wordpecker-backend]: ✅ MongoDB连接成功
+2025-08-19 09:11:36 [WARN] [wordpecker-backend]: MongoDB连接已断开，准备重连...
+2025-08-19 09:11:36 [INFO] [wordpecker-backend]: 1秒后尝试重连... (第 1/10 次)
+2025-08-19 09:11:37 [INFO] [wordpecker-backend]: 尝试连接MongoDB... (第 1/11 次)
+2025-08-19 09:11:37 [INFO] [wordpecker-backend]: MongoDB连接已建立
+2025-08-19 09:11:37 [INFO] [wordpecker-backend]: ✅ MongoDB连接成功
+2025-08-19 09:12:22 [INFO] [wordpecker-backend]: 尝试连接MongoDB... (第 1/11 次)
+2025-08-19 09:12:22 [INFO] [wordpecker-backend]: ✅ MongoDB连接成功
+2025-08-19 09:17:37 [INFO] [wordpecker-backend]: 尝试连接MongoDB... (第 1/11 次)
+2025-08-19 09:17:37 [INFO] [wordpecker-backend]: ✅ MongoDB连接成功

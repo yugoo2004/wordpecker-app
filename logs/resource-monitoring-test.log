@@ -1,0 +1,169 @@
+=== WordPecker 资源监控功能测试 ===
+测试时间: Tue Aug 19 17:28:59 CST 2025
+
+测试: 检查系统资源监控脚本
+✅ 通过
+
+测试: 检查资源保护脚本
+✅ 通过
+
+测试: 检查自动清理脚本
+✅ 通过
+
+测试: 检查资源管理器脚本
+✅ 通过
+
+测试: 系统资源监控脚本语法检查
+✅ 通过
+
+测试: 资源保护脚本语法检查
+✅ 通过
+
+测试: 自动清理脚本语法检查
+✅ 通过
+
+测试: 资源管理器脚本语法检查
+✅ 通过
+
+测试: 资源管理器状态检查
+=== WordPecker 资源监控状态 ===
+
+❌ 系统资源监控: 未启动
+❌ 自动清理任务: 未设置
+
+=== 当前资源使用情况 ===
+CPU使用率: 3.7%
+内存使用率: 31.7%
+磁盘使用率: 71%
+系统负载: 2.42
+
+=== PM2进程状态 ===
+┌────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+└────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+✅ 通过
+
+测试: 资源保护检查功能
+✅ 通过
+
+测试: 自动清理干运行模式
+=== 干运行模式 - 仅显示将要执行的操作 ===
+[32m[PM2] [39mFlushing /home/devbox/.pm2/pm2.log
+[32m[PM2] [39mLogs flushed
+✅ 通过
+
+测试: 自动清理配置显示
+当前清理配置文件: ./config/cleanup.conf
+# 自动清理配置文件
+
+# 日志文件清理策略
+LOG_RETENTION_DAYS=7
+LOG_SIZE_LIMIT_MB=100
+TOTAL_LOG_SIZE_LIMIT_MB=1000
+COMPRESS_OLD_LOGS=true
+COMPRESS_THRESHOLD_DAYS=3
+
+# 缓存文件清理策略
+CACHE_RETENTION_HOURS=24
+AUDIO_CACHE_SIZE_LIMIT_MB=500
+AUTO_CLEANUP_CACHE=true
+
+# 临时文件清理策略
+TEMP_RETENTION_HOURS=6
+CLEANUP_NODE_MODULES_CACHE=true
+CLEANUP_NPM_CACHE=false
+
+# PM2日志清理策略
+PM2_LOG_RETENTION_DAYS=3
+AUTO_FLUSH_PM2_LOGS=true
+
+# 构建文件清理策略
+CLEANUP_BUILD_FILES=false
+BUILD_RETENTION_DAYS=1
+
+# 清理调度
+ENABLE_SCHEDULED_CLEANUP=true
+DAILY_CLEANUP_HOUR=2
+HOURLY_CACHE_CLEANUP=true
+
+# 安全设置
+ENABLE_BACKUP_BEFORE_CLEANUP=true
+BACKUP_RETENTION_DAYS=3
+DRY_RUN_MODE=false
+✅ 通过
+
+测试: 资源保护配置文件创建
+✅ 通过
+
+测试: 自动清理配置文件创建
+✅ 通过
+
+测试: 资源监控日志文件创建
+✅ 通过
+
+测试: 资源保护日志文件创建
+✅ 通过
+
+测试: 自动清理日志文件创建
+✅ 通过
+
+测试: bc命令可用性
+/usr/bin/bc
+✅ 通过
+
+测试: jq命令可用性
+/usr/bin/jq
+✅ 通过
+
+测试: curl命令可用性
+/usr/bin/curl
+✅ 通过
+
+测试: CPU使用率获取
+5.6
+✅ 通过
+
+测试: 内存使用率获取
+31.7
+✅ 通过
+
+测试: 磁盘使用率获取
+71%
+✅ 通过
+
+测试: 系统负载获取
+2.42,
+✅ 通过
+
+测试: 缓存清理功能测试
+✅ 通过
+
+测试: 临时文件清理功能测试
+✅ 通过
+
+测试: PM2状态获取
+┌────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+└────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+✅ 通过
+
+测试: PM2日志刷新
+[32m[PM2] [39mFlushing /home/devbox/.pm2/pm2.log
+[32m[PM2] [39mLogs flushed
+✅ 通过
+
+测试: 日志目录存在
+✅ 通过
+
+测试: 配置目录存在
+✅ 通过
+
+测试: 备份目录创建
+✅ 通过
+
+
+=== 测试结果汇总 ===
+通过测试: 31
+失败测试: 0
+总计测试: 31
+🎉 所有测试通过！资源监控功能正常工作。

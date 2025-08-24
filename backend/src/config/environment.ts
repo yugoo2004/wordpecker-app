@@ -30,10 +30,64 @@ export const environment = {
   port: Number(process.env.PORT) || 3000,
   nodeEnv: process.env.NODE_ENV || 'development',
   mongodbUrl: process.env.MONGODB_URL!,
+  // AI 服务冗余配置 - 支持多个提供商自动故障转移
+  ai: {
+    // GLM (智谱AI) 配置 - 主要服务 (优先级1)
+    glm: {
+      apiKey: process.env.GLM_API_KEY || process.env.OPENAI_API_KEY!,
+      baseUrl: process.env.GLM_BASE_URL || 'https://open.bigmodel.cn/api/paas/v4',
+      textModel: process.env.GLM_TEXT_MODEL || 'glm-4.5',
+      voiceModel: process.env.GLM_VOICE_MODEL || 'glm-4-voice'
+    },
+    // Moonshot AI 配置 - 备选服务 (优先级2)
+    moonshot: {
+      apiKey: process.env.MOONSHOT_API_KEY || process.env.OPENAI_API_KEY!,
+      baseUrl: process.env.MOONSHOT_BASE_URL || 'https://api.moonshot.cn/v1',
+      model: process.env.MOONSHOT_MODEL || 'moonshot-v1-8k'
+    },
+    // Qwen (通义千问) 配置 - 备选服务 (优先级3)
+    qwen: {
+      apiKey: process.env.QWEN_API_KEY,
+      baseUrl: process.env.QWEN_BASE_URL || 'https://dashscope.aliyuncs.com/compatible-mode/v1',
+      model: process.env.QWEN_MODEL || 'qwen-plus'
+    },
+    // MiniMax 配置 - 备选服务 (优先级4)
+    minimax: {
+      apiKey: process.env.MINIMAX_API_KEY,
+      baseUrl: process.env.MINIMAX_BASE_URL || 'https://api.minimax.chat/v1',
+      model: process.env.MINIMAX_MODEL || 'abab6.5s-chat'
+    },
+    // Baichuan 配置 - 备选服务 (优先级5)
+    baichuan: {
+      apiKey: process.env.BAICHUAN_API_KEY,
+      baseUrl: process.env.BAICHUAN_BASE_URL || 'https://api.baichuan-ai.com/v1',
+      model: process.env.BAICHUAN_MODEL || 'Baichuan2-Turbo'
+    },
+    // 向后兼容的主要配置
+    primary: {
+      apiKey: process.env.OPENAI_API_KEY!,
+      baseUrl: process.env.OPENAI_BASE_URL || 'https://api.moonshot.cn/v1',
+      model: process.env.OPENAI_MODEL || 'moonshot-v1-8k',
+      provider: process.env.AI_PROVIDER || 'moonshot' // moonshot | glm | openai
+    }
+  },
+  // 保持向后兼容的openai配置
   openai: {
     apiKey: process.env.OPENAI_API_KEY!,
-    baseUrl: process.env.OPENAI_BASE_URL || 'https://api.openai.com/v1',
-    model: process.env.OPENAI_MODEL || 'gpt-4'
+    baseUrl: process.env.OPENAI_BASE_URL || 'https://api.moonshot.cn/v1',
+    model: process.env.OPENAI_MODEL || 'moonshot-v1-8k'
+  },
+  // 语音服务配置 (优先使用GLM-4-voice)
+  voice: {
+    provider: process.env.VOICE_PROVIDER || 'glm', // glm | elevenlabs
+    glm: {
+      apiKey: process.env.GLM_API_KEY || process.env.OPENAI_API_KEY!,
+      baseUrl: process.env.GLM_BASE_URL || 'https://open.bigmodel.cn/api/paas/v4',
+      model: process.env.GLM_VOICE_MODEL || 'glm-4-voice'
+    },
+    elevenlabs: {
+      apiKey: process.env.ELEVENLABS_API_KEY
+    }
   },
   elevenlabs: {
     apiKey: process.env.ELEVENLABS_API_KEY

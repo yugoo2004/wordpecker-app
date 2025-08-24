@@ -1,0 +1,1238 @@
+
+> language-learning-backend@1.0.0 dev
+> nodemon src/app.ts
+
+[33m[nodemon] 3.1.9[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: ts,json[39m
+[32m[nodemon] starting `ts-node src/app.ts`[39m
+🕐 启动会话清理定时器，间隔: 3600秒
+🧠 启动内存监控定时器
+2025-08-21 15:21:17 [[31merror[39m] [wordpecker-backend]: [31muncaughtException: ⨯ Unable to compile TypeScript:[39m
+[31msrc/config/ai-service.ts(145,32): error TS2339: Property 'usage' does not exist on type '(ChatCompletion & { _request_id?: string | null | undefined; }) | (Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; })'.[39m
+[31m  Property 'usage' does not exist on type 'Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; }'.[39m
+[31msrc/config/ai-service.ts(148,9): error TS2322: Type '(ChatCompletion & { _request_id?: string | null | undefined; }) | (Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; })' is not assignable to type 'ChatCompletion'.[39m
+[31m  Type 'Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; }' is missing the following properties from type 'ChatCompletion': id, choices, created, model, object[39m
+
+[31mTSError: ⨯ Unable to compile TypeScript:[39m
+[31msrc/config/ai-service.ts(145,32): error TS2339: Property 'usage' does not exist on type '(ChatCompletion & { _request_id?: string | null | undefined; }) | (Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; })'.[39m
+[31m  Property 'usage' does not exist on type 'Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; }'.[39m
+[31msrc/config/ai-service.ts(148,9): error TS2322: Type '(ChatCompletion & { _request_id?: string | null | undefined; }) | (Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; })' is not assignable to type 'ChatCompletion'.[39m
+[31m  Type 'Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; }' is missing the following properties from type 'ChatCompletion': id, choices, created, model, object[39m
+
+[31m    at createTSError (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:859:12)[39m
+[31m    at reportTSError (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:863:19)[39m
+[31m    at getOutput (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:1077:36)[39m
+[31m    at Object.compile (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:1433:41)[39m
+[31m    at Module.m._compile (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:1617:30)[39m
+[31m    at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)[39m
+[31m    at Object.require.extensions.<computed> [as .ts] (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:1621:12)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1275:32)[39m
+[31m    at Function.Module._load (node:internal/modules/cjs/loader:1096:12)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1298:19)[39m
+  Meta: {
+  "metadata": {
+    "error": {
+      "diagnosticCodes": [
+        2339,
+        2322
+      ]
+    },
+    "stack": "TSError: ⨯ Unable to compile TypeScript:\nsrc/config/ai-service.ts(145,32): error TS2339: Property 'usage' does not exist on type '(ChatCompletion & { _request_id?: string | null | undefined; }) | (Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; })'.\n  Property 'usage' does not exist on type 'Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; }'.\nsrc/config/ai-service.ts(148,9): error TS2322: Type '(ChatCompletion & { _request_id?: string | null | undefined; }) | (Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; })' is not assignable to type 'ChatCompletion'.\n  Type 'Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; }' is missing the following properties from type 'ChatCompletion': id, choices, created, model, object\n\n    at createTSError (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:859:12)\n    at reportTSError (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:863:19)\n    at getOutput (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:1077:36)\n    at Object.compile (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:1433:41)\n    at Module.m._compile (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:1617:30)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)\n    at Object.require.extensions.<computed> [as .ts] (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:1621:12)\n    at Module.load (node:internal/modules/cjs/loader:1275:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:1096:12)\n    at Module.require (node:internal/modules/cjs/loader:1298:19)",
+    "exception": true,
+    "date": "Thu Aug 21 2025 15:21:17 GMT+0800 (China Standard Time)",
+    "process": {
+      "pid": 18659,
+      "uid": 1001,
+      "gid": 1001,
+      "cwd": "/home/devbox/project/backend",
+      "execPath": "/usr/bin/node",
+      "version": "v20.19.4",
+      "argv": [
+        "/home/devbox/project/backend/node_modules/.bin/ts-node",
+        "/home/devbox/project/backend/src/app.ts"
+      ],
+      "memoryUsage": {
+        "rss": 636456960,
+        "heapTotal": 550121472,
+        "heapUsed": 520146128,
+        "external": 27372029,
+        "arrayBuffers": 23322682
+      }
+    },
+    "os": {
+      "loadavg": [
+        4.02,
+        3.47,
+        3.03
+      ],
+      "uptime": 28696667.6
+    },
+    "trace": [
+      {
+        "column": 12,
+        "file": "/home/devbox/project/backend/node_modules/ts-node/src/index.ts",
+        "function": "createTSError",
+        "line": 859,
+        "method": null,
+        "native": false
+      },
+      {
+        "column": 19,
+        "file": "/home/devbox/project/backend/node_modules/ts-node/src/index.ts",
+        "function": "reportTSError",
+        "line": 863,
+        "method": null,
+        "native": false
+      },
+      {
+        "column": 36,
+        "file": "/home/devbox/project/backend/node_modules/ts-node/src/index.ts",
+        "function": "getOutput",
+        "line": 1077,
+        "method": null,
+        "native": false
+      },
+      {
+        "column": 41,
+        "file": "/home/devbox/project/backend/node_modules/ts-node/src/index.ts",
+        "function": "Object.compile",
+        "line": 1433,
+        "method": "compile",
+        "native": false
+      },
+      {
+        "column": 30,
+        "file": "/home/devbox/project/backend/node_modules/ts-node/src/index.ts",
+        "function": "Module.m._compile",
+        "line": 1617,
+        "method": "_compile",
+        "native": false
+      },
+      {
+        "column": 10,
+        "file": "node:internal/modules/cjs/loader",
+        "function": "Module._extensions..js",
+        "line": 1613,
+        "method": ".js",
+        "native": false
+      },
+      {
+        "column": 12,
+        "file": "/home/devbox/project/backend/node_modules/ts-node/src/index.ts",
+        "function": "Object.require.extensions.<computed> [as .ts]",
+        "line": 1621,
+        "method": "ts]",
+        "native": false
+      },
+      {
+        "column": 32,
+        "file": "node:internal/modules/cjs/loader",
+        "function": "Module.load",
+        "line": 1275,
+        "method": "load",
+        "native": false
+      },
+      {
+        "column": 12,
+        "file": "node:internal/modules/cjs/loader",
+        "function": "Module._load",
+        "line": 1096,
+        "method": "_load",
+        "native": false
+      },
+      {
+        "column": 19,
+        "file": "node:internal/modules/cjs/loader",
+        "function": "Module.require",
+        "line": 1298,
+        "method": "require",
+        "native": false
+      }
+    ],
+    "pid": 18659,
+    "hostname": "wordpecker"
+  }
+}
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/app.ts`[39m
+🕐 启动会话清理定时器，间隔: 3600秒
+🧠 启动内存监控定时器
+2025-08-21 17:09:33 [[31merror[39m] [wordpecker-backend]: [31muncaughtException: ⨯ Unable to compile TypeScript:[39m
+[31msrc/config/ai-service.ts(145,32): error TS2339: Property 'usage' does not exist on type '(ChatCompletion & { _request_id?: string | null | undefined; }) | (Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; })'.[39m
+[31m  Property 'usage' does not exist on type 'Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; }'.[39m
+[31msrc/config/ai-service.ts(148,9): error TS2322: Type '(ChatCompletion & { _request_id?: string | null | undefined; }) | (Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; })' is not assignable to type 'ChatCompletion'.[39m
+[31m  Type 'Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; }' is missing the following properties from type 'ChatCompletion': id, choices, created, model, object[39m
+
+[31mTSError: ⨯ Unable to compile TypeScript:[39m
+[31msrc/config/ai-service.ts(145,32): error TS2339: Property 'usage' does not exist on type '(ChatCompletion & { _request_id?: string | null | undefined; }) | (Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; })'.[39m
+[31m  Property 'usage' does not exist on type 'Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; }'.[39m
+[31msrc/config/ai-service.ts(148,9): error TS2322: Type '(ChatCompletion & { _request_id?: string | null | undefined; }) | (Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; })' is not assignable to type 'ChatCompletion'.[39m
+[31m  Type 'Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; }' is missing the following properties from type 'ChatCompletion': id, choices, created, model, object[39m
+
+[31m    at createTSError (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:859:12)[39m
+[31m    at reportTSError (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:863:19)[39m
+[31m    at getOutput (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:1077:36)[39m
+[31m    at Object.compile (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:1433:41)[39m
+[31m    at Module.m._compile (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:1617:30)[39m
+[31m    at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)[39m
+[31m    at Object.require.extensions.<computed> [as .ts] (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:1621:12)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1275:32)[39m
+[31m    at Function.Module._load (node:internal/modules/cjs/loader:1096:12)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1298:19)[39m
+  Meta: {
+  "metadata": {
+    "error": {
+      "diagnosticCodes": [
+        2339,
+        2322
+      ]
+    },
+    "stack": "TSError: ⨯ Unable to compile TypeScript:\nsrc/config/ai-service.ts(145,32): error TS2339: Property 'usage' does not exist on type '(ChatCompletion & { _request_id?: string | null | undefined; }) | (Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; })'.\n  Property 'usage' does not exist on type 'Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; }'.\nsrc/config/ai-service.ts(148,9): error TS2322: Type '(ChatCompletion & { _request_id?: string | null | undefined; }) | (Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; })' is not assignable to type 'ChatCompletion'.\n  Type 'Stream<ChatCompletionChunk> & { _request_id?: string | null | undefined; }' is missing the following properties from type 'ChatCompletion': id, choices, created, model, object\n\n    at createTSError (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:859:12)\n    at reportTSError (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:863:19)\n    at getOutput (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:1077:36)\n    at Object.compile (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:1433:41)\n    at Module.m._compile (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:1617:30)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)\n    at Object.require.extensions.<computed> [as .ts] (/home/devbox/project/backend/node_modules/ts-node/src/index.ts:1621:12)\n    at Module.load (node:internal/modules/cjs/loader:1275:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:1096:12)\n    at Module.require (node:internal/modules/cjs/loader:1298:19)",
+    "exception": true,
+    "date": "Thu Aug 21 2025 17:09:33 GMT+0800 (China Standard Time)",
+    "process": {
+      "pid": 42874,
+      "uid": 1001,
+      "gid": 1001,
+      "cwd": "/home/devbox/project/backend",
+      "execPath": "/usr/bin/node",
+      "version": "v20.19.4",
+      "argv": [
+        "/home/devbox/project/backend/node_modules/.bin/ts-node",
+        "/home/devbox/project/backend/src/app.ts"
+      ],
+      "memoryUsage": {
+        "rss": 636100608,
+        "heapTotal": 549335040,
+        "heapUsed": 521330592,
+        "external": 27504779,
+        "arrayBuffers": 23455432
+      }
+    },
+    "os": {
+      "loadavg": [
+        1.71,
+        2.1,
+        2.4
+      ],
+      "uptime": 28703163.85
+    },
+    "trace": [
+      {
+        "column": 12,
+        "file": "/home/devbox/project/backend/node_modules/ts-node/src/index.ts",
+        "function": "createTSError",
+        "line": 859,
+        "method": null,
+        "native": false
+      },
+      {
+        "column": 19,
+        "file": "/home/devbox/project/backend/node_modules/ts-node/src/index.ts",
+        "function": "reportTSError",
+        "line": 863,
+        "method": null,
+        "native": false
+      },
+      {
+        "column": 36,
+        "file": "/home/devbox/project/backend/node_modules/ts-node/src/index.ts",
+        "function": "getOutput",
+        "line": 1077,
+        "method": null,
+        "native": false
+      },
+      {
+        "column": 41,
+        "file": "/home/devbox/project/backend/node_modules/ts-node/src/index.ts",
+        "function": "Object.compile",
+        "line": 1433,
+        "method": "compile",
+        "native": false
+      },
+      {
+        "column": 30,
+        "file": "/home/devbox/project/backend/node_modules/ts-node/src/index.ts",
+        "function": "Module.m._compile",
+        "line": 1617,
+        "method": "_compile",
+        "native": false
+      },
+      {
+        "column": 10,
+        "file": "node:internal/modules/cjs/loader",
+        "function": "Module._extensions..js",
+        "line": 1613,
+        "method": ".js",
+        "native": false
+      },
+      {
+        "column": 12,
+        "file": "/home/devbox/project/backend/node_modules/ts-node/src/index.ts",
+        "function": "Object.require.extensions.<computed> [as .ts]",
+        "line": 1621,
+        "method": "ts]",
+        "native": false
+      },
+      {
+        "column": 32,
+        "file": "node:internal/modules/cjs/loader",
+        "function": "Module.load",
+        "line": 1275,
+        "method": "load",
+        "native": false
+      },
+      {
+        "column": 12,
+        "file": "node:internal/modules/cjs/loader",
+        "function": "Module._load",
+        "line": 1096,
+        "method": "_load",
+        "native": false
+      },
+      {
+        "column": 19,
+        "file": "node:internal/modules/cjs/loader",
+        "function": "Module.require",
+        "line": 1298,
+        "method": "require",
+        "native": false
+      }
+    ],
+    "pid": 42874,
+    "hostname": "wordpecker"
+  }
+}
+2025-08-21 18:23:54 +08:00: 
+2025-08-21 18:23:54 +08:00: > language-learning-backend@1.0.0 start
+2025-08-21 18:23:54 +08:00: > node dist/app.js
+2025-08-21 18:23:54 +08:00: 
+2025-08-21 18:23:55 +08:00: 🕐 启动会话清理定时器，间隔: 3600秒
+2025-08-21 18:23:55 +08:00: 🧠 启动内存监控定时器
+2025-08-21 18:23:56 +08:00: OpenAI Agents configured with API key. Custom baseURL: https://api.moonshot.cn/v1
+2025-08-21 18:23:56 +08:00: Note: @openai/agents may not support custom baseURL. Consider using direct OpenAI client for Moonshot API.
+2025-08-21 18:23:56 +08:00: Server running on 0.0.0.0:3000 in production mode
+2025-08-21 18:23:56 +08:00: Health check available at: http://0.0.0.0:3000/api/health
+2025-08-21 18:23:56 +08:00: Ready check available at: http://0.0.0.0:3000/api/ready
+2025-08-21 18:26:20 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:26:20 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:26:20 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:26:20 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:26:20 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:26:20 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:26:20 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:26:20 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:26:20 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:26:20 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:26:20 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:26:20 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:26:20 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:26:20 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:26:20 +08:00:   }
+2025-08-21 18:26:20 +08:00: }
+2025-08-21 18:26:21 +08:00: ValidationError: The Express 'trust proxy' setting is true, which allows anyone to trivially bypass IP-based rate limiting. See https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/ for more information.
+2025-08-21 18:26:21 +08:00:     at Object.trustProxy (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:169:13)
+2025-08-21 18:26:21 +08:00:     at wrappedValidations.<computed> [as trustProxy] (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:398:22)
+2025-08-21 18:26:21 +08:00:     at Object.keyGenerator (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:670:20)
+2025-08-21 18:26:21 +08:00:     at /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:724:32
+2025-08-21 18:26:21 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:26:21 +08:00:     at async /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:704:5 {
+2025-08-21 18:26:21 +08:00:   code: 'ERR_ERL_PERMISSIVE_TRUST_PROXY',
+2025-08-21 18:26:21 +08:00:   help: 'https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/'
+2025-08-21 18:26:21 +08:00: }
+2025-08-21 18:26:21 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:26:21 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:26:21 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:26:21 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:26:21 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:26:21 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:26:21 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:26:21 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:26:21 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:26:21 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:26:21 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:26:21 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:26:21 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:26:21 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:26:21 +08:00:   }
+2025-08-21 18:26:21 +08:00: }
+2025-08-21 18:26:24 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:26:24 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:26:24 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:26:24 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:26:24 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:26:24 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:26:24 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:26:24 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:26:24 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:26:24 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:26:24 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:26:24 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:26:24 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:26:24 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:26:24 +08:00:   }
+2025-08-21 18:26:24 +08:00: }
+2025-08-21 18:26:28 +08:00: Tracing: failed to export traces after 3 attempts
+2025-08-21 18:26:32 +08:00: ✅ Pexels API 密钥验证成功
+2025-08-21 18:26:32 +08:00: 🔍 上下文优化: "hello in Daily Conversation context" → "hello daily conversation context"
+2025-08-21 18:26:32 +08:00: 🔍 优化后的Pexels搜索查询: hello daily conversation context
+2025-08-21 18:26:33 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:26:33 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:26:33 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:26:33 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:26:33 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:26:33 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:26:33 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:26:33 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:26:33 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:26:33 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:26:33 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:26:33 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:26:33 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:26:33 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:26:33 +08:00:   }
+2025-08-21 18:26:33 +08:00: }
+2025-08-21 18:26:33 +08:00: 🎯 质量过滤: 30 → 21 张高质量图片
+2025-08-21 18:26:33 +08:00: 🆕 创建新会话: user_ezfxlvc9k (总会话数: 1)
+2025-08-21 18:26:33 +08:00: 🎯 选择未使用图片: 7317288 (可用未使用图片: 21)
+2025-08-21 18:26:33 +08:00: 🎯 选择图片质量: original (3624x3184)
+2025-08-21 18:26:33 +08:00: 📊 会话统计 - 总请求: 1, 已使用图片: 1, 相关性评分: 0.950
+2025-08-21 18:26:33 +08:00: 🎯 选择图片质量: original (3624x3184)
+2025-08-21 18:26:33 +08:00: ✅ 成功获取图片，响应时间: 2372ms (请求ID: req_1755771991560_2tdgtx72t)
+2025-08-21 18:26:34 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:26:34 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:26:34 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:26:34 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:26:34 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:26:34 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:26:34 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:26:34 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:26:34 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:26:34 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:26:34 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:26:34 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:26:34 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:26:34 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:26:34 +08:00:   }
+2025-08-21 18:26:34 +08:00: }
+2025-08-21 18:26:37 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:26:37 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:26:37 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:26:37 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:26:37 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:26:37 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:26:37 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:26:37 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:26:37 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:26:37 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:26:37 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:26:37 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:26:37 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:26:37 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:26:37 +08:00:   }
+2025-08-21 18:26:37 +08:00: }
+2025-08-21 18:26:41 +08:00: Tracing: failed to export traces after 3 attempts
+2025-08-21 18:26:46 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:26:46 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:26:46 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:26:46 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:26:46 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:26:46 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:26:46 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:26:46 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:26:46 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:26:46 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:26:46 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:26:46 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:26:46 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:26:46 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:26:46 +08:00:   }
+2025-08-21 18:26:46 +08:00: }
+2025-08-21 18:26:48 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:26:48 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:26:48 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:26:48 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:26:48 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:26:48 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:26:48 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:26:48 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:26:48 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:26:48 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:26:48 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:26:48 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:26:48 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:26:48 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:26:48 +08:00:   }
+2025-08-21 18:26:48 +08:00: }
+2025-08-21 18:26:50 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:26:50 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:26:50 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:26:50 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:26:50 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:26:50 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:26:50 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:26:50 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:26:50 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:26:50 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:26:50 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:26:50 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:26:50 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:26:50 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:26:50 +08:00:   }
+2025-08-21 18:26:50 +08:00: }
+2025-08-21 18:26:54 +08:00: Tracing: failed to export traces after 3 attempts
+2025-08-21 18:33:09 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:33:09 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:33:09 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:33:09 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:33:09 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:33:09 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:33:09 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:33:09 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:33:09 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:33:09 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:33:09 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:33:09 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:33:09 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:33:09 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:33:09 +08:00:   }
+2025-08-21 18:33:09 +08:00: }
+2025-08-21 18:33:11 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:33:11 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:33:11 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:33:11 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:33:11 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:33:11 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:33:11 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:33:11 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:33:11 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:33:11 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:33:11 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:33:11 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:33:11 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:33:11 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:33:11 +08:00:   }
+2025-08-21 18:33:11 +08:00: }
+2025-08-21 18:33:13 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:33:13 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:33:13 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:33:13 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:33:13 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:33:13 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:33:13 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:33:13 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:33:13 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:33:13 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:33:13 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:33:13 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:33:13 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:33:13 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:33:13 +08:00:   }
+2025-08-21 18:33:13 +08:00: }
+2025-08-21 18:33:17 +08:00: Tracing: failed to export traces after 3 attempts
+2025-08-21 18:33:37 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:33:37 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:33:37 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:33:37 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:33:37 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:33:37 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:33:37 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:33:37 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:33:37 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:33:37 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:33:37 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:33:37 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:33:37 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:33:37 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:33:37 +08:00:   }
+2025-08-21 18:33:37 +08:00: }
+2025-08-21 18:33:39 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:33:39 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:33:39 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:33:39 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:33:39 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:33:39 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:33:39 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:33:39 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:33:39 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:33:39 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:33:39 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:33:39 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:33:39 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:33:39 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:33:39 +08:00:   }
+2025-08-21 18:33:39 +08:00: }
+2025-08-21 18:33:41 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:33:41 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:33:41 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:33:41 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:33:41 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:33:41 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:33:41 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:33:41 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:33:41 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:33:41 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:33:41 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:33:41 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:33:41 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:33:41 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:33:41 +08:00:   }
+2025-08-21 18:33:41 +08:00: }
+2025-08-21 18:33:45 +08:00: Tracing: failed to export traces after 3 attempts
+2025-08-21 18:33:51 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:33:51 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:33:51 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:33:51 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:33:51 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:33:51 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:33:51 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:33:51 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:33:51 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:33:51 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:33:51 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:33:51 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:33:51 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:33:51 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:33:51 +08:00:   }
+2025-08-21 18:33:51 +08:00: }
+2025-08-21 18:33:52 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:33:52 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:33:52 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:33:52 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:33:52 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:33:52 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:33:52 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:33:52 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:33:52 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:33:52 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:33:52 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:33:52 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:33:52 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:33:52 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:33:52 +08:00:   }
+2025-08-21 18:33:52 +08:00: }
+2025-08-21 18:33:54 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 18:33:54 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 18:33:54 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 18:33:54 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 18:33:54 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 18:33:54 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 18:33:54 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 18:33:54 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 18:33:54 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 18:33:54 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 18:33:54 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 18:33:54 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 18:33:54 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 18:33:54 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 18:33:54 +08:00:   }
+2025-08-21 18:33:54 +08:00: }
+2025-08-21 18:33:58 +08:00: Tracing: failed to export traces after 3 attempts
+2025-08-21 20:57:39 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 20:57:39 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 20:57:39 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 20:57:39 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 20:57:39 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 20:57:39 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 20:57:39 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-21 20:57:39 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 20:57:39 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 20:57:39 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-21 20:57:39 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-21 20:57:39 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-21 20:57:39 +08:00:     code: 'ETIMEDOUT',
+2025-08-21 20:57:39 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 20:57:39 +08:00:   }
+2025-08-21 20:57:39 +08:00: }
+2025-08-21 20:57:40 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 20:57:40 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 20:57:40 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 20:57:40 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 20:57:40 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 20:57:40 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 20:57:40 +08:00:   [cause]: AggregateError [ECONNREFUSED]: 
+2025-08-21 20:57:40 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 20:57:40 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 20:57:40 +08:00:       at afterConnectMultiple (node:net:1689:7)
+2025-08-21 20:57:40 +08:00:       at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17) {
+2025-08-21 20:57:40 +08:00:     code: 'ECONNREFUSED',
+2025-08-21 20:57:40 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 20:57:40 +08:00:   }
+2025-08-21 20:57:40 +08:00: }
+2025-08-21 20:57:42 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-21 20:57:42 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-21 20:57:42 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 20:57:42 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-21 20:57:42 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-21 20:57:42 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-21 20:57:42 +08:00:   [cause]: AggregateError [ECONNREFUSED]: 
+2025-08-21 20:57:42 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-21 20:57:42 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-21 20:57:42 +08:00:       at afterConnectMultiple (node:net:1689:7)
+2025-08-21 20:57:42 +08:00:       at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17) {
+2025-08-21 20:57:42 +08:00:     code: 'ECONNREFUSED',
+2025-08-21 20:57:42 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-21 20:57:42 +08:00:   }
+2025-08-21 20:57:42 +08:00: }
+2025-08-21 20:57:46 +08:00: Tracing: failed to export traces after 3 attempts
+2025-08-21 20:57:58 +08:00: ValidationError: The Express 'trust proxy' setting is true, which allows anyone to trivially bypass IP-based rate limiting. See https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/ for more information.
+2025-08-21 20:57:58 +08:00:     at Object.trustProxy (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:169:13)
+2025-08-21 20:57:58 +08:00:     at wrappedValidations.<computed> [as trustProxy] (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:398:22)
+2025-08-21 20:57:58 +08:00:     at Object.keyGenerator (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:670:20)
+2025-08-21 20:57:58 +08:00:     at /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:724:32
+2025-08-21 20:57:58 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 20:57:58 +08:00:     at async /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:704:5 {
+2025-08-21 20:57:58 +08:00:   code: 'ERR_ERL_PERMISSIVE_TRUST_PROXY',
+2025-08-21 20:57:58 +08:00:   help: 'https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/'
+2025-08-21 20:57:58 +08:00: }
+2025-08-21 20:57:59 +08:00: Failed to fetch native voices for en: ElevenLabsError: Status code: 401
+2025-08-21 20:57:59 +08:00: Body: {
+2025-08-21 20:57:59 +08:00:   "detail": {
+2025-08-21 20:57:59 +08:00:     "status": "invalid_api_key",
+2025-08-21 20:57:59 +08:00:     "message": "Invalid API key"
+2025-08-21 20:57:59 +08:00:   }
+2025-08-21 20:57:59 +08:00: }
+2025-08-21 20:57:59 +08:00:     at Voices.<anonymous> (/home/devbox/project/backend/node_modules/@elevenlabs/elevenlabs-js/api/resources/voices/client/Client.js:134:31)
+2025-08-21 20:57:59 +08:00:     at Generator.next (<anonymous>)
+2025-08-21 20:57:59 +08:00:     at fulfilled (/home/devbox/project/backend/node_modules/@elevenlabs/elevenlabs-js/api/resources/voices/client/Client.js:41:58)
+2025-08-21 20:57:59 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-08-21 20:57:59 +08:00:   statusCode: 401,
+2025-08-21 20:57:59 +08:00:   body: { detail: { status: 'invalid_api_key', message: 'Invalid API key' } },
+2025-08-21 20:57:59 +08:00:   rawResponse: {
+2025-08-21 20:57:59 +08:00:     headers: Headers {
+2025-08-21 20:57:59 +08:00:       date: 'Thu, 21 Aug 2025 12:57:58 GMT',
+2025-08-21 20:57:59 +08:00:       server: 'uvicorn',
+2025-08-21 20:57:59 +08:00:       'content-length': '67',
+2025-08-21 20:57:59 +08:00:       'content-type': 'application/json',
+2025-08-21 20:57:59 +08:00:       'access-control-allow-origin': '*',
+2025-08-21 20:57:59 +08:00:       'access-control-allow-headers': '*',
+2025-08-21 20:57:59 +08:00:       'access-control-allow-methods': 'POST, PATCH, OPTIONS, DELETE, GET, PUT',
+2025-08-21 20:57:59 +08:00:       'access-control-max-age': '600',
+2025-08-21 20:57:59 +08:00:       'strict-transport-security': 'max-age=31536000; includeSubDomains',
+2025-08-21 20:57:59 +08:00:       'x-trace-id': '0f184da70d19e503cce1fc3a6048f666',
+2025-08-21 20:57:59 +08:00:       'x-region': 'us-central1',
+2025-08-21 20:57:59 +08:00:       via: '1.1 google, 1.1 google',
+2025-08-21 20:57:59 +08:00:       'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'
+2025-08-21 20:57:59 +08:00:     },
+2025-08-21 20:57:59 +08:00:     redirected: false,
+2025-08-21 20:57:59 +08:00:     status: 401,
+2025-08-21 20:57:59 +08:00:     statusText: 'Unauthorized',
+2025-08-21 20:57:59 +08:00:     type: 'basic',
+2025-08-21 20:57:59 +08:00:     url: 'https://api.elevenlabs.io/v1/voices'
+2025-08-21 20:57:59 +08:00:   }
+2025-08-21 20:57:59 +08:00: }
+2025-08-21 20:57:59 +08:00: Generating en audio: "hello..." with voice pNInz6obpgDQGcFmaJgB
+2025-08-21 20:58:00 +08:00: ElevenLabs API error: ElevenLabsError: Status code: 401
+2025-08-21 20:58:00 +08:00: Body: {
+2025-08-21 20:58:00 +08:00:   "detail": {
+2025-08-21 20:58:00 +08:00:     "status": "invalid_api_key",
+2025-08-21 20:58:00 +08:00:     "message": "Invalid API key"
+2025-08-21 20:58:00 +08:00:   }
+2025-08-21 20:58:00 +08:00: }
+2025-08-21 20:58:00 +08:00:     at TextToSpeech.<anonymous> (/home/devbox/project/backend/node_modules/@elevenlabs/elevenlabs-js/api/resources/textToSpeech/client/Client.js:117:31)
+2025-08-21 20:58:00 +08:00:     at Generator.next (<anonymous>)
+2025-08-21 20:58:00 +08:00:     at fulfilled (/home/devbox/project/backend/node_modules/@elevenlabs/elevenlabs-js/api/resources/textToSpeech/client/Client.js:41:58)
+2025-08-21 20:58:00 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-08-21 20:58:00 +08:00:   statusCode: 401,
+2025-08-21 20:58:00 +08:00:   body: { detail: { status: 'invalid_api_key', message: 'Invalid API key' } },
+2025-08-21 20:58:00 +08:00:   rawResponse: {
+2025-08-21 20:58:00 +08:00:     headers: Headers {
+2025-08-21 20:58:00 +08:00:       date: 'Thu, 21 Aug 2025 12:57:58 GMT',
+2025-08-21 20:58:00 +08:00:       server: 'uvicorn',
+2025-08-21 20:58:00 +08:00:       'content-length': '67',
+2025-08-21 20:58:00 +08:00:       'content-type': 'application/json',
+2025-08-21 20:58:00 +08:00:       'access-control-allow-origin': '*',
+2025-08-21 20:58:00 +08:00:       'access-control-allow-headers': '*',
+2025-08-21 20:58:00 +08:00:       'access-control-allow-methods': 'POST, PATCH, OPTIONS, DELETE, GET, PUT',
+2025-08-21 20:58:00 +08:00:       'access-control-max-age': '600',
+2025-08-21 20:58:00 +08:00:       'strict-transport-security': 'max-age=31536000; includeSubDomains',
+2025-08-21 20:58:00 +08:00:       'x-trace-id': '243f9daf85d671d4be650e811ca51577',
+2025-08-21 20:58:00 +08:00:       'x-region': 'us-central1',
+2025-08-21 20:58:00 +08:00:       via: '1.1 google, 1.1 google',
+2025-08-21 20:58:00 +08:00:       'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'
+2025-08-21 20:58:00 +08:00:     },
+2025-08-21 20:58:00 +08:00:     redirected: false,
+2025-08-21 20:58:00 +08:00:     status: 401,
+2025-08-21 20:58:00 +08:00:     statusText: 'Unauthorized',
+2025-08-21 20:58:00 +08:00:     type: 'basic',
+2025-08-21 20:58:00 +08:00:     url: 'https://api.elevenlabs.io/v1/text-to-speech/pNInz6obpgDQGcFmaJgB'
+2025-08-21 20:58:00 +08:00:   }
+2025-08-21 20:58:00 +08:00: }
+2025-08-21 20:58:00 +08:00: Word pronunciation error: Error: Failed to generate audio. Please try again.
+2025-08-21 20:58:00 +08:00:     at ElevenLabsService.generateAudio (/home/devbox/project/backend/dist/services/elevenlabs.js:266:19)
+2025-08-21 20:58:00 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 20:58:00 +08:00:     at async /home/devbox/project/backend/dist/api/audio/routes.js:213:24
+2025-08-21 20:58:06 +08:00: Failed to fetch native voices for en: ElevenLabsError: Status code: 401
+2025-08-21 20:58:06 +08:00: Body: {
+2025-08-21 20:58:06 +08:00:   "detail": {
+2025-08-21 20:58:06 +08:00:     "status": "invalid_api_key",
+2025-08-21 20:58:06 +08:00:     "message": "Invalid API key"
+2025-08-21 20:58:06 +08:00:   }
+2025-08-21 20:58:06 +08:00: }
+2025-08-21 20:58:06 +08:00:     at Voices.<anonymous> (/home/devbox/project/backend/node_modules/@elevenlabs/elevenlabs-js/api/resources/voices/client/Client.js:134:31)
+2025-08-21 20:58:06 +08:00:     at Generator.next (<anonymous>)
+2025-08-21 20:58:06 +08:00:     at fulfilled (/home/devbox/project/backend/node_modules/@elevenlabs/elevenlabs-js/api/resources/voices/client/Client.js:41:58)
+2025-08-21 20:58:06 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-08-21 20:58:06 +08:00:   statusCode: 401,
+2025-08-21 20:58:06 +08:00:   body: { detail: { status: 'invalid_api_key', message: 'Invalid API key' } },
+2025-08-21 20:58:06 +08:00:   rawResponse: {
+2025-08-21 20:58:06 +08:00:     headers: Headers {
+2025-08-21 20:58:06 +08:00:       date: 'Thu, 21 Aug 2025 12:58:06 GMT',
+2025-08-21 20:58:06 +08:00:       server: 'uvicorn',
+2025-08-21 20:58:06 +08:00:       'content-length': '67',
+2025-08-21 20:58:06 +08:00:       'content-type': 'application/json',
+2025-08-21 20:58:06 +08:00:       'access-control-allow-origin': '*',
+2025-08-21 20:58:06 +08:00:       'access-control-allow-headers': '*',
+2025-08-21 20:58:06 +08:00:       'access-control-allow-methods': 'POST, PATCH, OPTIONS, DELETE, GET, PUT',
+2025-08-21 20:58:06 +08:00:       'access-control-max-age': '600',
+2025-08-21 20:58:06 +08:00:       'strict-transport-security': 'max-age=31536000; includeSubDomains',
+2025-08-21 20:58:06 +08:00:       'x-trace-id': '24f5baf6a68f02eeb7dd14f1640adb9d',
+2025-08-21 20:58:06 +08:00:       'x-region': 'us-central1',
+2025-08-21 20:58:06 +08:00:       via: '1.1 google, 1.1 google',
+2025-08-21 20:58:06 +08:00:       'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'
+2025-08-21 20:58:06 +08:00:     },
+2025-08-21 20:58:06 +08:00:     redirected: false,
+2025-08-21 20:58:06 +08:00:     status: 401,
+2025-08-21 20:58:06 +08:00:     statusText: 'Unauthorized',
+2025-08-21 20:58:06 +08:00:     type: 'basic',
+2025-08-21 20:58:06 +08:00:     url: 'https://api.elevenlabs.io/v1/voices'
+2025-08-21 20:58:06 +08:00:   }
+2025-08-21 20:58:06 +08:00: }
+2025-08-21 20:58:06 +08:00: Generating en audio: "hello..." with voice pNInz6obpgDQGcFmaJgB
+2025-08-21 20:58:09 +08:00: ElevenLabs API error: ElevenLabsError: Status code: 401
+2025-08-21 20:58:09 +08:00: Body: {
+2025-08-21 20:58:09 +08:00:   "detail": {
+2025-08-21 20:58:09 +08:00:     "status": "invalid_api_key",
+2025-08-21 20:58:09 +08:00:     "message": "Invalid API key"
+2025-08-21 20:58:09 +08:00:   }
+2025-08-21 20:58:09 +08:00: }
+2025-08-21 20:58:09 +08:00:     at TextToSpeech.<anonymous> (/home/devbox/project/backend/node_modules/@elevenlabs/elevenlabs-js/api/resources/textToSpeech/client/Client.js:117:31)
+2025-08-21 20:58:09 +08:00:     at Generator.next (<anonymous>)
+2025-08-21 20:58:09 +08:00:     at fulfilled (/home/devbox/project/backend/node_modules/@elevenlabs/elevenlabs-js/api/resources/textToSpeech/client/Client.js:41:58)
+2025-08-21 20:58:09 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-08-21 20:58:09 +08:00:   statusCode: 401,
+2025-08-21 20:58:09 +08:00:   body: { detail: { status: 'invalid_api_key', message: 'Invalid API key' } },
+2025-08-21 20:58:09 +08:00:   rawResponse: {
+2025-08-21 20:58:09 +08:00:     headers: Headers {
+2025-08-21 20:58:09 +08:00:       date: 'Thu, 21 Aug 2025 12:58:08 GMT',
+2025-08-21 20:58:09 +08:00:       server: 'uvicorn',
+2025-08-21 20:58:09 +08:00:       'content-length': '67',
+2025-08-21 20:58:09 +08:00:       'content-type': 'application/json',
+2025-08-21 20:58:09 +08:00:       'access-control-allow-origin': '*',
+2025-08-21 20:58:09 +08:00:       'access-control-allow-headers': '*',
+2025-08-21 20:58:09 +08:00:       'access-control-allow-methods': 'POST, PATCH, OPTIONS, DELETE, GET, PUT',
+2025-08-21 20:58:09 +08:00:       'access-control-max-age': '600',
+2025-08-21 20:58:09 +08:00:       'strict-transport-security': 'max-age=31536000; includeSubDomains',
+2025-08-21 20:58:09 +08:00:       'x-trace-id': '5d022c966154951d9191581f255dc382',
+2025-08-21 20:58:09 +08:00:       'x-region': 'us-central1',
+2025-08-21 20:58:09 +08:00:       via: '1.1 google, 1.1 google',
+2025-08-21 20:58:09 +08:00:       'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'
+2025-08-21 20:58:09 +08:00:     },
+2025-08-21 20:58:09 +08:00:     redirected: false,
+2025-08-21 20:58:09 +08:00:     status: 401,
+2025-08-21 20:58:09 +08:00:     statusText: 'Unauthorized',
+2025-08-21 20:58:09 +08:00:     type: 'basic',
+2025-08-21 20:58:09 +08:00:     url: 'https://api.elevenlabs.io/v1/text-to-speech/pNInz6obpgDQGcFmaJgB'
+2025-08-21 20:58:09 +08:00:   }
+2025-08-21 20:58:09 +08:00: }
+2025-08-21 20:58:09 +08:00: Word pronunciation error: Error: Failed to generate audio. Please try again.
+2025-08-21 20:58:09 +08:00:     at ElevenLabsService.generateAudio (/home/devbox/project/backend/dist/services/elevenlabs.js:266:19)
+2025-08-21 20:58:09 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 20:58:09 +08:00:     at async /home/devbox/project/backend/dist/api/audio/routes.js:213:24
+2025-08-21 21:53:41 +08:00: 
+2025-08-21 21:53:41 +08:00: > language-learning-backend@1.0.0 start
+2025-08-21 21:53:41 +08:00: > node dist/app.js
+2025-08-21 21:53:41 +08:00: 
+2025-08-21 21:53:41 +08:00: 🕐 启动会话清理定时器，间隔: 3600秒
+2025-08-21 21:53:41 +08:00: 🧠 启动内存监控定时器
+2025-08-21 21:53:41 +08:00: OpenAI Agents configured with API key. Custom baseURL: https://api.moonshot.cn/v1
+2025-08-21 21:53:41 +08:00: Note: @openai/agents may not support custom baseURL. Consider using direct OpenAI client for Moonshot API.
+2025-08-21 21:53:41 +08:00: Server running on 0.0.0.0:3000 in production mode
+2025-08-21 21:53:41 +08:00: Health check available at: http://0.0.0.0:3000/api/health
+2025-08-21 21:53:41 +08:00: Ready check available at: http://0.0.0.0:3000/api/ready
+2025-08-21 21:55:30 +08:00: ValidationError: The Express 'trust proxy' setting is true, which allows anyone to trivially bypass IP-based rate limiting. See https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/ for more information.
+2025-08-21 21:55:30 +08:00:     at Object.trustProxy (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:169:13)
+2025-08-21 21:55:30 +08:00:     at wrappedValidations.<computed> [as trustProxy] (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:398:22)
+2025-08-21 21:55:30 +08:00:     at Object.keyGenerator (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:670:20)
+2025-08-21 21:55:30 +08:00:     at /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:724:32
+2025-08-21 21:55:30 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 21:55:30 +08:00:     at async /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:704:5 {
+2025-08-21 21:55:30 +08:00:   code: 'ERR_ERL_PERMISSIVE_TRUST_PROXY',
+2025-08-21 21:55:30 +08:00:   help: 'https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/'
+2025-08-21 21:55:30 +08:00: }
+2025-08-21 21:55:30 +08:00: ValidationError: The Express 'trust proxy' setting is true, which allows anyone to trivially bypass IP-based rate limiting. See https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/ for more information.
+2025-08-21 21:55:30 +08:00:     at Object.trustProxy (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:169:13)
+2025-08-21 21:55:30 +08:00:     at wrappedValidations.<computed> [as trustProxy] (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:398:22)
+2025-08-21 21:55:30 +08:00:     at Object.keyGenerator (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:670:20)
+2025-08-21 21:55:30 +08:00:     at /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:724:32
+2025-08-21 21:55:30 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 21:55:30 +08:00:     at async /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:704:5 {
+2025-08-21 21:55:30 +08:00:   code: 'ERR_ERL_PERMISSIVE_TRUST_PROXY',
+2025-08-21 21:55:30 +08:00:   help: 'https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/'
+2025-08-21 21:55:30 +08:00: }
+2025-08-21 21:55:31 +08:00: Word pronunciation error: Error: 语音服务不可用: ElevenLabs API 错误: 401 Unauthorized
+2025-08-21 21:55:31 +08:00:     at VoiceServiceManager.generateSpeech (/home/devbox/project/backend/dist/config/voice-service.js:192:15)
+2025-08-21 21:55:31 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 21:55:31 +08:00:     at async /home/devbox/project/backend/dist/api/audio/routes.js:221:29
+2025-08-21 21:56:34 +08:00: 
+2025-08-21 21:56:34 +08:00: > language-learning-backend@1.0.0 start
+2025-08-21 21:56:34 +08:00: > node dist/app.js
+2025-08-21 21:56:34 +08:00: 
+2025-08-21 21:56:34 +08:00: 🕐 启动会话清理定时器，间隔: 3600秒
+2025-08-21 21:56:34 +08:00: 🧠 启动内存监控定时器
+2025-08-21 21:56:35 +08:00: OpenAI Agents configured with API key. Custom baseURL: https://api.moonshot.cn/v1
+2025-08-21 21:56:35 +08:00: Note: @openai/agents may not support custom baseURL. Consider using direct OpenAI client for Moonshot API.
+2025-08-21 21:56:35 +08:00: Server running on 0.0.0.0:3000 in production mode
+2025-08-21 21:56:35 +08:00: Health check available at: http://0.0.0.0:3000/api/health
+2025-08-21 21:56:35 +08:00: Ready check available at: http://0.0.0.0:3000/api/ready
+2025-08-21 21:56:47 +08:00: ValidationError: The Express 'trust proxy' setting is true, which allows anyone to trivially bypass IP-based rate limiting. See https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/ for more information.
+2025-08-21 21:56:47 +08:00:     at Object.trustProxy (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:169:13)
+2025-08-21 21:56:47 +08:00:     at wrappedValidations.<computed> [as trustProxy] (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:398:22)
+2025-08-21 21:56:47 +08:00:     at Object.keyGenerator (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:670:20)
+2025-08-21 21:56:47 +08:00:     at /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:724:32
+2025-08-21 21:56:47 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 21:56:47 +08:00:     at async /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:704:5 {
+2025-08-21 21:56:47 +08:00:   code: 'ERR_ERL_PERMISSIVE_TRUST_PROXY',
+2025-08-21 21:56:47 +08:00:   help: 'https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/'
+2025-08-21 21:56:47 +08:00: }
+2025-08-21 21:56:47 +08:00: ValidationError: The Express 'trust proxy' setting is true, which allows anyone to trivially bypass IP-based rate limiting. See https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/ for more information.
+2025-08-21 21:56:47 +08:00:     at Object.trustProxy (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:169:13)
+2025-08-21 21:56:47 +08:00:     at wrappedValidations.<computed> [as trustProxy] (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:398:22)
+2025-08-21 21:56:47 +08:00:     at Object.keyGenerator (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:670:20)
+2025-08-21 21:56:47 +08:00:     at /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:724:32
+2025-08-21 21:56:47 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 21:56:47 +08:00:     at async /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:704:5 {
+2025-08-21 21:56:47 +08:00:   code: 'ERR_ERL_PERMISSIVE_TRUST_PROXY',
+2025-08-21 21:56:47 +08:00:   help: 'https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/'
+2025-08-21 21:56:47 +08:00: }
+2025-08-21 21:56:47 +08:00: Word pronunciation error: Error: 语音服务不可用: ElevenLabs API Key 未配置
+2025-08-21 21:56:47 +08:00:     at VoiceServiceManager.generateSpeech (/home/devbox/project/backend/dist/config/voice-service.js:192:15)
+2025-08-21 21:56:47 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 21:56:47 +08:00:     at async /home/devbox/project/backend/dist/api/audio/routes.js:221:29
+2025-08-21 22:02:38 +08:00: 
+2025-08-21 22:02:38 +08:00: > language-learning-backend@1.0.0 start
+2025-08-21 22:02:38 +08:00: > node dist/app.js
+2025-08-21 22:02:38 +08:00: 
+2025-08-21 22:02:38 +08:00: 🕐 启动会话清理定时器，间隔: 3600秒
+2025-08-21 22:02:38 +08:00: 🧠 启动内存监控定时器
+2025-08-21 22:02:38 +08:00: OpenAI Agents configured with API key. Custom baseURL: https://api.moonshot.cn/v1
+2025-08-21 22:02:38 +08:00: Note: @openai/agents may not support custom baseURL. Consider using direct OpenAI client for Moonshot API.
+2025-08-21 22:02:38 +08:00: Server running on 0.0.0.0:3000 in production mode
+2025-08-21 22:02:38 +08:00: Health check available at: http://0.0.0.0:3000/api/health
+2025-08-21 22:02:38 +08:00: Ready check available at: http://0.0.0.0:3000/api/ready
+2025-08-21 22:03:36 +08:00: ValidationError: The Express 'trust proxy' setting is true, which allows anyone to trivially bypass IP-based rate limiting. See https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/ for more information.
+2025-08-21 22:03:36 +08:00:     at Object.trustProxy (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:169:13)
+2025-08-21 22:03:36 +08:00:     at wrappedValidations.<computed> [as trustProxy] (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:398:22)
+2025-08-21 22:03:36 +08:00:     at Object.keyGenerator (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:670:20)
+2025-08-21 22:03:36 +08:00:     at /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:724:32
+2025-08-21 22:03:36 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 22:03:36 +08:00:     at async /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:704:5 {
+2025-08-21 22:03:36 +08:00:   code: 'ERR_ERL_PERMISSIVE_TRUST_PROXY',
+2025-08-21 22:03:36 +08:00:   help: 'https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/'
+2025-08-21 22:03:36 +08:00: }
+2025-08-21 22:03:36 +08:00: ValidationError: The Express 'trust proxy' setting is true, which allows anyone to trivially bypass IP-based rate limiting. See https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/ for more information.
+2025-08-21 22:03:36 +08:00:     at Object.trustProxy (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:169:13)
+2025-08-21 22:03:36 +08:00:     at wrappedValidations.<computed> [as trustProxy] (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:398:22)
+2025-08-21 22:03:36 +08:00:     at Object.keyGenerator (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:670:20)
+2025-08-21 22:03:36 +08:00:     at /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:724:32
+2025-08-21 22:03:36 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 22:03:36 +08:00:     at async /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:704:5 {
+2025-08-21 22:03:36 +08:00:   code: 'ERR_ERL_PERMISSIVE_TRUST_PROXY',
+2025-08-21 22:03:36 +08:00:   help: 'https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/'
+2025-08-21 22:03:36 +08:00: }
+2025-08-21 22:03:36 +08:00: Word pronunciation error: Error: 语音服务不可用: ElevenLabs API Key 未配置
+2025-08-21 22:03:36 +08:00:     at VoiceServiceManager.generateSpeech (/home/devbox/project/backend/dist/config/voice-service.js:192:15)
+2025-08-21 22:03:36 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 22:03:36 +08:00:     at async /home/devbox/project/backend/dist/api/audio/routes.js:221:29
+2025-08-21 22:30:42 +08:00: 
+2025-08-21 22:30:42 +08:00: > language-learning-backend@1.0.0 start
+2025-08-21 22:30:42 +08:00: > node dist/app.js
+2025-08-21 22:30:42 +08:00: 
+2025-08-21 22:30:43 +08:00: 🕐 启动会话清理定时器，间隔: 3600秒
+2025-08-21 22:30:43 +08:00: 🧠 启动内存监控定时器
+2025-08-21 22:30:43 +08:00: OpenAI Agents configured with API key. Custom baseURL: https://open.bigmodel.cn/api/paas/v4
+2025-08-21 22:30:43 +08:00: Note: @openai/agents may not support custom baseURL. Consider using direct OpenAI client for Moonshot API.
+2025-08-21 22:30:43 +08:00: Server running on 0.0.0.0:3000 in production mode
+2025-08-21 22:30:43 +08:00: Health check available at: http://0.0.0.0:3000/api/health
+2025-08-21 22:30:43 +08:00: Ready check available at: http://0.0.0.0:3000/api/ready
+2025-08-21 22:32:27 +08:00: ValidationError: The Express 'trust proxy' setting is true, which allows anyone to trivially bypass IP-based rate limiting. See https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/ for more information.
+2025-08-21 22:32:27 +08:00:     at Object.trustProxy (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:169:13)
+2025-08-21 22:32:27 +08:00:     at wrappedValidations.<computed> [as trustProxy] (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:398:22)
+2025-08-21 22:32:27 +08:00:     at Object.keyGenerator (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:670:20)
+2025-08-21 22:32:27 +08:00:     at /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:724:32
+2025-08-21 22:32:27 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 22:32:27 +08:00:     at async /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:704:5 {
+2025-08-21 22:32:27 +08:00:   code: 'ERR_ERL_PERMISSIVE_TRUST_PROXY',
+2025-08-21 22:32:27 +08:00:   help: 'https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/'
+2025-08-21 22:32:27 +08:00: }
+2025-08-21 22:34:35 +08:00: 
+2025-08-21 22:34:35 +08:00: > language-learning-backend@1.0.0 start
+2025-08-21 22:34:35 +08:00: > node dist/app.js
+2025-08-21 22:34:35 +08:00: 
+2025-08-21 22:34:35 +08:00: 🕐 启动会话清理定时器，间隔: 3600秒
+2025-08-21 22:34:35 +08:00: 🧠 启动内存监控定时器
+2025-08-21 22:34:35 +08:00: OpenAI Agents configured with API key. Custom baseURL: https://open.bigmodel.cn/api/paas/v4
+2025-08-21 22:34:35 +08:00: Note: @openai/agents may not support custom baseURL. Consider using direct OpenAI client for Moonshot API.
+2025-08-21 22:34:35 +08:00: Server running on 0.0.0.0:3000 in production mode
+2025-08-21 22:34:35 +08:00: Health check available at: http://0.0.0.0:3000/api/health
+2025-08-21 22:34:35 +08:00: Ready check available at: http://0.0.0.0:3000/api/ready
+2025-08-21 22:34:57 +08:00: ValidationError: The Express 'trust proxy' setting is true, which allows anyone to trivially bypass IP-based rate limiting. See https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/ for more information.
+2025-08-21 22:34:57 +08:00:     at Object.trustProxy (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:169:13)
+2025-08-21 22:34:57 +08:00:     at wrappedValidations.<computed> [as trustProxy] (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:398:22)
+2025-08-21 22:34:57 +08:00:     at Object.keyGenerator (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:670:20)
+2025-08-21 22:34:57 +08:00:     at /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:724:32
+2025-08-21 22:34:57 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 22:34:57 +08:00:     at async /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:704:5 {
+2025-08-21 22:34:57 +08:00:   code: 'ERR_ERL_PERMISSIVE_TRUST_PROXY',
+2025-08-21 22:34:57 +08:00:   help: 'https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/'
+2025-08-21 22:34:57 +08:00: }
+2025-08-21 22:34:57 +08:00: ValidationError: The Express 'trust proxy' setting is true, which allows anyone to trivially bypass IP-based rate limiting. See https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/ for more information.
+2025-08-21 22:34:57 +08:00:     at Object.trustProxy (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:169:13)
+2025-08-21 22:34:57 +08:00:     at wrappedValidations.<computed> [as trustProxy] (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:398:22)
+2025-08-21 22:34:57 +08:00:     at Object.keyGenerator (/home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:670:20)
+2025-08-21 22:34:57 +08:00:     at /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:724:32
+2025-08-21 22:34:57 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 22:34:57 +08:00:     at async /home/devbox/project/backend/node_modules/express-rate-limit/dist/index.cjs:704:5 {
+2025-08-21 22:34:57 +08:00:   code: 'ERR_ERL_PERMISSIVE_TRUST_PROXY',
+2025-08-21 22:34:57 +08:00:   help: 'https://express-rate-limit.github.io/ERR_ERL_PERMISSIVE_TRUST_PROXY/'
+2025-08-21 22:34:57 +08:00: }
+2025-08-21 22:34:58 +08:00: Word pronunciation error: Error: 语音服务不可用: ElevenLabs API Key 未配置
+2025-08-21 22:34:58 +08:00:     at VoiceServiceManager.generateSpeech (/home/devbox/project/backend/dist/config/voice-service.js:192:15)
+2025-08-21 22:34:58 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-21 22:34:58 +08:00:     at async /home/devbox/project/backend/dist/api/audio/routes.js:220:29
+2025-08-22 17:49:17 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-22 17:49:17 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-22 17:49:17 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-22 17:49:17 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-22 17:49:17 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-22 17:49:17 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-22 17:49:17 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-22 17:49:17 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-22 17:49:17 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-22 17:49:17 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-22 17:49:17 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-22 17:49:17 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-22 17:49:17 +08:00:     code: 'ETIMEDOUT',
+2025-08-22 17:49:17 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-22 17:49:17 +08:00:   }
+2025-08-22 17:49:17 +08:00: }
+2025-08-22 17:49:18 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-22 17:49:18 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-22 17:49:18 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-22 17:49:18 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-22 17:49:18 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-22 17:49:18 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-22 17:49:18 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-22 17:49:18 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-22 17:49:18 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-22 17:49:18 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-22 17:49:18 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-22 17:49:18 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-22 17:49:18 +08:00:     code: 'ETIMEDOUT',
+2025-08-22 17:49:18 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-22 17:49:18 +08:00:   }
+2025-08-22 17:49:18 +08:00: }
+2025-08-22 17:49:21 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-22 17:49:21 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-22 17:49:21 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-22 17:49:21 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-22 17:49:21 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-22 17:49:21 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-22 17:49:21 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-22 17:49:21 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-22 17:49:21 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-22 17:49:21 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-22 17:49:21 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-22 17:49:21 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-22 17:49:21 +08:00:     code: 'ETIMEDOUT',
+2025-08-22 17:49:21 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-22 17:49:21 +08:00:   }
+2025-08-22 17:49:21 +08:00: }
+2025-08-22 17:49:25 +08:00: Tracing: failed to export traces after 3 attempts
+2025-08-22 17:49:28 +08:00: 🎲 随机图片请求 - 查询: "nature", 会话: 无
+2025-08-22 17:49:28 +08:00: 🔍 上下文优化: "nature" → "landscape beautiful scenic"
+2025-08-22 17:49:28 +08:00: 🔍 用户查询优化: "nature" → "landscape beautiful scenic" (无会话)
+2025-08-22 17:49:29 +08:00: ✅ Pexels API 密钥验证成功
+2025-08-22 17:49:29 +08:00: 🔍 上下文优化: "landscape beautiful scenic" → "landscape beautiful scenic"
+2025-08-22 17:49:29 +08:00: 🔍 优化后的Pexels搜索查询: landscape beautiful scenic
+2025-08-22 17:49:31 +08:00: 🎯 质量过滤: 30 → 21 张高质量图片
+2025-08-22 17:49:31 +08:00: 🎲 无会话高质量随机选择: 33537681
+2025-08-22 17:49:31 +08:00: 🎯 选择图片质量: original (2736x3648)
+2025-08-22 17:49:31 +08:00: ✅ 成功获取图片，响应时间: 2143ms (请求ID: req_1755856168979_p96n4ib9t)
+2025-08-22 17:49:56 +08:00: 🎲 随机图片请求 - 查询: "nature", 会话: 无
+2025-08-22 17:49:56 +08:00: 🔍 上下文优化: "nature" → "outdoor beautiful scenic"
+2025-08-22 17:49:56 +08:00: 🔍 用户查询优化: "nature" → "outdoor beautiful scenic" (无会话)
+2025-08-22 17:49:56 +08:00: 🔍 上下文优化: "outdoor beautiful scenic" → "outdoor beautiful scenic"
+2025-08-22 17:49:56 +08:00: 🔍 优化后的Pexels搜索查询: outdoor beautiful scenic
+2025-08-22 17:49:57 +08:00: 🎯 质量过滤: 30 → 21 张高质量图片
+2025-08-22 17:49:57 +08:00: 🎲 无会话高质量随机选择: 33552217
+2025-08-22 17:49:57 +08:00: 🎯 选择图片质量: original (2571x3600)
+2025-08-22 17:49:57 +08:00: ✅ 成功获取图片，响应时间: 1263ms (请求ID: req_1755856196501_5g0jrn0mv)
+2025-08-22 17:50:03 +08:00: 🎯 分类随机图片请求 - 类别: "nature", 会话: 无
+2025-08-22 17:50:03 +08:00: 🔍 上下文优化: "nature" → "outdoor beautiful scenic"
+2025-08-22 17:50:03 +08:00: 🔍 用户查询优化: "nature" → "outdoor beautiful scenic" (无会话)
+2025-08-22 17:50:03 +08:00: 🔍 上下文优化: "outdoor beautiful scenic" → "outdoor beautiful scenic"
+2025-08-22 17:50:03 +08:00: 🔍 优化后的Pexels搜索查询: outdoor beautiful scenic
+2025-08-22 17:50:05 +08:00: 🎯 质量过滤: 30 → 21 张高质量图片
+2025-08-22 17:50:05 +08:00: 🎲 无会话高质量随机选择: 33514368
+2025-08-22 17:50:05 +08:00: 🎯 选择图片质量: original (3872x2592)
+2025-08-22 17:50:05 +08:00: ✅ 成功获取图片，响应时间: 1661ms (请求ID: req_1755856203986_2sys7eawf)
+2025-08-22 17:50:45 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-22 17:50:45 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-22 17:50:45 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-22 17:50:45 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-22 17:50:45 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-22 17:50:45 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-22 17:50:45 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-22 17:50:45 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-22 17:50:45 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-22 17:50:45 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-22 17:50:45 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-22 17:50:45 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-22 17:50:45 +08:00:     code: 'ETIMEDOUT',
+2025-08-22 17:50:45 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-22 17:50:45 +08:00:   }
+2025-08-22 17:50:45 +08:00: }
+2025-08-22 17:50:46 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-22 17:50:46 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-22 17:50:46 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-22 17:50:46 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-22 17:50:46 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-22 17:50:46 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-22 17:50:46 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-22 17:50:46 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-22 17:50:46 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-22 17:50:46 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-22 17:50:46 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-22 17:50:46 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-22 17:50:46 +08:00:     code: 'ETIMEDOUT',
+2025-08-22 17:50:46 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-22 17:50:46 +08:00:   }
+2025-08-22 17:50:46 +08:00: }
+2025-08-22 17:50:49 +08:00: [non-fatal] Tracing: request failed:  TypeError: fetch failed
+2025-08-22 17:50:49 +08:00:     at node:internal/deps/undici/undici:13510:13
+2025-08-22 17:50:49 +08:00:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-22 17:50:49 +08:00:     at async OpenAITracingExporter.export (file:///home/devbox/project/backend/node_modules/@openai/agents-openai/dist/openaiTracingExporter.mjs:33:34)
+2025-08-22 17:50:49 +08:00:     at async #exportBatches (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:86:13)
+2025-08-22 17:50:49 +08:00:     at async Timeout._onTimeout (file:///home/devbox/project/backend/node_modules/@openai/agents-core/dist/tracing/processor.mjs:68:13) {
+2025-08-22 17:50:49 +08:00:   [cause]: AggregateError [ETIMEDOUT]: 
+2025-08-22 17:50:49 +08:00:       at internalConnectMultiple (node:net:1122:18)
+2025-08-22 17:50:49 +08:00:       at internalConnectMultiple (node:net:1190:5)
+2025-08-22 17:50:49 +08:00:       at Timeout.internalConnectMultipleTimeout (node:net:1716:5)
+2025-08-22 17:50:49 +08:00:       at listOnTimeout (node:internal/timers:583:11)
+2025-08-22 17:50:49 +08:00:       at process.processTimers (node:internal/timers:519:7) {
+2025-08-22 17:50:49 +08:00:     code: 'ETIMEDOUT',
+2025-08-22 17:50:49 +08:00:     [errors]: [ [Error], [Error] ]
+2025-08-22 17:50:49 +08:00:   }
+2025-08-22 17:50:49 +08:00: }
+2025-08-22 17:50:53 +08:00: Tracing: failed to export traces after 3 attempts
+2025-08-22 17:51:28 +08:00: 🎲 随机图片请求 - 查询: "nature", 会话: 无
+2025-08-22 17:51:28 +08:00: 🔍 上下文优化: "nature" → "forest beautiful scenic"
+2025-08-22 17:51:28 +08:00: 🔍 用户查询优化: "nature" → "forest beautiful scenic" (无会话)
+2025-08-22 17:51:28 +08:00: 🔍 上下文优化: "forest beautiful scenic" → "forest beautiful scenic"
+2025-08-22 17:51:28 +08:00: 🔍 优化后的Pexels搜索查询: forest beautiful scenic
+2025-08-22 17:51:30 +08:00: 🎯 质量过滤: 30 → 21 张高质量图片
+2025-08-22 17:51:30 +08:00: 🎲 无会话高质量随机选择: 33504963
+2025-08-22 17:51:30 +08:00: 🎯 选择图片质量: original (6960x4640)
+2025-08-22 17:51:30 +08:00: ✅ 成功获取图片，响应时间: 1149ms (请求ID: req_1755856288877_uaa9die3c)
+2025-08-22 17:51:34 +08:00: 🎯 分类随机图片请求 - 类别: "nature", 会话: 无
+2025-08-22 17:51:34 +08:00: 🔍 上下文优化: "nature" → "landscape beautiful scenic"
+2025-08-22 17:51:34 +08:00: 🔍 用户查询优化: "nature" → "landscape beautiful scenic" (无会话)
+2025-08-22 17:51:34 +08:00: 🔍 上下文优化: "landscape beautiful scenic" → "landscape beautiful scenic"
+2025-08-22 17:51:34 +08:00: 🔍 优化后的Pexels搜索查询: landscape beautiful scenic
+2025-08-22 17:51:35 +08:00: 🎯 质量过滤: 30 → 21 张高质量图片
+2025-08-22 17:51:35 +08:00: 🎲 无会话高质量随机选择: 33425453
+2025-08-22 17:51:35 +08:00: 🎯 选择图片质量: original (4251x3182)
+2025-08-22 17:51:35 +08:00: ✅ 成功获取图片，响应时间: 1094ms (请求ID: req_1755856294869_dx1dtwbmv)
+2025-08-22 17:53:28 +08:00: 🎲 随机图片请求 - 查询: "nature", 会话: 无
+2025-08-22 17:53:28 +08:00: 🔍 上下文优化: "nature" → "landscape beautiful scenic"
+2025-08-22 17:53:28 +08:00: 🔍 用户查询优化: "nature" → "landscape beautiful scenic" (无会话)
+2025-08-22 17:53:28 +08:00: 🔍 上下文优化: "landscape beautiful scenic" → "landscape beautiful scenic"
+2025-08-22 17:53:28 +08:00: 🔍 优化后的Pexels搜索查询: landscape beautiful scenic
+2025-08-22 17:53:30 +08:00: 🎯 质量过滤: 30 → 21 张高质量图片
+2025-08-22 17:53:30 +08:00: 🎲 无会话高质量随机选择: 33530226
+2025-08-22 17:53:30 +08:00: 🎯 选择图片质量: original (5000x3015)
+2025-08-22 17:53:30 +08:00: ✅ 成功获取图片，响应时间: 1295ms (请求ID: req_1755856408815_4w6g8nish)
+2025-08-22 17:53:34 +08:00: 🎯 分类随机图片请求 - 类别: "nature", 会话: 无
+2025-08-22 17:53:34 +08:00: 🔍 上下文优化: "nature" → "outdoor beautiful scenic"
+2025-08-22 17:53:34 +08:00: 🔍 用户查询优化: "nature" → "outdoor beautiful scenic" (无会话)
+2025-08-22 17:53:34 +08:00: 🔍 上下文优化: "outdoor beautiful scenic" → "outdoor beautiful scenic"
+2025-08-22 17:53:34 +08:00: 🔍 优化后的Pexels搜索查询: outdoor beautiful scenic
+2025-08-22 17:53:35 +08:00: 🎯 质量过滤: 30 → 21 张高质量图片
+2025-08-22 17:53:35 +08:00: 🎲 无会话高质量随机选择: 33507556
+2025-08-22 17:53:35 +08:00: 🎯 选择图片质量: original (4640x6960)
+2025-08-22 17:53:35 +08:00: ✅ 成功获取图片，响应时间: 1256ms (请求ID: req_1755856414595_t3k87rwjt)
+2025-08-22 17:54:16 +08:00: 🎲 随机图片请求 - 查询: "nature", 会话: 无
+2025-08-22 17:54:16 +08:00: 🔍 上下文优化: "nature" → "mountains beautiful scenic"
+2025-08-22 17:54:16 +08:00: 🔍 用户查询优化: "nature" → "mountains beautiful scenic" (无会话)
+2025-08-22 17:54:16 +08:00: 🔍 上下文优化: "mountains beautiful scenic" → "mountains beautiful scenic"
+2025-08-22 17:54:16 +08:00: 🔍 优化后的Pexels搜索查询: mountains beautiful scenic
+2025-08-22 17:54:18 +08:00: 🎯 质量过滤: 30 → 21 张高质量图片
+2025-08-22 17:54:18 +08:00: 🎲 无会话高质量随机选择: 33496692
+2025-08-22 17:54:18 +08:00: 🎯 选择图片质量: original (5712x4284)
+2025-08-22 17:54:18 +08:00: ✅ 成功获取图片，响应时间: 1932ms (请求ID: req_1755856456389_dkgl2bs3v)
+2025-08-22 17:54:26 +08:00: 🎯 分类随机图片请求 - 类别: "nature", 会话: 无
+2025-08-22 17:54:26 +08:00: 🔍 上下文优化: "nature" → "landscape beautiful scenic"
+2025-08-22 17:54:26 +08:00: 🔍 用户查询优化: "nature" → "landscape beautiful scenic" (无会话)
+2025-08-22 17:54:26 +08:00: 🔍 上下文优化: "landscape beautiful scenic" → "landscape beautiful scenic"
+2025-08-22 17:54:26 +08:00: 🔍 优化后的Pexels搜索查询: landscape beautiful scenic
+2025-08-22 17:54:27 +08:00: 🎯 质量过滤: 30 → 21 张高质量图片
+2025-08-22 17:54:27 +08:00: 🎲 无会话高质量随机选择: 33554335
+2025-08-22 17:54:27 +08:00: 🎯 选择图片质量: original (5176x7762)
+2025-08-22 17:54:27 +08:00: ✅ 成功获取图片，响应时间: 1147ms (请求ID: req_1755856466372_x8vehdpyf)
+2025-08-22 17:55:22 +08:00: 🎲 随机图片请求 - 查询: "nature", 会话: 无
+2025-08-22 17:55:22 +08:00: 🔍 上下文优化: "nature" → "outdoor beautiful scenic"
+2025-08-22 17:55:22 +08:00: 🔍 用户查询优化: "nature" → "outdoor beautiful scenic" (无会话)
+2025-08-22 17:55:22 +08:00: 🔍 上下文优化: "outdoor beautiful scenic" → "outdoor beautiful scenic"
+2025-08-22 17:55:22 +08:00: 🔍 优化后的Pexels搜索查询: outdoor beautiful scenic
+2025-08-22 17:55:24 +08:00: 🎯 质量过滤: 30 → 21 张高质量图片
+2025-08-22 17:55:24 +08:00: 🎲 无会话高质量随机选择: 33542065
+2025-08-22 17:55:24 +08:00: 🎯 选择图片质量: original (4000x6000)
+2025-08-22 17:55:24 +08:00: ✅ 成功获取图片，响应时间: 1489ms (请求ID: req_1755856522534_sgb5jcv5y)
+2025-08-22 17:55:28 +08:00: 🎯 分类随机图片请求 - 类别: "nature", 会话: 无
+2025-08-22 17:55:28 +08:00: 🔍 上下文优化: "nature" → "forest beautiful scenic"
+2025-08-22 17:55:28 +08:00: 🔍 用户查询优化: "nature" → "forest beautiful scenic" (无会话)
+2025-08-22 17:55:28 +08:00: 🔍 上下文优化: "forest beautiful scenic" → "forest beautiful scenic"
+2025-08-22 17:55:28 +08:00: 🔍 优化后的Pexels搜索查询: forest beautiful scenic
+2025-08-22 17:55:29 +08:00: 🎯 质量过滤: 30 → 21 张高质量图片
+2025-08-22 17:55:29 +08:00: 🎲 无会话高质量随机选择: 1064162
+2025-08-22 17:55:29 +08:00: 🎯 选择图片质量: original (5472x3648)
+2025-08-22 17:55:29 +08:00: ✅ 成功获取图片，响应时间: 1235ms (请求ID: req_1755856528135_jd7kq9auq)
+2025-08-22 17:56:13 +08:00: 🎲 随机图片请求 - 查询: "nature", 会话: 无
+2025-08-22 17:56:13 +08:00: 🔍 上下文优化: "nature" → "landscape beautiful scenic"
+2025-08-22 17:56:13 +08:00: 🔍 用户查询优化: "nature" → "landscape beautiful scenic" (无会话)
+2025-08-22 17:56:13 +08:00: 🔍 上下文优化: "landscape beautiful scenic" → "landscape beautiful scenic"
+2025-08-22 17:56:13 +08:00: 🔍 优化后的Pexels搜索查询: landscape beautiful scenic
+2025-08-22 17:56:14 +08:00: 🎯 质量过滤: 30 → 21 张高质量图片
+2025-08-22 17:56:14 +08:00: 🎲 无会话高质量随机选择: 33528159
+2025-08-22 17:56:14 +08:00: 🎯 选择图片质量: original (5184x3456)
+2025-08-22 17:56:14 +08:00: ✅ 成功获取图片，响应时间: 1414ms (请求ID: req_1755856573428_fuv1gngce)
+2025-08-22 17:56:18 +08:00: 🎯 分类随机图片请求 - 类别: "nature", 会话: 无
+2025-08-22 17:56:18 +08:00: 🔍 上下文优化: "nature" → "mountains beautiful scenic"
+2025-08-22 17:56:18 +08:00: 🔍 用户查询优化: "nature" → "mountains beautiful scenic" (无会话)
+2025-08-22 17:56:18 +08:00: 🔍 上下文优化: "mountains beautiful scenic" → "mountains beautiful scenic"
+2025-08-22 17:56:18 +08:00: 🔍 优化后的Pexels搜索查询: mountains beautiful scenic
+2025-08-22 17:56:19 +08:00: 🎯 质量过滤: 30 → 21 张高质量图片
+2025-08-22 17:56:19 +08:00: 🎲 无会话高质量随机选择: 592077
+2025-08-22 17:56:19 +08:00: 🎯 选择图片质量: original (3648x2736)
+2025-08-22 17:56:19 +08:00: ✅ 成功获取图片，响应时间: 858ms (请求ID: req_1755856578290_rzohbiepm)
+2025-08-22 17:57:05 +08:00: 🎲 随机图片请求 - 查询: "nature", 会话: 无
+2025-08-22 17:57:05 +08:00: 🔍 上下文优化: "nature" → "forest beautiful scenic"
+2025-08-22 17:57:05 +08:00: 🔍 用户查询优化: "nature" → "forest beautiful scenic" (无会话)
+2025-08-22 17:57:05 +08:00: 🔍 上下文优化: "forest beautiful scenic" → "forest beautiful scenic"
+2025-08-22 17:57:05 +08:00: 🔍 优化后的Pexels搜索查询: forest beautiful scenic
+2025-08-22 17:57:06 +08:00: 🎯 质量过滤: 30 → 21 张高质量图片
+2025-08-22 17:57:06 +08:00: 🎲 无会话高质量随机选择: 33474453
+2025-08-22 17:57:06 +08:00: 🎯 选择图片质量: original (3840x5760)
+2025-08-22 17:57:06 +08:00: ✅ 成功获取图片，响应时间: 1290ms (请求ID: req_1755856625649_oh1ktkco0)
+2025-08-22 17:57:12 +08:00: 🎯 分类随机图片请求 - 类别: "nature", 会话: 无
+2025-08-22 17:57:12 +08:00: 🔍 上下文优化: "nature" → "forest beautiful scenic"
+2025-08-22 17:57:12 +08:00: 🔍 用户查询优化: "nature" → "forest beautiful scenic" (无会话)
+2025-08-22 17:57:12 +08:00: 🔍 上下文优化: "forest beautiful scenic" → "forest beautiful scenic"
+2025-08-22 17:57:12 +08:00: 🔍 优化后的Pexels搜索查询: forest beautiful scenic
+2025-08-22 17:57:13 +08:00: 🎯 质量过滤: 30 → 21 张高质量图片
+2025-08-22 17:57:13 +08:00: 🎲 无会话高质量随机选择: 33507556
+2025-08-22 17:57:13 +08:00: 🎯 选择图片质量: original (4640x6960)
+2025-08-22 17:57:13 +08:00: ✅ 成功获取图片，响应时间: 1216ms (请求ID: req_1755856632178_hwxnuaqrc)

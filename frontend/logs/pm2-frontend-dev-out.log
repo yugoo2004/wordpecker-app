@@ -1,0 +1,2 @@
+{"message":"\n> frontend@0.0.0 dev\n> vite --host 0.0.0.0 --port 8080 --host 0.0.0.0 --port 5173\n\n","timestamp":"2025-08-20 20:58:53 +08:00","type":"out","process_id":1,"app_name":"wordpecker-frontend-dev"}
+{"message":"\n  VITE v6.3.5  ready in 4200 ms\n\n  ➜  Local:   http://localhost:5173/\n  ➜  Network: http://10.107.167.246:5173/\n","timestamp":"2025-08-20 20:58:58 +08:00","type":"out","process_id":1,"app_name":"wordpecker-frontend-dev"}

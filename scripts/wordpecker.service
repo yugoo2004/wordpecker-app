@@ -1,0 +1,41 @@
+[Unit]
+Description=WordPecker Language Learning Application
+Documentation=https://github.com/your-repo/wordpecker
+After=network.target network-online.target
+Wants=network-online.target
+Requires=network.target
+
+[Service]
+Type=forking
+User=devbox
+Group=devbox
+WorkingDirectory=/home/devbox/wordpecker-app
+Environment=NODE_ENV=production
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+ExecStartPre=/bin/bash -c 'mkdir -p /home/devbox/wordpecker-app/logs'
+ExecStart=/usr/local/bin/pm2 start ecosystem.config.js --env production --name wordpecker-services
+ExecReload=/usr/local/bin/pm2 reload ecosystem.config.js --env production
+ExecStop=/usr/local/bin/pm2 stop wordpecker-services
+ExecStopPost=/usr/local/bin/pm2 delete wordpecker-services
+PIDFile=/home/devbox/.pm2/pm2.pid
+TimeoutStartSec=60
+TimeoutStopSec=30
+Restart=always
+RestartSec=10
+StartLimitInterval=300
+StartLimitBurst=5
+
+# 安全配置
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/devbox/wordpecker-app
+ReadWritePaths=/home/devbox/.pm2
+
+# 资源限制
+LimitNOFILE=65536
+LimitNPROC=4096
+
+[Install]
+WantedBy=multi-user.target

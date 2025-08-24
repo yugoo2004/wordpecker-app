@@ -16,11 +16,15 @@
     "seed:templates:legacy": "ts-node src/scripts/seedTemplates.ts",
     "test:mongo": "ts-node src/scripts/testMongoConnection.ts",
     "test:db-ops": "ts-node src/scripts/testDatabaseOperations.ts",
-    "test:db-complete": "ts-node src/scripts/testDatabaseComplete.ts"
+    "test:db-complete": "ts-node src/scripts/testDatabaseComplete.ts",
+    "test:ai-redundancy": "ts-node scripts/test-ai-redundancy.ts",
+    "test:domestic-ai": "ts-node scripts/test-domestic-ai.ts"
   },
   "dependencies": {
     "@elevenlabs/elevenlabs-js": "^2.6.0",
     "@openai/agents": "^0.0.11",
+    "@types/uuid": "^10.0.0",
+    "@types/winston": "^2.4.4",
     "axios": "^1.7.9",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
@@ -31,6 +35,9 @@
     "helmet": "^7.1.0",
     "mongoose": "^8.0.0",
     "openai": "^4.24.1",
+    "uuid": "^11.1.0",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0",
     "zod": "<=3.25.67"
   },
   "devDependencies": {

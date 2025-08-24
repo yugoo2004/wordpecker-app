@@ -1,0 +1,32 @@
+{
+  "test_summary": {
+    "environment": "Sealos Devbox",
+    "start_time": "2025-08-20 20:36:32",
+    "end_time": "2025-08-20 20:41:13",
+    "total_duration_seconds": 281,
+    "total_tests": 8,
+    "passed_tests": 4,
+    "failed_tests": 4,
+    "success_rate": 50,
+    "hostname": "wordpecker",
+    "user": "devbox",
+    "git_commit": "8193284a4957d9c2655a97a9348857eae3fdf292"
+  },
+  "test_results": [
+    {"test": "环境检查", "status": "FAILED", "details": "缺少文件: backend/package.json", "duration": 3},{"test": "完整部署流程", "status": "FAILED", "details": "部署脚本缺失", "duration": 0},{"test": "服务持续运行", "status": "PASSED", "details": "可用性: 100%", "duration": 271},{"test": "故障恢复测试", "status": "PASSED", "details": "故障恢复机制正常", "duration": 4},{"test": "远程管理测试", "status": "FAILED", "details": "状态查询API异常", "duration": 0},{"test": "高可用性测试", "status": "PASSED", "details": "高可用性机制基本正常", "duration": 0},{"test": "网络恢复测试", "status": "PASSED", "details": "网络相关功能基本正常", "duration": 1},{"test": "系统重启测试", "status": "FAILED", "details": "PM2进程未运行", "duration": 1}
+  ],
+  "system_info": {
+    "os": "Ubuntu 24.04.2 LTS",
+    "node_version": "v20.19.4",
+    "pm2_version": "6.0.8",
+    "disk_usage": "68%",
+    "memory_usage": "28.1%",
+    "load_average": "0.96, 1.31, 1.71"
+  },
+  "service_status": {
+    "pm2_processes": [],
+    "systemd_service": "unknown",
+    "backend_health": "healthy",
+    "frontend_status": "000unknown"
+  }
+}

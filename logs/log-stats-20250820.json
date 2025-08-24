@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-08-20T00:46:05Z",
+  "directories": {
+    "main_log_dir": {
+      "path": "/home/devbox/project/logs",
+      "size_mb": 1,
+      "file_count": 10
+    },
+    "backend_log_dir": {
+      "path": "/home/devbox/project/backend/logs",
+      "size_mb": 1,
+      "file_count": 14
+    }
+  },
+  "config": {
+    "retention_days": 14,
+    "max_log_size_mb": 100,
+    "max_total_size_gb": 1
+  },
+  "recent_files": [
+    "-rw-rw-r-- 1 devbox devbox 57 Aug 19 17:29 /home/devbox/project/logs/resource-alerts.log",
+    "-rw-rw-r-- 1 devbox devbox 5939 Aug 19 09:12 /home/devbox/project/logs/database-retry-test.log",
+    "-rw-rw-r-- 1 devbox devbox 307 Aug 19 18:12 /home/devbox/project/logs/deploy-notifications.log",
+    "-rw-rw-r-- 1 devbox devbox 4886 Aug 19 17:29 /home/devbox/project/logs/resource-monitoring-test.log",
+    "-rw-rw-r-- 1 devbox devbox 218 Aug 19 17:27 /home/devbox/project/logs/resource-manager.log",
+    "-rw-rw-r-- 1 devbox devbox 363 Aug 19 17:29 /home/devbox/project/logs/resource-protection.log",
+    "-rw-rw-r-- 1 devbox devbox 115 Aug 20 08:46 /home/devbox/project/logs/log-cleanup.log",
+    "-rw-rw-r-- 1 devbox devbox 2329 Aug 19 17:29 /home/devbox/project/logs/cleanup.log",
+    "-rw-rw-r-- 1 devbox devbox 270 Aug 19 09:11 /home/devbox/project/backend/logs/api-errors.log",
+    "-rw-rw-r-- 1 devbox devbox 2098 Aug 19 09:17 /home/devbox/project/backend/logs/combined.log"
+  ]
+}
