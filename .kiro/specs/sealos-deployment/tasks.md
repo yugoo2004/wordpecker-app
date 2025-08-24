@@ -92,15 +92,15 @@
     - 已实现 testOptionalFeatures.ts 脚本进行验证
     - _Requirements: 2.2, 2.3_
 
-- [ ] 7. 生产环境优化
-  - [ ] 7.1 创建启动脚本
+- [-] 7. 生产环境优化
+  - [x] 7.1 创建启动脚本
     - 编写后端服务启动脚本 (scripts/start-backend.sh)
     - 编写前端服务启动脚本 (scripts/start-frontend.sh)
     - 创建完整应用启动脚本 (scripts/start-app.sh)
     - 添加服务停止和重启脚本
     - _Requirements: 5.1, 5.4_
 
-  - [ ] 7.2 配置进程管理 (可选)
+  - [x] 7.2 配置进程管理 (可选)
     - 使用 PM2 或 systemd 管理后端进程
     - 配置服务自动重启和故障恢复
     - 设置日志轮转和错误监控

@@ -4,13 +4,47 @@
     {
       "from": "initial",
       "command": "init",
-      "timestamp": "2025-08-04T02:54:28.751Z",
+      "timestamp": "2025-08-06T02:03:17.308Z",
       "args": [
         {
-          "workingDirectory": "/home/devbox/project"
+          "workingDirectory": "/home/user",
+          "ideType": "cursor"
+        }
+      ]
+    },
+    {
+      "from": "initialized",
+      "command": "init",
+      "timestamp": "2025-08-06T02:05:59.344Z",
+      "args": [
+        {
+          "workingDirectory": "/workspaces/wordpecker",
+          "ideType": "cursor"
+        }
+      ]
+    },
+    {
+      "from": "initialized",
+      "command": "init",
+      "timestamp": "2025-08-06T02:07:10.857Z",
+      "args": [
+        {
+          "workingDirectory": "/home/devbox/project",
+          "ideType": "cursor"
+        }
+      ]
+    },
+    {
+      "from": "initialized",
+      "command": "init",
+      "timestamp": "2025-08-06T03:25:16.617Z",
+      "args": [
+        {
+          "workingDirectory": "/Users/shiliang/Documents/Workspace/wordpecker-app",
+          "ideType": "kiro"
         }
       ]
     }
   ],
-  "lastUpdated": "2025-08-04T02:54:28.764Z"
+  "lastUpdated": "2025-08-06T03:25:16.619Z"
 }
