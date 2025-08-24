@@ -92,7 +92,7 @@
     - 已实现 testOptionalFeatures.ts 脚本进行验证
     - _Requirements: 2.2, 2.3_
 
-- [-] 7. 生产环境优化
+- [x] 7. 生产环境优化
   - [x] 7.1 创建启动脚本
     - 编写后端服务启动脚本 (scripts/start-backend.sh)
     - 编写前端服务启动脚本 (scripts/start-frontend.sh)
@@ -106,7 +106,7 @@
     - 设置日志轮转和错误监控
     - _Requirements: 5.1, 5.2, 5.3_
 
-  - [ ] 7.3 创建部署文档
+  - [x] 7.3 创建部署文档
     - 编写详细的 Sealos 部署指南
     - 记录环境变量配置清单
     - 创建故障排查和维护文档

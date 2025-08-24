@@ -1,0 +1,166 @@
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0 --port 8080
+
+error when starting dev server:
+Error: Port 8080 is already in use
+    at Server.onError (file:///home/devbox/project/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:25023:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0 --port 8080
+
+error when starting dev server:
+Error: Port 8080 is already in use
+    at Server.onError (file:///home/devbox/project/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:25023:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0 --port 8080
+
+error when starting dev server:
+Error: Port 8080 is already in use
+    at Server.onError (file:///home/devbox/project/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:25023:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0 --port 8080
+
+error when starting dev server:
+Error: Port 8080 is already in use
+    at Server.onError (file:///home/devbox/project/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:25023:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0 --port 8080
+
+error when starting dev server:
+Error: Port 8080 is already in use
+    at Server.onError (file:///home/devbox/project/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:25023:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0 --port 8080
+
+error when starting dev server:
+Error: Port 8080 is already in use
+    at Server.onError (file:///home/devbox/project/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:25023:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0 --port 8080
+
+error when starting dev server:
+Error: Port 8080 is already in use
+    at Server.onError (file:///home/devbox/project/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:25023:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0 --port 8080
+
+error when starting dev server:
+Error: Port 8080 is already in use
+    at Server.onError (file:///home/devbox/project/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:25023:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0 --port 8080
+
+error when starting dev server:
+Error: Port 8080 is already in use
+    at Server.onError (file:///home/devbox/project/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:25023:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0 --port 8080
+
+error when starting dev server:
+Error: Port 8080 is already in use
+    at Server.onError (file:///home/devbox/project/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:25023:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0 --port 8080
+
+error when starting dev server:
+Error: Port 8080 is already in use
+    at Server.onError (file:///home/devbox/project/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:25023:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0 --port 8080
+
+error when starting dev server:
+Error: Port 8080 is already in use
+    at Server.onError (file:///home/devbox/project/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:25023:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0 --port 8080
+
+error when starting dev server:
+Error: Port 8080 is already in use
+    at Server.onError (file:///home/devbox/project/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:25023:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0 --port 8080
+
+error when starting dev server:
+Error: Port 8080 is already in use
+    at Server.onError (file:///home/devbox/project/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:25023:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0 --port 8080
+
+error when starting dev server:
+Error: Port 8080 is already in use
+    at Server.onError (file:///home/devbox/project/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:25023:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+> frontend@0.0.0 dev
+> vite --host 0.0.0.0 --port 8080
+
+error when starting dev server:
+Error: Port 8080 is already in use
+    at Server.onError (file:///home/devbox/project/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:25023:18)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+2025-08-21 18:24:08 +08:00: 
+2025-08-21 18:24:08 +08:00: > frontend@0.0.0 preview
+2025-08-21 18:24:08 +08:00: > vite preview --host 0.0.0.0 --port 5173
+2025-08-21 18:24:08 +08:00: 
+2025-08-21 18:24:08 +08:00:   ➜  Local:   http://localhost:5173/
+2025-08-21 18:24:08 +08:00:   ➜  Network: http://10.107.168.62:5173/

@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "name": "Git提交自动化",
+  "description": "当用户点击源代码管理的提交按钮时，自动生成规范的commit消息，暂存代码，提交到本地库并推送到远程库",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      ".git/COMMIT_EDITMSG",
+      ".git/index"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "用户正在进行Git提交操作。请执行以下任务：\n\n1. 分析当前的代码变更内容\n2. 生成符合规范的commit消息，格式为：类型（作用域）主题：正文\n   - 类型：feat(新功能)、fix(修复)、docs(文档)、style(格式)、refactor(重构)、test(测试)、chore(构建)等\n   - 作用域：影响的模块或组件\n   - 主题：简洁描述变更内容\n   - 正文：详细说明变更原因和内容\n3. 执行git add . 暂存所有变更\n4. 使用生成的commit消息执行git commit\n5. 执行git push推送到远程库\n\n请确保commit消息清晰、规范，并且所有操作都成功完成。"
+  }
+}

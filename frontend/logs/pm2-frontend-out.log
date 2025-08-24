@@ -1,0 +1,9 @@
+{"message":"\n> frontend@0.0.0 preview\n> vite preview --host 0.0.0.0 --port 5173\n\n","timestamp":"2025-08-20 20:58:53 +08:00","type":"out","process_id":2,"app_name":"wordpecker-frontend"}
+{"message":"Port 5173 is in use, trying another one...\n","timestamp":"2025-08-20 20:58:58 +08:00","type":"out","process_id":2,"app_name":"wordpecker-frontend"}
+{"message":"  ➜  Local:   http://localhost:5174/\n  ➜  Network: http://10.107.167.246:5174/\n","timestamp":"2025-08-20 20:58:58 +08:00","type":"out","process_id":2,"app_name":"wordpecker-frontend"}
+2025-08-20 21:05:50 +08:00: 
+2025-08-20 21:05:50 +08:00: > frontend@0.0.0 preview
+2025-08-20 21:05:50 +08:00: > vite preview --host 0.0.0.0 --port 5173
+2025-08-20 21:05:50 +08:00: 
+2025-08-20 21:05:51 +08:00:   ➜  Local:   http://localhost:5173/
+2025-08-20 21:05:51 +08:00:   ➜  Network: http://10.107.167.246:5173/

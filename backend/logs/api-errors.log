@@ -1,0 +1,2 @@
+{"level":"warn","message":"MongoDB连接已断开，准备重连...","service":"wordpecker-backend","timestamp":"2025-08-19 08:58:47"}
+{"level":"warn","message":"MongoDB连接已断开，准备重连...","service":"wordpecker-backend","timestamp":"2025-08-19 09:11:36"}

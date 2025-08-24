@@ -3,7 +3,7 @@ import { z } from 'zod';
 import OpenAI from 'openai';
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY_FOR_DALLE || process.env.OPENAI_API_KEY,
 });
 
 export const generateAiImage = tool({

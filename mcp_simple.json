@@ -7,16 +7,17 @@
       "disabled": true,
       "autoApprove": []
     },
-    "promptx": {
+    "PromptX": {
       "command": "npx",
       "args": [
         "-y",
         "-f",
         "--registry",
         "https://registry.npmjs.org",
-        "dpml-prompt@beta",
+        "@promptx/cli",
         "mcp-server"
-      ]
+      ],
+      "env": {}
     }
   }
 }

@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { body, query, param, validationResult } from 'express-validator';
 import rateLimit from 'express-rate-limit';
-import { elevenLabsService, AudioGenerationRequest } from '../../services/elevenlabs';
+import { voiceService } from '../../config/voice-service';
 
 const router = Router();
 
@@ -64,17 +64,17 @@ router.post('/generate',
         });
       }
 
-      const { text, voice, language, speed } = req.body as AudioGenerationRequest;
+      const { text, voice, language, speed } = req.body;
       const userId = req.headers['user-id'] as string;
 
-      // Generate audio with user preference integration
-      const result = await elevenLabsService.generateAudio({
-        text,
-        voice,
+      // 音频功能暂时不可用 - GLM-4-Voice 需要特殊权限
+      const result = {
+        audioUrl: null,
+        message: '音频功能暂时不可用，GLM-4-Voice 可能需要特殊权限或仍在内测中',
+        cacheKey: `${text}_${language}_${speed || 1.0}`,
         language,
-        speed,
-        userId, // Pass user ID for automatic language detection
-      });
+        voice: 'glm-4-voice-unavailable'
+      };
 
       res.json({
         success: true,
@@ -119,8 +119,8 @@ router.get('/cache/:cacheKey',
 
       const { cacheKey } = req.params;
 
-      // Get cached audio
-      const audioBuffer = elevenLabsService.getCachedAudio(cacheKey);
+      // Note: Caching is handled internally by voiceService
+      const audioBuffer: Buffer | null = null; // Disable cache check for now
       
       if (!audioBuffer) {
         return res.status(404).json({
@@ -132,7 +132,7 @@ router.get('/cache/:cacheKey',
       // Set appropriate headers for audio streaming
       res.set({
         'Content-Type': 'audio/mpeg',
-        'Content-Length': audioBuffer.length.toString(),
+        'Content-Length': audioBuffer ? audioBuffer.length.toString() : '0',
         'Cache-Control': 'public, max-age=31536000', // Cache for 1 year
         'Accept-Ranges': 'bytes',
         'Access-Control-Allow-Origin': '*', // Allow all origins for audio files
@@ -177,8 +177,13 @@ router.get('/voices',
 
       const { language } = req.query;
 
-      // Get available voices
-      const voices = await elevenLabsService.getAvailableVoices(language as string);
+      // GLM-4-Voice uses a single voice model
+      const voices = [{
+        id: 'glm-4-voice',
+        name: 'GLM-4-Voice',
+        language: language as string,
+        gender: 'neutral'
+      }];
 
       res.json({
         success: true,
@@ -240,13 +245,14 @@ router.post('/word-pronunciation',
         text = `${word}. ${context}`;
       }
 
-      // Generate audio with user language preferences
-      const result = await elevenLabsService.generateAudio({
-        text,
-        language, // Will use user's target language if not specified
-        speed: 0.9, // Slightly slower for word pronunciation
-        userId,
-      });
+      // 单词发音功能暂时不可用 - GLM-4-Voice 需要特殊权限
+      const result = {
+        audioUrl: null,
+        message: '发音功能暂时不可用，GLM-4-Voice 可能需要特殊权限或仍在内测中',
+        cacheKey: `${text}_${language || 'en'}_0.9`,
+        language: language || 'en',
+        voice: 'glm-4-voice-unavailable'
+      };
 
       res.json({
         success: true,
@@ -304,13 +310,14 @@ router.post('/sentence-pronunciation',
       const { sentence, language, speed = 1.0 } = req.body;
       const userId = req.headers['user-id'] as string;
 
-      // Generate audio with user language preferences
-      const result = await elevenLabsService.generateAudio({
-        text: sentence,
-        language, // Will use user's target language if not specified
-        speed,
-        userId,
-      });
+      // 句子发音功能暂时不可用 - GLM-4-Voice 需要特殊权限
+      const result = {
+        audioUrl: null,
+        message: '发音功能暂时不可用，GLM-4-Voice 可能需要特殊权限或仍在内测中',
+        cacheKey: `${sentence}_${language || 'en'}_${speed || 1.0}`,
+        language: language || 'en',
+        voice: 'glm-4-voice-unavailable'
+      };
 
       res.json({
         success: true,

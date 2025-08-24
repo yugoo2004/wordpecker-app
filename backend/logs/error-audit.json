@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/devbox/project/backend/logs/error-audit.json",
+    "files": [
+        {
+            "date": 1755650631272,
+            "name": "/home/devbox/project/backend/logs/error-2025-08-20.log",
+            "hash": "6a656313700019898b2bc27d57f50f2729fcaab15d09fa8fce4f85094b009c76"
+        },
+        {
+            "date": 1755759659753,
+            "name": "/home/devbox/project/backend/logs/error-2025-08-21.log",
+            "hash": "719528f15dfaf034c8e04b1915e4f59a623923d66c91d09c7a1f566b4fba4392"
+        },
+        {
+            "date": 1755855897833,
+            "name": "/home/devbox/project/backend/logs/error-2025-08-22.log",
+            "hash": "75d5d6e1aee4b0e94dff7b6af0ba2ede4092f82972e7d4177053bb273e4a015e"
+        }
+    ],
+    "hashType": "sha256"
+}
