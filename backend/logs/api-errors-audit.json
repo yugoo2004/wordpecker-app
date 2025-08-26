@@ -19,6 +19,11 @@
             "date": 1755855897834,
             "name": "/home/devbox/project/backend/logs/api-errors-2025-08-22.log",
             "hash": "412d36ab6a3f4f1250c7ccc78f78731226d9890cce7703360be7bb33296735c1"
+        },
+        {
+            "date": 1756009627151,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log",
+            "hash": "85f787a370c6cd345db51d0a1675a760369aef4bef2732e7519ce807af87d4a0"
         }
     ],
     "hashType": "sha256"

@@ -129,6 +129,62 @@ export class StockPhotoService {
     }
   };
 
+  /**
+   * 检查是否为演示模式（API密钥无效或为测试密钥）
+   * @returns boolean - 是否为演示模式
+   */
+  private isDemoMode(): boolean {
+    const apiKey = environment.pexels.apiKey || '';
+    // 检查API密钥是否为演示/测试用的假密钥
+    return apiKey.includes('demo') || 
+           apiKey.includes('test') || 
+           apiKey.includes('fake') || 
+           apiKey.includes('placeholder') ||
+           apiKey.length < 20; // Pexels API密钥通常较长
+  }
+
+  /**
+   * 生成演示模式的模拟图片数据
+   * @param context - 搜索上下文
+   * @returns StockPhotoResultType - 模拟图片数据
+   */
+  private generateDemoImage(context: string): StockPhotoResultType {
+    const imageId = `demo_pexels_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    
+    // 使用不同的占位符服务创建更真实的模拟图片
+    const placeholderServices = [
+      `https://picsum.photos/1200/800?random=${Math.floor(Math.random() * 1000)}`,
+      `https://via.placeholder.com/1200x800/4A90E2/FFFFFF?text=${encodeURIComponent(context)}`,
+      `https://dummyimage.com/1200x800/6c757d/ffffff&text=${encodeURIComponent(context)}`,
+      `https://fakeimg.pl/1200x800/009688/ffffff/?text=${encodeURIComponent(context)}`
+    ];
+    
+    const mockImageUrl = placeholderServices[Math.floor(Math.random() * placeholderServices.length)];
+    
+    // 生成更真实的图片描述
+    const enhancedDescriptions = this.generateEnhancedImageDescription(
+      {
+        alt: `Demo stock photo related to ${context}`,
+        photographer: 'Demo Photographer',
+        width: 1200,
+        height: 800
+      },
+      context,
+      'Demo Mode'
+    );
+    
+    console.log(`🎭 演示模式 - 生成模拟Pexels图片: ${context}`);
+    
+    return {
+      id: imageId,
+      url: mockImageUrl,
+      alt_description: enhancedDescriptions.alt_description + ' (Demo Mode)',
+      description: enhancedDescriptions.description + ' This is a demonstration image generated in demo mode.',
+      prompt: context,
+      source: 'pexels' as const
+    };
+  }
+
   // 性能指标历史记录（保留最近1000条记录）
   private performanceHistory: PerformanceMetrics[] = [];
   private readonly MAX_PERFORMANCE_HISTORY = 1000;
@@ -1178,6 +1234,48 @@ export class StockPhotoService {
     this.apiUsageStats.totalRequests++;
 
     try {
+      // 检查是否为演示模式
+      if (this.isDemoMode()) {
+        console.log('🎭 演示模式 - 使用模拟图片数据');
+        
+        // 在演示模式下，直接返回模拟数据
+        const result = this.generateDemoImage(context);
+        
+        // 更新成功统计
+        const responseTime = Date.now() - startTime;
+        this.apiUsageStats.successfulRequests++;
+        this.apiUsageStats.lastRequestTime = Date.now();
+        
+        // 计算平均响应时间
+        if (this.apiUsageStats.successfulRequests === 1) {
+          this.apiUsageStats.averageResponseTime = responseTime;
+        } else {
+          this.apiUsageStats.averageResponseTime = 
+            (this.apiUsageStats.averageResponseTime * (this.apiUsageStats.successfulRequests - 1) + responseTime) / 
+            this.apiUsageStats.successfulRequests;
+        }
+
+        // 记录性能指标
+        this.recordPerformanceMetrics({
+          requestId,
+          timestamp: startTime,
+          responseTime,
+          success: true,
+          query: context,
+          sessionId,
+          cacheHit: false
+        });
+
+        // 更新会话统计（如果有会话 ID）
+        if (sessionId) {
+          sessionManager.updateSessionStats(sessionId, responseTime, true, context);
+        }
+
+        console.log(`✅ 演示模式成功生成图片，响应时间: ${responseTime}ms (请求ID: ${requestId})`);
+        return result;
+      }
+
+      // 非演示模式，继续正常的API调用流程
       // 首先验证 API 密钥（仅在首次使用或上次验证失败时）
       if (this.apiUsageStats.totalRequests === 1 || this.apiUsageStats.failedRequests > 0) {
         const isValidKey = await this.validateApiKey();

@@ -12,9 +12,15 @@ export default defineConfig({
     cors: true,
     // 强制使用指定端口，不自动切换
     strictPort: true,
-    // 禁用 Host 检查，允许所有域名访问
-
     // 允许 Sealos 分配的域名访问
     allowedHosts: true,
+    // 代理配置，将API请求代理到后端服务
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
   },
 })

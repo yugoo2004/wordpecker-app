@@ -6,11 +6,6 @@
     "auditLog": "/home/devbox/project/backend/logs/performance-audit.json",
     "files": [
         {
-            "date": 1755650631273,
-            "name": "/home/devbox/project/backend/logs/performance-2025-08-20.log",
-            "hash": "e591a68df0606f3862da0a2b0be471181f42abd5172a3be6ce08e666597616e3"
-        },
-        {
             "date": 1755759659754,
             "name": "/home/devbox/project/backend/logs/performance-2025-08-21.log",
             "hash": "234f05fa25c2c029bdc37d28a1c75eede4ce24a2c5676b16f40141148f82c55a"
@@ -19,6 +14,11 @@
             "date": 1755856153426,
             "name": "/home/devbox/project/backend/logs/performance-2025-08-22.log",
             "hash": "cf0a65ffba2cdb9068e5dc3333492bf61bce881483b880eb52248360ce2b1306"
+        },
+        {
+            "date": 1756009627152,
+            "name": "/home/devbox/project/backend/logs/performance-2025-08-24.log",
+            "hash": "452098a467944bf6132e37b541a39dff938d9e9e9da3b6bceccb11ad36e495a4"
         }
     ],
     "hashType": "sha256"

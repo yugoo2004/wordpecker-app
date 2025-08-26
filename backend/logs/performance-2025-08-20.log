@@ -1,2 +1,0 @@
-{"level":"info","message":"测试性能日志","performance":{"slow":true},"pid":15849,"responseTime":1200,"service":"wordpecker-performance","test":true,"timestamp":"2025-08-20T00:43:51.284Z"}
-{"level":"info","message":"测试性能日志","performance":{"slow":true},"pid":16125,"responseTime":1200,"service":"wordpecker-performance","test":true,"timestamp":"2025-08-20T00:44:11.275Z"}
