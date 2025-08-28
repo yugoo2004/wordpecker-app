@@ -3,8 +3,8 @@
 ## ✅ 已完成配置
 
 ### 1. Access Key 凭证
-- **Access Key ID**: `your_actual_access_key_id_here` ✅
-- **Secret Access Key**: `your_actual_secret_access_key_here` ✅
+- **Access Key ID**: `AKLT***************************` ✅ (已配置)
+- **Secret Access Key**: `***************************` ✅ (已配置)
 - **配置文件**: `.env` 文件已正确配置 ✅
 - **安全保护**: `.gitignore` 已配置，不会提交到 GitHub ✅
 

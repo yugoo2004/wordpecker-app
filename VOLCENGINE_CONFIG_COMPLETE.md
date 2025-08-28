@@ -3,8 +3,8 @@
 ## ✅ 已完成的配置
 
 ### 1. 环境变量配置
-- ✅ **Access Key ID**: `your_actual_access_key_id_here`
-- ✅ **Secret Access Key**: `your_actual_secret_access_key_here`
+- ✅ **Access Key ID**: `AKLT***************************` (已安全配置)
+- ✅ **Secret Access Key**: `***************************` (已安全配置)
 - ✅ **环境文件**: `.env` 文件已创建并配置
 - ✅ **Git 忽略**: `.gitignore` 已配置，敏感信息不会提交
 
