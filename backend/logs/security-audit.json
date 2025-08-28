@@ -24,6 +24,21 @@
             "date": 1756009627152,
             "name": "/home/devbox/project/backend/logs/security-2025-08-24.log",
             "hash": "176ed76555a456dfecc2eefc30a360e10ac77bf1322f7bf990a19ae53b6ed007"
+        },
+        {
+            "date": 1756086274832,
+            "name": "/home/devbox/project/backend/logs/security-2025-08-25.log",
+            "hash": "7e429948125be1561615c542c63bfd51bd0f536bf77c24770a0683c5aa6c2918"
+        },
+        {
+            "date": 1756139807632,
+            "name": "/home/devbox/project/backend/logs/security-2025-08-26.log",
+            "hash": "168756ac27539f94a4216072d46e51c8d0730255eea88d2b2f394e8825ccd82b"
+        },
+        {
+            "date": 1756366037352,
+            "name": "/home/devbox/project/backend/logs/security-2025-08-28.log",
+            "hash": "168b95d246e5f3826c3b6052afa885dced7d24d45d13f4488b62b32c5833d47c"
         }
     ],
     "hashType": "sha256"

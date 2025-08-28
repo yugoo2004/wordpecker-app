@@ -1,5 +1,12 @@
 import { Router } from 'express';
-import { getAIServiceStatus, resetAIFailureStatus } from '../config/ai-service';
+import { 
+  getAIServiceStatus, 
+  resetAIFailureStatus,
+  getMultiModalServiceStatus,
+  resetMultiModalServiceStatus,
+  isMultiModalAvailable,
+  isImageGenerationAvailable
+} from '../config/ai-service';
 import { getVoiceServiceStatus, resetVoiceFailureStatus } from '../config/voice-service';
 import { logger } from '../config/logger';
 
@@ -10,6 +17,7 @@ router.get('/status', (req, res) => {
   try {
     const aiStatus = getAIServiceStatus();
     const voiceStatus = getVoiceServiceStatus();
+    const multiModalStatus = getMultiModalServiceStatus();
 
     const response = {
       success: true,
@@ -23,12 +31,20 @@ router.get('/status', (req, res) => {
           voice: {
             ...voiceStatus,
             healthy: voiceStatus.availableProviders.length > 0
+          },
+          multimodal: {
+            ...multiModalStatus,
+            healthy: multiModalStatus.overall === 'available'
           }
         },
         overall: {
-          healthy: aiStatus.availableProviders.length > 0 && voiceStatus.availableProviders.length > 0,
+          healthy: aiStatus.availableProviders.length > 0 && 
+                  voiceStatus.availableProviders.length > 0 && 
+                  multiModalStatus.overall !== 'unavailable',
           totalProviders: aiStatus.availableProviders.length + voiceStatus.availableProviders.length,
-          failedProviders: aiStatus.failedProviders.length + voiceStatus.failedProviders.length
+          failedProviders: aiStatus.failedProviders.length + voiceStatus.failedProviders.length,
+          multiModalAvailable: isMultiModalAvailable(),
+          imageGenerationAvailable: isImageGenerationAvailable()
         }
       }
     };
@@ -36,6 +52,7 @@ router.get('/status', (req, res) => {
     logger.info('服务状态查询', {
       aiProviders: aiStatus.availableProviders,
       voiceProviders: voiceStatus.availableProviders,
+      multiModalStatus: multiModalStatus.overall,
       overallHealthy: response.data.overall.healthy
     });
 
@@ -77,6 +94,31 @@ router.post('/ai/reset', (req, res) => {
   }
 });
 
+// 重置多模态服务失败状态
+router.post('/multimodal/reset', (req, res) => {
+  try {
+    resetMultiModalServiceStatus();
+    
+    const newStatus = getMultiModalServiceStatus();
+    
+    logger.info('多模态服务失败状态已重置', {
+      newStatus: newStatus.overall
+    });
+
+    res.json({
+      success: true,
+      message: '多模态服务失败状态已重置',
+      data: newStatus
+    });
+  } catch (error: any) {
+    logger.error('重置多模态服务失败状态失败', { error: error.message });
+    res.status(500).json({
+      success: false,
+      error: '重置失败状态失败'
+    });
+  }
+});
+
 // 重置语音服务失败状态
 router.post('/voice/reset', (req, res) => {
   try {
@@ -110,16 +152,28 @@ router.get('/health', (req, res) => {
   try {
     const aiStatus = getAIServiceStatus();
     const voiceStatus = getVoiceServiceStatus();
+    const multiModalStatus = getMultiModalServiceStatus();
     
-    const isHealthy = aiStatus.availableProviders.length > 0 && voiceStatus.availableProviders.length > 0;
+    const aiHealthy = aiStatus.availableProviders.length > 0;
+    const voiceHealthy = voiceStatus.availableProviders.length > 0;
+    const multiModalHealthy = multiModalStatus.overall !== 'unavailable';
+    
+    const isHealthy = aiHealthy && voiceHealthy && multiModalHealthy;
     
     res.status(isHealthy ? 200 : 503).json({
       success: isHealthy,
       status: isHealthy ? 'healthy' : 'unhealthy',
       timestamp: new Date().toISOString(),
       services: {
-        ai: aiStatus.availableProviders.length > 0 ? 'healthy' : 'unhealthy',
-        voice: voiceStatus.availableProviders.length > 0 ? 'healthy' : 'unhealthy'
+        ai: aiHealthy ? 'healthy' : 'unhealthy',
+        voice: voiceHealthy ? 'healthy' : 'unhealthy',
+        multimodal: multiModalHealthy ? 'healthy' : 'unhealthy'
+      },
+      capabilities: {
+        textGeneration: aiHealthy,
+        voiceSynthesis: voiceHealthy,
+        multiModalAnalysis: isMultiModalAvailable(),
+        imageGeneration: isImageGenerationAvailable()
       }
     });
   } catch (error: any) {

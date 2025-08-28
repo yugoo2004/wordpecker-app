@@ -6,16 +6,6 @@
     "auditLog": "/home/devbox/project/backend/logs/database-audit.json",
     "files": [
         {
-            "date": 1755650631278,
-            "name": "/home/devbox/project/backend/logs/database-2025-08-20.log",
-            "hash": "585ff626fbe4a1fb73ed783bba760ba26aa2c2747016508f41eb24a06be3c828"
-        },
-        {
-            "date": 1755759659759,
-            "name": "/home/devbox/project/backend/logs/database-2025-08-21.log",
-            "hash": "35f75d1fef520107eb5f3bf0b4cd7b85c201fd06452b2946dd2d03893d02a40a"
-        },
-        {
             "date": 1755855897839,
             "name": "/home/devbox/project/backend/logs/database-2025-08-22.log",
             "hash": "5f634ee58930023fa27aad41713f48b4864f29772d21b6d72d9ce6e826f7cfd0"
@@ -24,6 +14,21 @@
             "date": 1756009627156,
             "name": "/home/devbox/project/backend/logs/database-2025-08-24.log",
             "hash": "db5c6ecbc099cf9dbcba10483e06c5d04b4ce2a8e89ea5d3458371e2f2999585"
+        },
+        {
+            "date": 1756086274839,
+            "name": "/home/devbox/project/backend/logs/database-2025-08-25.log",
+            "hash": "c6e0b7c8ff210257678c3f311895f269078b13fcd6de316c3cfb4c504fb2fbba"
+        },
+        {
+            "date": 1756139807636,
+            "name": "/home/devbox/project/backend/logs/database-2025-08-26.log",
+            "hash": "9286380ecb744311987485c856f52dde498f1918911679b0dcf8398b9aafb795"
+        },
+        {
+            "date": 1756366037356,
+            "name": "/home/devbox/project/backend/logs/database-2025-08-28.log",
+            "hash": "5da95974076bfcfa03a12758ac2e5e55fa17461d1ad871c8d3567df96a6d9e3d"
         }
     ],
     "hashType": "sha256"

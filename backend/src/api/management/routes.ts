@@ -8,6 +8,24 @@ import {
   ScaleServiceSchema,
   LogCleanupSchema 
 } from './schemas';
+import { 
+  disableAIFallback, 
+  enableAIFallback, 
+  getAIFallbackStatus, 
+  setAIDebugMode,
+  createChatCompletion
+} from '../../config/ai-service';
+import { z } from 'zod';
+
+// AI降级控制相关的Schema
+const FallbackControlSchema = z.object({
+  provider: z.enum(['doubao', 'glm', 'moonshot', 'qwen', 'minimax', 'baichuan']).optional(),
+  logErrors: z.boolean().optional().default(true)
+});
+
+const DebugModeSchema = z.object({
+  enabled: z.boolean()
+});
 
 const router = Router();
 const managementService = new ManagementService();
@@ -369,6 +387,213 @@ router.get('/logs/tail/:service', async (req: Request, res: Response) => {
     res.status(500).json({
       success: false,
       error: `获取实时日志失败: ${error.message}`,
+      timestamp: new Date().toISOString()
+    });
+  }
+});
+
+// AI降级控制端点
+
+/**
+ * 禁用AI降级机制
+ * POST /api/management/ai/disable-fallback
+ */
+router.post('/ai/disable-fallback', async (req: Request, res: Response) => {
+  try {
+    const { provider, logErrors } = FallbackControlSchema.parse(req.body);
+    
+    logger.info('AI降级机制禁用请求', { 
+      provider: provider || '默认首选', 
+      logErrors, 
+      requestId: req.headers['x-request-id'] 
+    });
+    
+    disableAIFallback(provider, logErrors);
+    
+    res.json({
+      success: true,
+      message: 'AI降级机制已禁用',
+      config: {
+        fallbackDisabled: true,
+        forcedProvider: provider || '默认首选',
+        detailedLogging: logErrors
+      },
+      timestamp: new Date().toISOString()
+    });
+    
+  } catch (error) {
+    logger.error('AI降级机制禁用失败', { 
+      error: error instanceof Error ? error.message : 'Unknown error',
+      body: req.body 
+    });
+    res.status(500).json({
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error',
+      timestamp: new Date().toISOString()
+    });
+  }
+});
+
+/**
+ * 启用AI降级机制
+ * POST /api/management/ai/enable-fallback
+ */
+router.post('/ai/enable-fallback', async (req: Request, res: Response) => {
+  try {
+    logger.info('AI降级机制启用请求', { requestId: req.headers['x-request-id'] });
+    
+    enableAIFallback();
+    
+    res.json({
+      success: true,
+      message: 'AI降级机制已启用',
+      timestamp: new Date().toISOString()
+    });
+    
+  } catch (error) {
+    logger.error('AI降级机制启用失败', { 
+      error: error instanceof Error ? error.message : 'Unknown error' 
+    });
+    res.status(500).json({
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error',
+      timestamp: new Date().toISOString()
+    });
+  }
+});
+
+/**
+ * 获取AI降级机制状态
+ * GET /api/management/ai/fallback-status
+ */
+router.get('/ai/fallback-status', async (req: Request, res: Response) => {
+  try {
+    logger.info('AI降级机制状态查询', { requestId: req.headers['x-request-id'] });
+    
+    const status = getAIFallbackStatus();
+    
+    res.json({
+      success: true,
+      data: {
+        fallbackEnabled: status.enabled,
+        forcedProvider: status.forcedProvider,
+        detailedLogging: status.detailedLogging,
+        debugMode: status.debugMode
+      },
+      timestamp: new Date().toISOString()
+    });
+    
+  } catch (error) {
+    logger.error('AI降级机制状态查询失败', { 
+      error: error instanceof Error ? error.message : 'Unknown error' 
+    });
+    res.status(500).json({
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error',
+      timestamp: new Date().toISOString()
+    });
+  }
+});
+
+/**
+ * 设置AI调试模式
+ * POST /api/management/ai/debug-mode
+ */
+router.post('/ai/debug-mode', async (req: Request, res: Response) => {
+  try {
+    const { enabled } = DebugModeSchema.parse(req.body);
+    
+    logger.info('AI调试模式设置请求', { 
+      enabled, 
+      requestId: req.headers['x-request-id'] 
+    });
+    
+    setAIDebugMode(enabled);
+    
+    res.json({
+      success: true,
+      message: `AI调试模式已${enabled ? '启用' : '禁用'}`,
+      config: {
+        debugMode: enabled
+      },
+      timestamp: new Date().toISOString()
+    });
+    
+  } catch (error) {
+    logger.error('AI调试模式设置失败', { 
+      error: error instanceof Error ? error.message : 'Unknown error',
+      body: req.body 
+    });
+    res.status(500).json({
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error',
+      timestamp: new Date().toISOString()
+    });
+  }
+});
+
+/**
+ * 火山引擎连接测试（专用诊断端点）
+ * POST /api/management/ai/test-volcengine
+ */
+router.post('/ai/test-volcengine', async (req: Request, res: Response) => {
+  try {
+    logger.info('火山引擎连接测试请求', { requestId: req.headers['x-request-id'] });
+    
+    // 临时禁用降级，强制测试豆包
+    const originalStatus = getAIFallbackStatus();
+    disableAIFallback('doubao', true);
+    
+    try {
+      const testMessage = [{
+        role: 'user' as const,
+        content: '测试火山引擎连接'
+      }];
+      
+      const result = await createChatCompletion(testMessage, {
+        max_tokens: 50,
+        temperature: 0.1
+      });
+      
+      res.json({
+        success: true,
+        message: '火山引擎连接成功',
+        data: {
+          provider: 'doubao',
+          model: result.model,
+          tokensUsed: result.usage?.total_tokens || 0,
+          response: result.choices[0]?.message?.content || ''
+        },
+        timestamp: new Date().toISOString()
+      });
+      
+    } finally {
+      // 恢复原始降级设置
+      if (originalStatus.enabled) {
+        enableAIFallback();
+      }
+    }
+    
+  } catch (error: any) {
+    // 恢复原始降级设置
+    const originalStatus = getAIFallbackStatus();
+    if (originalStatus.enabled) {
+      enableAIFallback();
+    }
+    
+    logger.error('火山引擎连接测试失败', { 
+      error: error.message,
+      stack: error.stack 
+    });
+    
+    res.status(500).json({
+      success: false,
+      error: error.message,
+      details: {
+        errorType: error.constructor?.name || 'Unknown',
+        provider: 'doubao',
+        suggestion: '请检查火山引擎配置和网络连接'
+      },
       timestamp: new Date().toISOString()
     });
   }

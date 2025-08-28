@@ -40,8 +40,15 @@ router.post('/:listId/words', validate(addWordSchema), async (req, res) => {
     const definition = providedMeaning?.trim() || await (async () => {
       const userId = req.headers['user-id'] as string;
       if (!userId) throw new Error('User ID is required');
-      const { baseLanguage, targetLanguage } = await getUserLanguages(userId);
-      return wordAgentService.generateDefinition(value, list.context || '', baseLanguage, targetLanguage);
+      
+      try {
+        const { baseLanguage, targetLanguage } = await getUserLanguages(userId);
+        return await wordAgentService.generateDefinition(value, list.context || '', baseLanguage, targetLanguage);
+      } catch (aiError) {
+        // AI服务不可用时的降级定义
+        console.warn('AI定义生成失败，使用默认定义', aiError);
+        return `A word in the context of "${list.context || 'general'}"`;
+      }
     })();
 
     const normalizedValue = value.toLowerCase().trim();

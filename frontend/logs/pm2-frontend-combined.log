@@ -7,3 +7,5 @@
 2025-08-20 21:05:50 +08:00: 
 2025-08-20 21:05:51 +08:00:   ➜  Local:   http://localhost:5173/
 2025-08-20 21:05:51 +08:00:   ➜  Network: http://10.107.167.246:5173/
+{"message":"\n> frontend@0.0.0 preview\n> vite preview --host 0.0.0.0 --port 5173\n\n","timestamp":"2025-08-26 20:53:10 +08:00","type":"out","process_id":2,"app_name":"wordpecker-frontend"}
+{"message":"  ➜  Local:   http://localhost:5173/\n  ➜  Network: http://10.107.163.238:5173/\n","timestamp":"2025-08-26 20:53:13 +08:00","type":"out","process_id":2,"app_name":"wordpecker-frontend"}

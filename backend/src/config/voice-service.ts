@@ -3,7 +3,7 @@ import { environment } from './environment';
 import { logger } from './logger';
 
 // 语音服务提供商类型 - 扩展国产化支持
-export type VoiceProvider = 'glm' | 'minimax' | 'doubao' | 'elevenlabs';
+export type VoiceProvider = 'volcengine' | 'glm' | 'minimax' | 'doubao' | 'elevenlabs';
 
 // 语音服务配置接口
 interface VoiceServiceConfig {
@@ -13,8 +13,14 @@ interface VoiceServiceConfig {
   provider: VoiceProvider;
 }
 
-// GLM 和 ElevenLabs 的配置
+// GLM、火山引擎和 ElevenLabs 的配置
 const VOICE_CONFIGS: Record<VoiceProvider, VoiceServiceConfig> = {
+  volcengine: {
+    apiKey: environment.voice.volcengine?.apiKey || '',
+    baseUrl: environment.voice.volcengine?.baseUrl || 'https://openspeech.bytedance.com',
+    model: environment.voice.volcengine?.appId || '624a6f3b-6beb-434e-9f2a-e3318de955fa',
+    provider: 'volcengine'
+  },
   glm: {
     apiKey: environment.voice.glm.apiKey,
     baseUrl: environment.voice.glm.baseUrl,
@@ -24,13 +30,25 @@ const VOICE_CONFIGS: Record<VoiceProvider, VoiceServiceConfig> = {
   elevenlabs: {
     apiKey: environment.voice.elevenlabs.apiKey || '',
     provider: 'elevenlabs'
+  },
+  doubao: {
+    apiKey: environment.ai?.doubao?.apiKey || '',
+    baseUrl: environment.ai?.doubao?.baseUrl || 'https://ark.cn-beijing.volces.com/api/v3',
+    model: environment.ai?.doubao?.model || 'doubao-seed-1-6-250615',
+    provider: 'doubao'
+  },
+  minimax: {
+    apiKey: environment.ai?.minimax?.apiKey || '',
+    baseUrl: environment.ai?.minimax?.baseUrl || 'https://api.minimax.chat/v1',
+    model: environment.ai?.minimax?.model || 'abab6.5s-chat',
+    provider: 'minimax'
   }
 };
 
 // 语音服务管理器
 class VoiceServiceManager {
   private glmClient: OpenAI | null = null;
-  private currentProvider: VoiceProvider = 'glm'; // 默认优先使用 GLM-4-voice
+  private currentProvider: VoiceProvider = 'volcengine'; // 默认优先使用火山引擎
   private failedProviders: Set<VoiceProvider> = new Set();
   private lastFailureTime: Map<VoiceProvider, number> = new Map();
   private readonly FAILURE_COOLDOWN = 5 * 60 * 1000; // 5分钟冷却时间
@@ -40,6 +58,18 @@ class VoiceServiceManager {
   }
 
   private initializeClients(): void {
+    // 检查火山引擎配置
+    const volcengineConfig = VOICE_CONFIGS.volcengine;
+    if (volcengineConfig.apiKey) {
+      logger.info('火山引擎语音服务配置已加载', {
+        provider: 'volcengine',
+        baseUrl: volcengineConfig.baseUrl,
+        appId: volcengineConfig.model
+      });
+    } else {
+      logger.warn('火山引擎 API Key 未配置');
+    }
+
     // 检查 GLM 配置
     const glmConfig = VOICE_CONFIGS.glm;
     if (glmConfig.apiKey) {
@@ -57,7 +87,7 @@ class VoiceServiceManager {
     if (elevenlabsConfig.apiKey) {
       logger.info('ElevenLabs 语音服务配置已加载');
     } else {
-      logger.warn('ElevenLabs API Key 未配置，将仅使用 GLM 语音服务');
+      logger.warn('ElevenLabs API Key 未配置，将仅使用国内语音服务');
     }
   }
 
@@ -152,6 +182,154 @@ class VoiceServiceManager {
     }
   }
 
+  // 使用火山引擎生成语音（首选方案）
+  async generateSpeechWithVolcEngine(
+    text: string,
+    options: {
+      voice?: string;
+      speed?: number;
+      language?: string;
+    } = {}
+  ): Promise<Buffer> {
+    const config = VOICE_CONFIGS.volcengine;
+    
+    if (!config.apiKey) {
+      throw new Error('火山引擎 API Key 未配置');
+    }
+
+    try {
+      logger.info('使用火山引擎生成语音', {
+        provider: 'volcengine',
+        textLength: text.length,
+        appId: config.model
+      });
+
+      // 火山引擎TTS API请求体
+      const requestBody = {
+        app: {
+          appid: config.model,
+          token: config.apiKey,
+          cluster: 'volcano_tts'
+        },
+        user: {
+          uid: `wordpecker_${Date.now()}`
+        },
+        audio: {
+          voice_type: this.getVolcEngineVoice(options.voice, options.language),
+          encoding: "mp3",
+          speed_ratio: options.speed || 1.0,
+          volume_ratio: 1.0,
+          pitch_ratio: 1.0,
+          emotion: "neutral"
+        },
+        request: {
+          reqid: `req_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+          text: text,
+          text_type: "plain",
+          operation: "submit"
+        }
+      };
+
+      // 提交TTS请求
+      const submitResponse = await fetch(`${config.baseUrl}/api/v1/tts/submit`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${config.apiKey}`
+        },
+        body: JSON.stringify(requestBody)
+      });
+
+      if (!submitResponse.ok) {
+        throw new Error(`火山引擎TTS提交失败: ${submitResponse.status} ${submitResponse.statusText}`);
+      }
+
+      const submitResult = await submitResponse.json();
+      
+      if (submitResult.code !== 0) {
+        throw new Error(`火山引擎TTS错误: ${submitResult.message}`);
+      }
+
+      // 查询结果
+      const queryBody = {
+        ...requestBody,
+        request: {
+          ...requestBody.request,
+          operation: "query"
+        }
+      };
+
+      let attempts = 0;
+      const maxAttempts = 10;
+      
+      while (attempts < maxAttempts) {
+        await new Promise(resolve => setTimeout(resolve, 1000)); // 等待1秒
+        
+        const queryResponse = await fetch(`${config.baseUrl}/api/v1/tts/query`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${config.apiKey}`
+          },
+          body: JSON.stringify(queryBody)
+        });
+
+        if (!queryResponse.ok) {
+          attempts++;
+          continue;
+        }
+
+        const queryResult = await queryResponse.json();
+        
+        if (queryResult.code === 0 && queryResult.data?.audio) {
+          // 解码base64音频数据
+          const audioBuffer = Buffer.from(queryResult.data.audio, 'base64');
+          
+          logger.info('火山引擎语音生成成功', {
+            provider: 'volcengine',
+            audioSize: audioBuffer.length,
+            attempts: attempts + 1
+          });
+
+          return audioBuffer;
+        }
+        
+        if (queryResult.code === 10001) {
+          // 仍在处理中，继续等待
+          attempts++;
+          continue;
+        }
+        
+        throw new Error(`火山引擎TTS查询失败: ${queryResult.message}`);
+      }
+      
+      throw new Error('火山引擎TTS处理超时');
+
+    } catch (error: any) {
+      this.markProviderAsFailed('volcengine', error);
+      throw error;
+    }
+  }
+
+  // 根据语言选择合适的音色
+  private getVolcEngineVoice(requestedVoice?: string, language?: string): string {
+    // 火山引擎支持的音色映射
+    const voiceMap: Record<string, string> = {
+      'zh': 'BV700_streaming',      // 中文女声
+      'zh-CN': 'BV700_streaming',
+      'en': 'BV001_streaming',      // 英文女声
+      'en-US': 'BV001_streaming',
+      'ja': 'BV002_streaming',      // 日文女声
+      'ko': 'BV003_streaming',      // 韩文女声
+    };
+    
+    if (requestedVoice) {
+      return requestedVoice;
+    }
+    
+    return voiceMap[language || 'zh'] || 'BV700_streaming';
+  }
+
   // 使用 ElevenLabs 生成语音 (备选方案)
   async generateSpeechWithElevenLabs(
     text: string,
@@ -226,8 +404,8 @@ class VoiceServiceManager {
   ): Promise<Buffer> {
     this.checkCooldownRecovery();
 
-    // 优先级顺序：GLM -> ElevenLabs
-    const providerOrder: VoiceProvider[] = ['glm', 'elevenlabs'];
+    // 优先级顺序：火山引擎 -> GLM -> ElevenLabs
+    const providerOrder: VoiceProvider[] = ['volcengine', 'glm', 'elevenlabs'];
     let lastError: any;
 
     for (const provider of providerOrder) {
@@ -238,7 +416,9 @@ class VoiceServiceManager {
       try {
         this.currentProvider = provider;
 
-        if (provider === 'glm') {
+        if (provider === 'volcengine') {
+          return await this.generateSpeechWithVolcEngine(text, options);
+        } else if (provider === 'glm') {
           return await this.generateSpeechWithGLM(text, options);
         } else if (provider === 'elevenlabs') {
           return await this.generateSpeechWithElevenLabs(text, options);
@@ -270,7 +450,7 @@ class VoiceServiceManager {
     failedProviders: VoiceProvider[];
     lastFailureTimes: Record<string, number>;
   } {
-    const allProviders: VoiceProvider[] = ['glm', 'elevenlabs'];
+    const allProviders: VoiceProvider[] = ['volcengine', 'glm', 'elevenlabs'];
     const availableProviders = allProviders.filter(
       provider => !this.failedProviders.has(provider)
     );

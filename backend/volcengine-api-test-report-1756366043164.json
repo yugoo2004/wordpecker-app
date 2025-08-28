@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-08-28T07:27:23.164Z",
+  "results": [
+    {
+      "service": "豆包1.6",
+      "success": true,
+      "duration": 4896,
+      "details": {
+        "responseLength": 32,
+        "tokensUsed": 302
+      }
+    },
+    {
+      "service": "火山引擎TTS",
+      "success": false,
+      "duration": 57,
+      "error": "火山引擎TTS未知错误: Request failed with status code 404"
+    },
+    {
+      "service": "SeeDream 3.0",
+      "success": true,
+      "duration": 721,
+      "details": {
+        "hasUrl": true,
+        "hasBuffer": false,
+        "size": "1024x1024"
+      }
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "success": 2,
+    "successRate": 66.66666666666666
+  }
+}

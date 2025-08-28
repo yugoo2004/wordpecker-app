@@ -18,7 +18,10 @@
     "test:db-ops": "ts-node src/scripts/testDatabaseOperations.ts",
     "test:db-complete": "ts-node src/scripts/testDatabaseComplete.ts",
     "test:ai-redundancy": "ts-node scripts/test-ai-redundancy.ts",
-    "test:domestic-ai": "ts-node scripts/test-domestic-ai.ts"
+    "test:domestic-ai": "ts-node scripts/test-domestic-ai.ts",
+    "verify:volcengine-config": "ts-node scripts/verify-volcengine-config.ts",
+    "test:volcengine-connectivity": "ts-node scripts/test-basic-connectivity.ts",
+    "test:volcengine-api": "ts-node scripts/test-volcengine-api.ts"
   },
   "dependencies": {
     "@elevenlabs/elevenlabs-js": "^2.6.0",

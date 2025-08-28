@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-08-26T11:06:52.369Z",
+  "results": [
+    {
+      "service": "豆包1.6",
+      "success": false,
+      "duration": 89,
+      "error": "豆包API错误: The API key format is incorrect. Request id: 0217562064113679ac0a5958eac020305254aae7e852ae462b0a0 (Unauthorized)"
+    },
+    {
+      "service": "火山引擎TTS",
+      "success": false,
+      "duration": 57,
+      "error": "火山引擎TTS未知错误: Request failed with status code 404"
+    },
+    {
+      "service": "SeeDream 3.0",
+      "success": true,
+      "duration": 925,
+      "details": {
+        "hasUrl": true,
+        "hasBuffer": false,
+        "size": "1024x1024"
+      }
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "success": 1,
+    "successRate": 33.33333333333333
+  }
+}

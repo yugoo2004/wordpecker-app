@@ -1,9 +1,9 @@
 {
-  "timestamp": "2025-08-04T01:10:31.112Z",
+  "timestamp": "2025-08-25T02:07:41.925Z",
   "testEnvironment": {
     "backendUrl": "http://localhost:3000",
-    "frontendUrl": "http://localhost:8080",
-    "testUserId": "test-user-e2e-1754269829581"
+    "frontendUrl": "http://localhost:5173",
+    "testUserId": "test-user-e2e-1756087655961"
   },
   "summary": {
     "total": 8,
@@ -19,7 +19,7 @@
         "status": "healthy",
         "database": "connected",
         "openai": "configured",
-        "uptime": 1756.657556799
+        "uptime": 17.725858626
       }
     },
     {
@@ -29,25 +29,22 @@
         "ready": true,
         "checks": {
           "database": true,
-          "apiKeys": true,
-          "services": true
+          "requiredAPIs": true,
+          "optionalAPIs": true,
+          "connectivity": true
         }
       }
     },
     {
       "test": "3. 前端访问测试",
-      "status": "PASSED",
-      "details": {
-        "status": 200,
-        "contentLength": 621,
-        "hasReactRoot": true
-      }
+      "status": "FAILED",
+      "error": "前端访问错误: "
     },
     {
       "test": "4. 词汇列表管理功能",
       "status": "PASSED",
       "details": {
-        "listId": "6890088556d2c1b2a6f6b2f0",
+        "listId": "68abc5694e728146fe65a726",
         "listName": "E2E 测试列表 (已更新)",
         "wordCount": 0,
         "averageProgress": 0
@@ -55,8 +52,18 @@
     },
     {
       "test": "5. 词汇生成功能 (OpenAI API)",
-      "status": "FAILED",
-      "error": "词汇生成失败: [object Object]"
+      "status": "PASSED",
+      "details": {
+        "generatedWords": 5,
+        "context": "Technology and Programming",
+        "difficulty": "intermediate",
+        "sampleWord": {
+          "word": "computer",
+          "meaning": "A en word related to Technology and Programming",
+          "example": "Example sentence with computer in en.",
+          "difficulty_level": "intermediate"
+        }
+      }
     },
     {
       "test": "6. 学习会话功能",
@@ -71,13 +78,13 @@
     {
       "test": "8. 图像描述功能",
       "status": "FAILED",
-      "error": "开始图像描述失败: [object Object]"
+      "error": "提交图像描述失败: [object Object]"
     }
   ],
   "errors": [
-    "5. 词汇生成功能 (OpenAI API): 词汇生成失败: [object Object]",
+    "3. 前端访问测试: 前端访问错误: ",
     "6. 学习会话功能: 开始学习会话失败: [object Object]",
     "7. 语音对话功能 (OpenAI Realtime API): 创建语音会话失败: [object Object]",
-    "8. 图像描述功能: 开始图像描述失败: [object Object]"
+    "8. 图像描述功能: 提交图像描述失败: [object Object]"
   ]
 }

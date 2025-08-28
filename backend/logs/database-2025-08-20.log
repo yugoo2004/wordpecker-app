@@ -1,2 +1,0 @@
-{"level":"info","message":"测试数据库日志","metadata":{"collection":"test","duration":25,"operation":"find","pid":15849,"test":true},"service":"wordpecker-db","timestamp":"2025-08-20 08:43:51.284"}
-{"level":"info","message":"测试数据库日志","metadata":{"collection":"test","duration":25,"operation":"find","pid":16125,"test":true},"service":"wordpecker-db","timestamp":"2025-08-20 08:44:11.275"}

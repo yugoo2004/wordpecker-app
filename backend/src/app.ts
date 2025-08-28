@@ -25,6 +25,7 @@ import voiceRoutes from './api/voice/routes';
 import serviceStatusRoutes from './api/service-status';
 import highAvailabilityRoutes from './api/high-availability/routes';
 import managementRoutes from './api/management/routes';
+import multimodalRoutes from './api/multimodal'; // 豆包1.6多模态API路由
 
 const app = express();
 
@@ -48,6 +49,7 @@ app.use('/api/vocabulary', openaiRateLimiter);
 app.use('/api/language-validation', openaiRateLimiter);
 app.use('/api/audio', openaiRateLimiter); // Audio routes use ElevenLabs API
 app.use('/api/voice', openaiRateLimiter); // Voice routes use OpenAI Realtime API
+app.use('/api/multimodal', openaiRateLimiter); // 豆包1.6多模态API需要速率限制
 
 // Routes
 app.use('/api', healthRoutes); // 健康检查路由
@@ -63,6 +65,7 @@ app.use('/api/vocabulary', vocabularyRoutes);
 app.use('/api/language-validation', languageValidationRoutes);
 app.use('/api/audio', audioRoutes);
 app.use('/api/voice', voiceRoutes);
+app.use('/api/multimodal', multimodalRoutes); // 豆包1.6多模态API
 app.use('/api/ha', highAvailabilityRoutes); // 高可用性管理API
 app.use('/api/management', managementRoutes); // 远程管理API
 

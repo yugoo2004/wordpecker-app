@@ -1,7 +1,7 @@
 import { Box, Container, Flex, Button, Icon, Text } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { GiTreeBranch, GiBookshelf } from 'react-icons/gi';
-import { FaFeatherAlt, FaCog, FaCamera, FaGraduationCap } from 'react-icons/fa';
+import { FaFeatherAlt, FaCog, FaCamera, FaGraduationCap, FaChartBar } from 'react-icons/fa';
 
 export const Header = () => {
   return (
@@ -82,6 +82,19 @@ export const Header = () => {
                 transition="all 0.2s"
               >
                 Settings
+              </Button>
+            </Link>
+            <Link to="/admin">
+              <Button 
+                variant="ghost"
+                leftIcon={<Icon as={FaChartBar} color="#722ED1" />}
+                _hover={{
+                  transform: 'translateY(-2px)',
+                  color: '#722ED1'
+                }}
+                transition="all 0.2s"
+              >
+                Dashboard
               </Button>
             </Link>
           </Flex>

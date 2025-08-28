@@ -24,6 +24,21 @@
             "date": 1756009627155,
             "name": "/home/devbox/project/backend/logs/rejections-2025-08-24.log",
             "hash": "a700b37fa7bf58feb3ed38bb4bc43c6a500f27572898d36c231c02ad83c81ac0"
+        },
+        {
+            "date": 1756086274834,
+            "name": "/home/devbox/project/backend/logs/rejections-2025-08-25.log",
+            "hash": "546d2ab767db276d0574f9ab21d58765efb29e79f7d226b8205bf7c5e4399fdf"
+        },
+        {
+            "date": 1756139807635,
+            "name": "/home/devbox/project/backend/logs/rejections-2025-08-26.log",
+            "hash": "a7b9cb5a961d5ad72a96995d2a3f0649444f8710f27ce9cec7c71c2c641349ea"
+        },
+        {
+            "date": 1756366037355,
+            "name": "/home/devbox/project/backend/logs/rejections-2025-08-28.log",
+            "hash": "cf02ce35641bbeab52ace25bc1e7b03ddd9cb3ba392e37b882020817f11db7ac"
         }
     ],
     "hashType": "sha256"

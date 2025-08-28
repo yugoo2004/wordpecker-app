@@ -132,7 +132,7 @@ router.get('/cache/:cacheKey',
       // Set appropriate headers for audio streaming
       res.set({
         'Content-Type': 'audio/mpeg',
-        'Content-Length': audioBuffer ? audioBuffer.length.toString() : '0',
+        'Content-Length': audioBuffer ? (audioBuffer as Buffer).length.toString() : '0',
         'Cache-Control': 'public, max-age=31536000', // Cache for 1 year
         'Accept-Ranges': 'bytes',
         'Access-Control-Allow-Origin': '*', // Allow all origins for audio files

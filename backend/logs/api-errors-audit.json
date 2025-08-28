@@ -6,16 +6,6 @@
     "auditLog": "/home/devbox/project/backend/logs/api-errors-audit.json",
     "files": [
         {
-            "date": 1755650631272,
-            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-20.log",
-            "hash": "059b77ff6350c19037d3393711cfa6da048dfafedf693fb3880c8497a3e04abd"
-        },
-        {
-            "date": 1755759659754,
-            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-21.log",
-            "hash": "26a573fb45ec9f4797c7c4174bf689fcc4bf662e48bc47ef054b151794f2cbce"
-        },
-        {
             "date": 1755855897834,
             "name": "/home/devbox/project/backend/logs/api-errors-2025-08-22.log",
             "hash": "412d36ab6a3f4f1250c7ccc78f78731226d9890cce7703360be7bb33296735c1"
@@ -24,6 +14,506 @@
             "date": 1756009627151,
             "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log",
             "hash": "85f787a370c6cd345db51d0a1675a760369aef4bef2732e7519ce807af87d4a0"
+        },
+        {
+            "date": 1756045645056,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.1",
+            "hash": "ed9e5440c3a4c47e3b4e0c52b4b5c0e75adb8084c5f8e5973fa54fdaa0a719c8"
+        },
+        {
+            "date": 1756045645537,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.14",
+            "hash": "c5c1117aa86323f78b272704890bbdf6f225b40f88dc329280912316fed07c35"
+        },
+        {
+            "date": 1756045648765,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.15",
+            "hash": "8e4e11331d489cd1300da34c5e68e90dc04edd7ca0b9ed229385838a677a8b63"
+        },
+        {
+            "date": 1756045650057,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.16",
+            "hash": "89973e88a71434059403a49181b1cc052aa8a901de5d900610bd43bd804fbc9e"
+        },
+        {
+            "date": 1756045652104,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.17",
+            "hash": "78c124183db2347e89fbbcb01e247cbf3191ea62457e9cd4fd5ddbb6fd51c4bc"
+        },
+        {
+            "date": 1756045653400,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.18",
+            "hash": "c136c7f4905162676b6d2c761c422f45df087572e6890fd11e350e5720a97ead"
+        },
+        {
+            "date": 1756045655016,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.19",
+            "hash": "d27c370705d82898b6f0019692f32ae8d551a400ad37dd3a8180c61432b070da"
+        },
+        {
+            "date": 1756045656340,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.20",
+            "hash": "90b670f28fbdca6fdd88a55e1f0301cd31faa86704dad65965d558e2b996091d"
+        },
+        {
+            "date": 1756045657912,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.21",
+            "hash": "fc26db6ceebabc307f7c5cf5b4c75eb3bb192a84cc6c8c309c608496aacbcf2f"
+        },
+        {
+            "date": 1756045659123,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.22",
+            "hash": "4aab8ea82dcdfdd646d5578dda4a7ff175919a8c5618b6ece6e309fd2a1d1ef2"
+        },
+        {
+            "date": 1756045660764,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.23",
+            "hash": "c94de578f949ca55bde01daf5d39fe8389a3709f5c26d7913d4f7cdbbc2e17a8"
+        },
+        {
+            "date": 1756045662078,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.24",
+            "hash": "747c55275bf78e368bd4f697e3bcfbe6f9268a25045e2000abbea97ec54f7d31"
+        },
+        {
+            "date": 1756045663763,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.25",
+            "hash": "4714ea7ca89ce89e48d4e1831baaf5c9bce8385595638c5d86393b90c157c27d"
+        },
+        {
+            "date": 1756045665036,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.26",
+            "hash": "5cbb663967edbe85d9ee89a1e046c7f90a2b4e6c99953aa30877a0c18f671961"
+        },
+        {
+            "date": 1756045666640,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.27",
+            "hash": "ca36afac640608d9e39da0f6d62ab59197767b8356f5f9f76b55908ca02d1ff1"
+        },
+        {
+            "date": 1756045667887,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.28",
+            "hash": "0ee3f07c7f5e3fee62b088a3594f07bc33eb9c46e25d9bdc5df191e9755fc650"
+        },
+        {
+            "date": 1756045669387,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.29",
+            "hash": "eaf11103d8da61c70b453c051764c34d8dce6960380b5605e8e38e4b3b68af74"
+        },
+        {
+            "date": 1756045670797,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.30",
+            "hash": "e5dad50277be73e56ed5c310036c11cae5e77e526bbb85089f7f07c4c4da0e1e"
+        },
+        {
+            "date": 1756045672108,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.31",
+            "hash": "f1502b447464b4c59fb84db37544230c1135a6552a05f90934818b21639e0a2e"
+        },
+        {
+            "date": 1756045673853,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.32",
+            "hash": "523f018e9d50d7ae9a1f6d3060fc27414353a75868b8f6bc2c61b51dd652118c"
+        },
+        {
+            "date": 1756045675209,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.33",
+            "hash": "bfe6a9d7d3238ab3fd7b23468d93060bb6677631cb8dc4dab00606cebca94ac2"
+        },
+        {
+            "date": 1756045677278,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.34",
+            "hash": "ee17ad6b09de7988bab8bd82797887137ac0381ff86197c3def33f54cac55e8f"
+        },
+        {
+            "date": 1756045678735,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.35",
+            "hash": "593644e25c1e2510d9a91a1acbba7128be694f56e99e27faa76566876d4e723c"
+        },
+        {
+            "date": 1756045680721,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.36",
+            "hash": "f0bcb4a128585ace9a544643d41c6ab46eaf16dd6e32a0f3ce99a0df24ff34b6"
+        },
+        {
+            "date": 1756045682047,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.37",
+            "hash": "40e03ccaddd1411f13093fa2871d2cee7756d06167c8e153bb1d44ff3e2dc063"
+        },
+        {
+            "date": 1756045683720,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.38",
+            "hash": "22c315d03fb0029b1bf1ca87f8c6488c4cdd1d8f25bc51106f8db3996630ac1b"
+        },
+        {
+            "date": 1756045685011,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.39",
+            "hash": "79ee91b8d802238787108d5c4940fdd01cd615bdb544db18c0ff26243d6d9607"
+        },
+        {
+            "date": 1756045686940,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.40",
+            "hash": "7808249ef9b6bed958a440da9ab948e8f2ddb38d7a77ed885be9d2c788f298c5"
+        },
+        {
+            "date": 1756045688322,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.41",
+            "hash": "89bd38f56d4e2ac772918e69674b70cc8b8c576a97f9daa83c59b0346974e3b4"
+        },
+        {
+            "date": 1756045690190,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.42",
+            "hash": "fc35a196f49a0f4e6dc5cb8bba8f3f682017bfa6f77a56424b1cf09c60cce93f"
+        },
+        {
+            "date": 1756045691533,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.43",
+            "hash": "dc1b8fa49cec697e4fddc5a66a7d0d35aec6508464a9dd144e4d8d8281e54e5f"
+        },
+        {
+            "date": 1756045720205,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.44",
+            "hash": "62642b4d00599bd3a4c2e84bdce16512a82523da0cd55a7ffe095ce3dfa74c1e"
+        },
+        {
+            "date": 1756045815056,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.45",
+            "hash": "0cc39edfd01d05dddae3e10fd93ff6a36432217503bf15e456fde69cfc082023"
+        },
+        {
+            "date": 1756046933307,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.46",
+            "hash": "1238420285a0f5ba96c4b9d9db065edc6d01cbc4ef504c5ed106937e641db0d9"
+        },
+        {
+            "date": 1756046935109,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.47",
+            "hash": "261cd9329f1af926982a34412ea5ed80956b4fc6370d0be1023a76b2ae12a3c2"
+        },
+        {
+            "date": 1756046936955,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.48",
+            "hash": "f3b5d7d912299e996e2b031692c5c0f7af3000d1d930aa21014d1497b9796c77"
+        },
+        {
+            "date": 1756046944859,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.49",
+            "hash": "5c29c0df99ad54bb8417ecfdd9a8e234bf803ba5948526ca51e1b8b6441eeb7a"
+        },
+        {
+            "date": 1756046961213,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.50",
+            "hash": "fb87fe8e690eff4d82e949b476abf5a30efc0f84f04550052cd79487dbd1ccbd"
+        },
+        {
+            "date": 1756046980448,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.51",
+            "hash": "96e94bade81055cc50759896658ca19ab8ffaddb37ee4aa19ccdc39cb9d8ea44"
+        },
+        {
+            "date": 1756046988956,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.52",
+            "hash": "d8b34c470877a56b816fc881c9812a99e2ebdc50cc48a028d67f44a07f9b80b0"
+        },
+        {
+            "date": 1756047243244,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.53",
+            "hash": "a54d7d60018260c551cd30ed8519469464de6dd312104827e56fc8168774fa2d"
+        },
+        {
+            "date": 1756047244885,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.54",
+            "hash": "7b94c7c7ea30afc2aa3589df777442805111ea1c13438d20512884b1fef91ec2"
+        },
+        {
+            "date": 1756047247562,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.55",
+            "hash": "7a014029320e0a9647b2acf9911ce6e4eb21e6aa25454dcdb4c48add27d421b2"
+        },
+        {
+            "date": 1756047252683,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-24.log.56",
+            "hash": "2629bfcdbfdff69d504fa2d47031f42b6261f83e95cb98865ec6ef387186e261"
+        },
+        {
+            "date": 1756086274831,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log",
+            "hash": "43804a6e5aff113afbcba90fbc0b6c698cff358c4d60008b704c0464a09882a2"
+        },
+        {
+            "date": 1756113915628,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.1",
+            "hash": "68486155c03cd1c252b1484800b7d5337a0c4232c9d6d6f152f3511b1eda4b3b"
+        },
+        {
+            "date": 1756113924338,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.2",
+            "hash": "52c5678748df7e0b05ae6a38865b14e9fb9a60bebb51971b399183465104dc2d"
+        },
+        {
+            "date": 1756113925670,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.3",
+            "hash": "fdc58809e6f957c6f689c61744507c07aac854039415132f9f4d3c1241488fea"
+        },
+        {
+            "date": 1756113927196,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.4",
+            "hash": "c6ee0355cc6f17da545213edbef4058371e86a674a745c7fc51470e63fd0ad4d"
+        },
+        {
+            "date": 1756113928461,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.5",
+            "hash": "9b8e46c52a9ef979d5c658d1443c3f6c0d1ccc810994e29b53304b2e688349b9"
+        },
+        {
+            "date": 1756113929938,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.6",
+            "hash": "95ac6ba6de5e7968251a4619a823efa032c0565fab54021dccc7db1d2fcea755"
+        },
+        {
+            "date": 1756113931333,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.7",
+            "hash": "444f5cb1cde749d2fae93875f9d5e530acf7551017ea4b0df12ef492737fc6ce"
+        },
+        {
+            "date": 1756113932860,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.8",
+            "hash": "3b33e7425fb4634c0eda7166d1b28769db12b3a972e95519126543ec6f4886bb"
+        },
+        {
+            "date": 1756113934168,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.9",
+            "hash": "038949c3505e1a271d2534d0204e679ab989ee5e95cb60d88fd4ac6cab937db2"
+        },
+        {
+            "date": 1756113935779,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.10",
+            "hash": "1d5b428371467f9ccc34aefabcc466ef598b59c1fcc0157307e0bd27cf10dbb6"
+        },
+        {
+            "date": 1756113937108,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.11",
+            "hash": "18885ae794d28a0f0fa82665f038097d58b933ed0a6b9f8a8077be3462dd189d"
+        },
+        {
+            "date": 1756113938638,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.12",
+            "hash": "e9d7352039573cc843f1e84b95954c2d7f3b417ecc5816e95ccaa101978afa04"
+        },
+        {
+            "date": 1756113939891,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.13",
+            "hash": "1e135ee64107c6ddd15dc2dd646d4ebc2b3981ba5ea8312084ba917f01edbf47"
+        },
+        {
+            "date": 1756113941464,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.14",
+            "hash": "bc84a542c02c6334b85b83b0416108e4fecda05049454fd2411f42075ddea4f9"
+        },
+        {
+            "date": 1756113942753,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.15",
+            "hash": "698b22b829fce15a192f34d77504c80932343ed4b5e6f2e0c829ab6f64f606e5"
+        },
+        {
+            "date": 1756113944403,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.16",
+            "hash": "1bf26fc850423ba84f124ceaebdad5833d0df6832979c14e586a13d9d79cc4e6"
+        },
+        {
+            "date": 1756113945740,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.17",
+            "hash": "0c34f2f412c5baf8802848f84ccfb830c0900b9bebc5a332a8f12d0365d1b6a8"
+        },
+        {
+            "date": 1756113947393,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.18",
+            "hash": "c90350eb5a08672d722fe549ac599ea4a6f3c48e726ffbdc4f7de9b7d5c70533"
+        },
+        {
+            "date": 1756113948714,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.19",
+            "hash": "e395709f6dc695fd5bcb6e051b2c0ffbc4e65e81e7ebfd7ea52f2aec7748b2b5"
+        },
+        {
+            "date": 1756113950013,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.20",
+            "hash": "88ff920986311d849455b9a4c01e51e87b2ba017d6052d68a9a55c07d3d42e64"
+        },
+        {
+            "date": 1756113951740,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.21",
+            "hash": "2d79d7346df145adf7ff57e4cb34b8130603437c11dd900eb840acfc907fb01a"
+        },
+        {
+            "date": 1756113953156,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.22",
+            "hash": "766b4cb0e701b160823676be2b6e81fe4bf84328e64f9f5f24d807fce1c4e561"
+        },
+        {
+            "date": 1756113954860,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.23",
+            "hash": "6b6f4bc908060db474992204caeb96054a84b9208e56fd936338776cda5c2085"
+        },
+        {
+            "date": 1756113956178,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.24",
+            "hash": "09f8cf03e5c1e90c6225f1d68ed80701e6b0f49e13b1a4b983d9998cf9cd4ac4"
+        },
+        {
+            "date": 1756113957890,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.25",
+            "hash": "15c59bdf7f82eb15a3c86d6a07521013a8ccb4eb755d4c068878e8df8d02e403"
+        },
+        {
+            "date": 1756113959171,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.26",
+            "hash": "71eeb61cb36951f8577b484d270f38e3eacd7af2e32c235ee522937b72aa1376"
+        },
+        {
+            "date": 1756113960942,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.27",
+            "hash": "538f291e26d70a2f1a04a57e4f6ea297c701beb558b5151e01f88c8f9696e837"
+        },
+        {
+            "date": 1756113962296,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.28",
+            "hash": "4aa5d276e0aa9778260ed4d582002033850b810fa0c0ab231b1ff6ea489f644a"
+        },
+        {
+            "date": 1756113964106,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.29",
+            "hash": "44e6ce705345a6bc30c255274de79dcdb8fe100fcd2e8b2dbe4001720aee58f9"
+        },
+        {
+            "date": 1756113965458,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.30",
+            "hash": "d3aa1aa2017921d850759993ab67329d2595b7fe7cbaa71ad77027772d77689e"
+        },
+        {
+            "date": 1756113967290,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.31",
+            "hash": "8be84681708bcaf0d0789b8e63fdb7661e774667f2e272893181987f719b1362"
+        },
+        {
+            "date": 1756113968706,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.32",
+            "hash": "362ce048e60dffb80fa789de5d1b8b34a82fa3edef5f79e268506d1b20e2499e"
+        },
+        {
+            "date": 1756113970670,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.33",
+            "hash": "a3272e1079cf099af209d35e12bf30fa2cb76b18952aabb192b50a0a5587413c"
+        },
+        {
+            "date": 1756113972149,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.34",
+            "hash": "fea2682634ca33c043046b7cb59cbdde95d6f1c3907055678038ba4161324afe"
+        },
+        {
+            "date": 1756113974197,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.35",
+            "hash": "77086eeaf0344b1753f64c97432d0570ff57442da6f2660f90c75902a2091aa3"
+        },
+        {
+            "date": 1756113975606,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.36",
+            "hash": "5c50416efe0eda65700165b2daceef9c83c88d222eecc258d1f06b06522d7047"
+        },
+        {
+            "date": 1756113977563,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.37",
+            "hash": "9248b83d30653fb59cfbabf41f33f6141033fdb4632ec8ffa238a27757fd38a5"
+        },
+        {
+            "date": 1756113978990,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.38",
+            "hash": "ba5d5f354bd550c0f5b0dbe030b1322099149bc3bb26587f681ad0455c8c864a"
+        },
+        {
+            "date": 1756113980546,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.39",
+            "hash": "442664e757203cc7f6da642904bbd03015d90422e1ef451f6d092197bca1799b"
+        },
+        {
+            "date": 1756113982426,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.40",
+            "hash": "13acaa2ff72f711e794b63568400895ed461ab193f023e19062238b4209698d0"
+        },
+        {
+            "date": 1756113983892,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.41",
+            "hash": "6e2786eb6b0cabde4ee25516221cc4e9501bff8bbc09a4d94dd0b2613b1a4b7a"
+        },
+        {
+            "date": 1756113986494,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.42",
+            "hash": "4719dbd45520a07794294596cdcfb28f9adc4cb9cd955f0e6b74ca500eb034bf"
+        },
+        {
+            "date": 1756113987963,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.43",
+            "hash": "4f108ea92cc499808aa8edbe0d2ed461f0d8b7305c6a9587bb63134e4e39de9c"
+        },
+        {
+            "date": 1756113989903,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.44",
+            "hash": "6ca3f989ac4fb79e0de81625f5f7641f2f733665f367b63b1dc99a5e91dcadbf"
+        },
+        {
+            "date": 1756113991300,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.45",
+            "hash": "b996d599d351de3abba16e0668dd45f6f9edeba64334edacc4c72804f203bebc"
+        },
+        {
+            "date": 1756113993372,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.46",
+            "hash": "19f9f7fd9dee3b27c95bbcfb531e09a92418e0adccc68bcd0e32dfc135266776"
+        },
+        {
+            "date": 1756113994761,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.47",
+            "hash": "4a34a7e2cacb0103298be278df60564a40d57517f40b82bd88525cf353257776"
+        },
+        {
+            "date": 1756113996863,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.48",
+            "hash": "0e5c8190d83450b1e785d8c2c204b1532e7f7a5397f376c40a6acc922a3ff562"
+        },
+        {
+            "date": 1756113998210,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.49",
+            "hash": "e46253a228f5a96a9ddb159ad10945f958b27564e14129f40d68578e1241ce2d"
+        },
+        {
+            "date": 1756114000212,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.50",
+            "hash": "fd1b52db86def76955a8ff73ad0523d1f4a70e9f8f7be40d017d1fedf30f789a"
+        },
+        {
+            "date": 1756114001630,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.51",
+            "hash": "aaed660deea5ac53a3b1eb2ba26a1097ebe55eeaf2c190273a7e1e5de057c029"
+        },
+        {
+            "date": 1756114003694,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.52",
+            "hash": "bdf13bb4172649bc47c5ed27e0e82bad7c140e4e63b0d61206eaef5c2d3f8947"
+        },
+        {
+            "date": 1756114005363,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-25.log.53",
+            "hash": "3491bd12c30463ea7aee2ca8171d45e84f0af8a33e95bc28e6fba5c26fdecf34"
+        },
+        {
+            "date": 1756139807631,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-26.log",
+            "hash": "67119f24230903e23956432436fd2d420e9fc1c2f222144fa6fe42827dade2e5"
+        },
+        {
+            "date": 1756366037350,
+            "name": "/home/devbox/project/backend/logs/api-errors-2025-08-28.log",
+            "hash": "1e96be08e3bbfea3252ad0483d0df879e297e23187ad7c54442c4f1b116f7bb8"
         }
     ],
     "hashType": "sha256"

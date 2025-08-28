@@ -1,4 +1,5 @@
 import { run } from '@openai/agents';
+import { runCustomAgent } from '../../agents/custom-agent';
 import { imageAnalysisAgent, imageGenerationAgent, contextualImageAgent } from '../../agents';
 import { ImageGenerationResultType } from '../../agents/image-generation-agent/schemas';
 import { ImageAnalysisResultType } from '../../agents/image-analysis-agent/schemas';
@@ -23,15 +24,22 @@ export class ImageDescriptionAgentService {
     const randomIndex = Math.floor(randomSeed % topics.length);
     const selectedTopic = topics[randomIndex];
     
-    const prompt = `Generate a vocabulary learning context similar to "${selectedTopic}" but different. Create a simple, clear topic (2-4 words maximum). Be creative and avoid repeating the same topics.`;
-    const response = await run(contextualImageAgent, prompt);
-    const result = response.finalOutput as ContextualImageResultType;
-    return result.searchQuery || result.enhancedContext || selectedTopic;
+    try {
+      // Try to use AI to generate enhanced context
+      const prompt = `Generate a vocabulary learning context similar to "${selectedTopic}" but different. Create a simple, clear topic (2-4 words maximum). Be creative and avoid repeating the same topics.`;
+      const response = await run(contextualImageAgent, prompt);
+      const result = response.finalOutput as ContextualImageResultType;
+      return result.searchQuery || result.enhancedContext || selectedTopic;
+    } catch (error) {
+      // Fallback: return a random topic from our predefined list
+      console.warn('AI context generation failed, using fallback topic:', error);
+      return selectedTopic;
+    }
   }
 
   async generateAIImage(context: string, sessionId: string): Promise<ImageGenerationResultType> {
     const imagePrompt = `Generate an AI image for the context "${context}" with session ID ${sessionId}`;
-    const imageResponse = await run(imageGenerationAgent, imagePrompt);
+    const imageResponse = await runCustomAgent(imageGenerationAgent, imagePrompt);
     return imageResponse.finalOutput as ImageGenerationResultType;
   }
 

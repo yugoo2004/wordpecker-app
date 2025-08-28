@@ -13,6 +13,7 @@ import { GetNewWords } from './pages/GetNewWords';
 import { WordLearningSession } from './pages/WordLearningSession';
 import { ReadingPage } from './pages/ReadingPage';
 import { VoiceChat } from './pages/VoiceChat';
+import MonitoringDashboard from './pages/MonitoringDashboard';
 import { Header } from './components/Header';
 
 function App() {
@@ -35,6 +36,8 @@ function App() {
             <Route path="/learn-new-words/session" element={<WordLearningSession />} />
             <Route path="/reading/:listId" element={<ReadingPage />} />
             <Route path="/voice-chat/:listId" element={<VoiceChat />} />
+            <Route path="/admin" element={<MonitoringDashboard />} />
+            <Route path="/dashboard" element={<MonitoringDashboard />} />
           </Routes>
         </Box>
       </Router>
