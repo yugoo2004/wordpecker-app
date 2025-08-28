@@ -1,0 +1,132 @@
+// Jenkins 管道配置示例
+// 集成 SeeDream 命名规范验证
+
+pipeline {
+    agent any
+    
+    environment {
+        NODE_VERSION = '18'
+    }
+    
+    stages {
+        stage('准备环境') {
+            steps {
+                echo '设置 Node.js 环境...'
+                sh '''
+                    node --version
+                    npm --version
+                '''
+            }
+        }
+        
+        stage('安装依赖') {
+            steps {
+                echo '安装项目依赖...'
+                sh '''
+                    npm ci
+                    cd tools/naming-scanner
+                    npm ci
+                    npm run build
+                '''
+            }
+        }
+        
+        stage('命名规范验证') {
+            parallel {
+                stage('完整验证') {
+                    steps {
+                        echo '运行完整的命名规范验证...'
+                        sh '''
+                            node scripts/validate-naming.js --output naming-validation-report.md
+                        '''
+                    }
+                    post {
+                        always {
+                            archiveArtifacts artifacts: 'naming-validation-report.md', fingerprint: true
+                        }
+                    }
+                }
+                
+                stage('环境变量验证') {
+                    steps {
+                        echo '验证环境变量命名一致性...'
+                        sh '''
+                            cd tools/naming-scanner
+                            npm run start -- validate env --output ../env-validation.json
+                        '''
+                    }
+                    post {
+                        always {
+                            archiveArtifacts artifacts: 'env-validation.json', fingerprint: true
+                        }
+                    }
+                }
+                
+                stage('测试报告验证') {
+                    steps {
+                        echo '验证测试报告格式...'
+                        sh '''
+                            cd tools/naming-scanner
+                            npm run start -- validate reports --output ../report-validation.json
+                        '''
+                    }
+                    post {
+                        always {
+                            archiveArtifacts artifacts: 'report-validation.json', fingerprint: true
+                        }
+                    }
+                }
+                
+                stage('CI 配置验证') {
+                    steps {
+                        echo '验证 CI/CD 集成配置...'
+                        sh '''
+                            cd tools/naming-scanner
+                            npm run start -- validate ci --output ../ci-validation.json
+                        '''
+                    }
+                    post {
+                        always {
+                            archiveArtifacts artifacts: 'ci-validation.json', fingerprint: true
+                        }
+                    }
+                }
+            }
+        }
+        
+        stage('生成报告') {
+            steps {
+                echo '生成验证报告...'
+                sh '''
+                    echo "验证完成时间: $(date)" >> validation-summary.txt
+                    echo "Jenkins 构建号: ${BUILD_NUMBER}" >> validation-summary.txt
+                    echo "Git 提交: ${GIT_COMMIT}" >> validation-summary.txt
+                '''
+            }
+            post {
+                always {
+                    archiveArtifacts artifacts: 'validation-summary.txt', fingerprint: true
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            echo '清理工作空间...'
+            cleanWs()
+        }
+        
+        success {
+            echo '✅ 所有命名规范验证通过！'
+        }
+        
+        failure {
+            echo '❌ 命名规范验证失败，请检查报告。'
+        }
+        
+        unstable {
+            echo '⚠️ 命名规范验证有警告，请查看详细报告。'
+        }
+    }
+}

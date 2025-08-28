@@ -1,0 +1,98 @@
+# GitLab CI 配置示例
+# 集成 SeeDream 命名规范验证
+
+stages:
+  - validate
+  - test
+  - build
+
+variables:
+  NODE_VERSION: "18"
+
+# 命名规范验证作业
+naming-validation:
+  stage: validate
+  image: node:${NODE_VERSION}
+  
+  before_script:
+    - npm ci
+    - cd tools/naming-scanner && npm ci && npm run build
+    
+  script:
+    - echo "开始 SeeDream 命名规范验证..."
+    - node scripts/validate-naming.js --output naming-validation-report.md
+    
+  artifacts:
+    when: always
+    paths:
+      - naming-validation-report.md
+    reports:
+      junit: naming-validation-report.xml
+    expire_in: 1 week
+    
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+# 环境变量验证
+env-validation:
+  stage: validate
+  image: node:${NODE_VERSION}
+  
+  before_script:
+    - npm ci
+    - cd tools/naming-scanner && npm ci && npm run build
+    
+  script:
+    - cd tools/naming-scanner
+    - npm run start -- validate env --output ../env-validation.json
+    
+  artifacts:
+    when: always
+    paths:
+      - env-validation.json
+    expire_in: 1 week
+    
+  allow_failure: true
+
+# 测试报告验证
+report-validation:
+  stage: validate
+  image: node:${NODE_VERSION}
+  
+  before_script:
+    - npm ci
+    - cd tools/naming-scanner && npm ci && npm run build
+    
+  script:
+    - cd tools/naming-scanner
+    - npm run start -- validate reports --output ../report-validation.json
+    
+  artifacts:
+    when: always
+    paths:
+      - report-validation.json
+    expire_in: 1 week
+    
+  allow_failure: true
+
+# CI 配置验证
+ci-validation:
+  stage: validate
+  image: node:${NODE_VERSION}
+  
+  before_script:
+    - npm ci
+    - cd tools/naming-scanner && npm ci && npm run build
+    
+  script:
+    - cd tools/naming-scanner
+    - npm run start -- validate ci --output ../ci-validation.json
+    
+  artifacts:
+    when: always
+    paths:
+      - ci-validation.json
+    expire_in: 1 week
+    
+  allow_failure: true

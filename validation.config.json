@@ -1,0 +1,50 @@
+{
+  "environment": {
+    "requiredPrefix": "SEEDREAM_",
+    "allowedPrefixes": [
+      "SEEDREAM_"
+    ],
+    "excludePatterns": [
+      "node_modules/**",
+      "dist/**",
+      ".git/**",
+      "coverage/**",
+      "build/**",
+      "logs/**",
+      "audio-cache/**"
+    ],
+    "checkFiles": [
+      "**/.env*",
+      "**/config/**/*.js",
+      "**/config/**/*.ts",
+      "**/src/**/*.ts",
+      "**/src/**/*.js",
+      "**/*.md"
+    ]
+  },
+  "report": {
+    "requiredFields": [
+      "serviceName",
+      "version",
+      "timestamp",
+      "results"
+    ],
+    "allowedFormats": [
+      "json",
+      "xml",
+      "html"
+    ],
+    "schemaValidation": true,
+    "maxFileSize": 10485760
+  },
+  "ci": {
+    "enabledChecks": [
+      "environment",
+      "reports",
+      "naming"
+    ],
+    "failOnWarnings": false,
+    "outputFormat": "json",
+    "reportPath": "./validation-reports"
+  }
+}

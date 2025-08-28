@@ -1,5 +1,4 @@
 import { Router, Request, Response } from 'express';
-import { Router, Request, Response } from 'express';
 import axios, { AxiosInstance } from 'axios';
 import { getDoubaoService } from '../services/doubao-service';
 import { getSeedreamImageService } from '../services/seedream-image-service';
@@ -12,7 +11,7 @@ import {
   VocabularyItem
 } from '../utils/doubao-multimodal';
 import { logger } from '../config/logger';
-import { AIServiceManager } from '../config/ai-service';
+import AIServiceManager from '../config/ai-service';
 
 const router = Router();
 

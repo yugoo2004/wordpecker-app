@@ -101,69 +101,69 @@ async function createTestProject(testDir) {
 
   // 创建包含命名问题的测试文件
   const files = {
-    // 主应用文件 - 包含类名和导入问题
+    // 主应用文件 - 展示正确的命名规范
     'src/app.ts': `
-import { SeedRamImageService } from './services/seedram-image-service';
-import { SeedDreamConfig } from '../config/seeddream-config';
+import { SeedreamImageService } from './services/seedream-image-service';
+import { SeedreamConfig } from '../config/seedream-config';
 
-class SeedRamApplication {
-  private imageService: SeedRamImageService;
+class SeedreamApplication {
+  private imageService: SeedreamImageService;
   
   constructor() {
-    this.imageService = new SeedRamImageService();
-    console.log('SeedRam 3.0 应用启动');
+    this.imageService = new SeedreamImageService();
+    console.log('SeeDream 3.0 应用启动');
   }
 }
 
-export default SeedRamApplication;
+export default SeedreamApplication;
 `,
 
-    // 服务文件 - 包含类名和文件名问题
-    'src/services/seedram-image-service.ts': `
-export class SeedRamImageService {
+    // 服务文件 - 展示正确的命名规范
+    'src/services/seedream-image-service.ts': `
+export class SeedreamImageService {
   private apiKey: string;
   
   constructor() {
-    this.apiKey = process.env.SEEDDREAM_API_KEY || '';
+    this.apiKey = process.env.SEEDREAM_API_KEY || '';
   }
   
   async generateImage(prompt: string): Promise<string> {
-    console.log('SeedRam 图像服务生成图片:', prompt);
+    console.log('SeeDream 3.0 图像服务生成图片:', prompt);
     return 'generated-image-url';
   }
 }
 `,
 
-    // 配置文件 - 包含键名问题
-    'config/seeddream-config.json': `
+    // 配置文件 - 展示正确的命名规范
+    'config/seedream-config.json': `
 {
   "app": {
-    "name": "SeedRam 3.0",
+    "name": "SeeDream 3.0",
     "version": "1.0.0"
   },
   "services": {
-    "seedram": {
+    "seedream": {
       "enabled": true,
-      "apiEndpoint": "https://api.seedram.com"
+      "apiEndpoint": "https://api.seedream.com"
     }
   }
 }
 `,
 
-    // 环境变量文件 - 包含变量名问题
+    // 环境变量文件 - 展示正确的命名规范
     '.env.example': `
-# SeedRam 3.0 配置
-SEEDDREAM_API_KEY=your-api-key-here
-SEEDRAM_DEBUG=true
-SEEDDREAM_LOG_LEVEL=info
+# SeeDream 3.0 配置
+SEEDREAM_API_KEY=your-api-key-here
+SEEDREAM_DEBUG=true
+SEEDREAM_LOG_LEVEL=info
 `,
 
-    // 包配置文件
+    // 包配置文件 - 展示正确的命名规范
     'package.json': `
 {
-  "name": "seedram-test-project",
+  "name": "seedream-test-project",
   "version": "1.0.0",
-  "description": "SeedRam 3.0 测试项目",
+  "description": "SeeDream 3.0 测试项目",
   "main": "src/app.ts",
   "scripts": {
     "start": "node dist/app.js"

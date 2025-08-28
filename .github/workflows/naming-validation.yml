@@ -1,0 +1,203 @@
+name: SeeDream 命名规范验证
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  naming-validation:
+    name: 命名规范检查
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      
+    - name: 设置 Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: 安装依赖
+      run: |
+        npm ci
+        cd tools/naming-scanner
+        npm ci
+        
+    - name: 构建验证工具
+      run: |
+        cd tools/naming-scanner
+        npm run build
+        
+    - name: 运行命名规范验证
+      run: |
+        chmod +x scripts/validate-naming.sh
+        ./scripts/validate-naming.sh --ci --junit-report naming-validation.xml
+        
+    - name: 上传验证报告
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: naming-validation-report
+        path: |
+          validation-reports/
+          naming-validation.xml
+        retention-days: 30
+        
+    - name: 发布测试结果
+      uses: dorny/test-reporter@v1
+      if: always()
+      with:
+        name: 命名规范验证结果
+        path: naming-validation.xml
+        reporter: java-junit
+        fail-on-error: true
+
+  environment-validation:
+    name: 环境变量验证
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      
+    - name: 设置 Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: 安装依赖
+      run: |
+        npm ci
+        cd tools/naming-scanner
+        npm ci
+        npm     
+    - name: 验证环境变量命名
+      run: |
+        chmod +x scripts/validate-naming.sh
+        ./scripts/validate-naming.sh --env-only --json-report env-validation.json
+        
+    - name: 上传环境变量验证报告
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: environment-validation-report
+        path: |
+          validation-reports/
+          env-validation.json
+        retention-days: 30
+
+  report-validation:
+    name: 测试报告验证
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      
+    - name: 设置 Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: 安装依赖
+      run: |
+        npm ci
+        cd tools/naming-scanner
+        npm ci
+        npm run build
+        
+    - name: 验证测试报告格式
+      run: |
+        chmod +x scripts/validate-naming.sh
+        ./scripts/validate-naming.sh --report-only --json-report report-validation.json
+        
+    - name: 上传报告验证结果
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: report-validation-report
+        path: |
+          vhe: 'npm'
+alidation-reports/
+          report-validation.json
+        retention-days: 30
+
+  validation-summary:
+    name: 验证结果汇总
+    runs-on: ubuntu-latest
+    needs: [naming-validation, environment-validation, report-validation]
+    if: always()
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      
+    - name: 下载所有验证报告
+      uses: actions/download-artifact@v4
+      with:
+        path: validation-artifacts/
+        
+    - name: 生成汇总报告
+      run: |
+        echo "# SeeDream 命名规范验证汇总" > validation-summary.md
+        echo "" >> validation-summary.md
+        echo "## 验证结果" >> validation-summary.md
+        echo "" >> validation-summary.md
+        
+        # 检查各个验证任务的状态
+        if [ "${{ needs.naming-validation.result }}" == "success" ]; then
+          echo "✅ 命名规范验证: 通过" >> validation-summary.md
+        else
+          echo "❌ 命名规范验证: 失败" >> validation-summary.md
+        fi
+        
+        if [ "${{ needs.environment-validation.result }}" == "success" ]; then
+          echo "✅ 环境变量验证: 通过" >> validation-summary.md
+        else
+          echo "❌ 环境变量验证: 失败" >> validation-summary.md
+        fi
+        
+        if [ "${{ needs.report-validation.result }}" == "success" ]; then
+          echo "✅ 测试报告验证: 通过" >> validation-summary.md
+        else
+          echo "❌ 测试报告验证: 失败" >> validation-summary.md
+        fi
+        
+        echo "" >> validation-summary.md
+        echo "## 详细信息" >> validation-summary.md
+        echo "" >> validation-summary.md
+        echo "- 执行时间: $(date)" >> validation-summary.md
+        echo "- 提交哈希: ${{ github.sha }}" >> validation-summary.md
+        echo "- 分支: ${{ github.ref_name }}" >> validation-summary.md
+        echo "- 触发事件: ${{ github.event_name }}" >> validation-summary.md
+        
+        cat validation-summary.md
+        
+    - name: 上传汇总报告
+      uses: actions/upload-artifact@v4
+      with:
+        name: validation-summary
+        path: validation-summary.md
+        retention-days: 30
+        
+    - name: 评论 PR（如果是 PR）
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          const summary = fs.readFileSync('validation-summary.md', 'utf8');
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: summary
+          });

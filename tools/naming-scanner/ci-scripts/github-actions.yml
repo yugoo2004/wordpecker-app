@@ -1,0 +1,127 @@
+name: 命名规范验证
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  naming-validation:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+    
+    - name: 设置 Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: 'tools/naming-scanner/package-lock.json'
+    
+    - name: 安装依赖
+      run: |
+        cd tools/naming-scanner
+        npm ci
+    
+    - name: 构建验证工具
+      run: |
+        cd tools/naming-scanner
+        npm run build
+    
+    - name: 验证环境变量命名一致性
+      run: |
+        cd tools/naming-scanner
+        npm run validate:env -- --verbose
+      continue-on-error: false
+    
+    - name: 验证测试报告格式
+      run: |
+        cd tools/naming-scanner
+        npm run validate:reports -- --verbose
+      continue-on-error: true
+    
+    - name: 验证 CI/CD 集成配置
+      run: |
+        cd tools/naming-scanner
+        npm run validate:ci -- --verbose
+      continue-on-error: true
+    
+    - name: 运行完整命名规范检查
+      run: |
+        cd tools/naming-scanner
+        npm run validate -- --verbose --output validation-report.json --format json
+      continue-on-error: false
+    
+    - name: 上传验证报告
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: naming-validation-report-${{ github.run_number }}
+        path: tools/naming-scanner/validation-report.json
+        retention-days: 30
+    
+    - name: 评论 PR（如果有错误）
+      if: failure() && github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          try {
+            const report = JSON.parse(fs.readFileSync('tools/naming-scanner/validation-report.json', 'utf8'));
+            const errors = report.results.overall.errors || [];
+            
+            if (errors.length > 0) {
+              const errorList = errors.slice(0, 5).map(err => `- ${err.message}`).join('\n');
+              const comment = `## 🚨 命名规范验证失败
+              
+发现 ${errors.length} 个命名规范问题：
+
+${errorList}
+
+${errors.length > 5 ? `... 还有 ${errors.length - 5} 个问题` : ''}
+
+请修复这些问题后重新提交。可以运行以下命令进行本地验证：
+\`\`\`bash
+cd tools/naming-scanner
+npm run validate
+\`\`\``;
+              
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: comment
+              });
+            }
+          } catch (error) {
+            console.log('无法读取验证报告或创建评论:', error.message);
+          }
+
+  # 可选：代码质量检查
+  code-quality:
+    runs-on: ubuntu-latest
+    needs: naming-validation
+    if: success()
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 设置 Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: 安装依赖
+      run: npm ci
+    
+    - name: 运行 ESLint
+      run: npm run lint
+      continue-on-error: true
+    
+    - name: 运行测试
+      run: npm test
+      continue-on-error: true

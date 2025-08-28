@@ -1,0 +1,62 @@
+{
+  "environment": {
+    "enabled": true,
+    "checkFiles": [
+      "**/.env*",
+      "**/config/**/*.env*",
+      "**/*.env.example"
+    ],
+    "requiredPrefix": "SEEDREAM_",
+    "allowedVariables": [
+      "SEEDREAM_API_KEY",
+      "SEEDREAM_API_URL",
+      "SEEDREAM_VERSION",
+      "SEEDREAM_DEBUG",
+      "SEEDREAM_LOG_LEVEL",
+      "SEEDREAM_DATABASE_URL",
+      "SEEDREAM_REDIS_URL"
+    ],
+    "forbiddenPatterns": [
+      "SEEDDREAM_*",
+      "SEEDRAM_*"
+    ]
+  },
+  "reports": {
+    "enabled": true,
+    "reportPaths": [
+      "**/*test-report*.json",
+      "**/reports/**/*.json",
+      "**/volcengine-api-test-report-*.json",
+      "**/backend/volcengine-api-test-report-*.json"
+    ],
+    "requiredFields": [
+      "serviceName",
+      "timestamp",
+      "results"
+    ],
+    "formatValidation": true,
+    "schemaValidation": true
+  },
+  "ci": {
+    "enabled": true,
+    "configFiles": [
+      ".github/workflows/*.yml",
+      ".github/workflows/*.yaml",
+      ".gitlab-ci.yml",
+      "Jenkinsfile",
+      "azure-pipelines.yml"
+    ],
+    "requiredSteps": [
+      "naming-validation",
+      "lint",
+      "test"
+    ],
+    "integrationChecks": true
+  },
+  "general": {
+    "strictMode": false,
+    "failOnWarnings": false,
+    "outputFormat": "text",
+    "logLevel": "info"
+  }
+}

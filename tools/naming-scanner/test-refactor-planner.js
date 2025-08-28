@@ -39,9 +39,9 @@ async function testRefactorPlanner() {
               category: 'environment',
               line: 1,
               column: 7,
-              originalText: 'SEEDDREAM_API_KEY',
+              originalText: 'SEEDREAM_API_KEY',
               suggestedFix: 'SEEDREAM_API_KEY',
-              context: 'const SEEDDREAM_API_KEY = process.env.SEEDDREAM_API_KEY;',
+              context: 'const SEEDREAM_API_KEY = process.env.SEEDREAM_API_KEY;',
               severity: 'high',
               pattern: 'environment-variable'
             }
@@ -84,7 +84,7 @@ async function testRefactorPlanner() {
     // 创建一个临时测试文件
     const fs = await import('fs/promises');
     const testFilePath = './test-file.ts';
-    await fs.writeFile(testFilePath, 'const SEEDDREAM_API_KEY = process.env.SEEDDREAM_API_KEY;', 'utf-8');
+    await fs.writeFile(testFilePath, 'const SEEDREAM_API_KEY = process.env.SEEDREAM_API_KEY;', 'utf-8');
 
     try {
       const plan = await planner.createPlan(mockScanResult, process.cwd());

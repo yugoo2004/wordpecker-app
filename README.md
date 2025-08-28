@@ -494,6 +494,43 @@ This script will:
 - **Deployment**: Docker support for development with hot reload
 - **Single User**: No authentication required - localStorage-based user identification
 
+## Code Quality & Standards
+
+### SeeDream 3.0 Naming Standardization
+
+This project has undergone comprehensive naming standardization to ensure consistency across all components. The standardization includes:
+
+- **Display Names**: All user-facing text uses "SeeDream 3.0"
+- **Environment Variables**: Standardized to `SEEDREAM_*` format
+- **Configuration Keys**: Unified as `seedream` format
+- **File Names**: Consistent `seedream-*` naming convention
+- **Service Classes**: Proper `SeedreamImageService` naming
+
+#### Automated Validation
+
+The project includes automated naming validation tools:
+
+```bash
+# Run naming validation
+npm run validate-naming
+
+# Or use the comprehensive scanner
+cd tools/naming-scanner
+npm run scan
+```
+
+#### CI/CD Integration
+
+Naming standards are automatically validated in our CI/CD pipeline:
+- GitHub Actions workflow validates all commits
+- Pre-commit hooks prevent naming violations
+- Automated reports track compliance
+
+For detailed information about the naming standardization process, see:
+- [Naming Changelog](SEEDREAM_NAMING_CHANGELOG.md)
+- [Comparison Report](SEEDREAM_NAMING_COMPARISON_REPORT.md)
+- [Naming Standards Guide](SEEDREAM_NAMING_STANDARDS.md)
+
 ## Contributing
 
 Contributions are welcome!
@@ -501,8 +538,16 @@ Contributions are welcome!
 1. Fork the repo
 2. Create a feature branch
 3. Commit changes
-4. Push to your branch
-5. Open a pull request
+4. **Ensure naming standards compliance** (run `npm run validate-naming`)
+5. Push to your branch
+6. Open a pull request
+
+### Development Guidelines
+
+- Follow the established naming conventions (see [Naming Standards Guide](SEEDREAM_NAMING_STANDARDS.md))
+- Run validation tools before committing
+- Update documentation when adding new features
+- Maintain test coverage for new functionality
 
 ## License
 

@@ -1,0 +1,151 @@
+stages:
+  - validate
+  - quality
+
+variables:
+  NODE_VERSION: "18"
+  NAMING_SCANNER_PATH: "tools/naming-scanner"
+
+# 缓存配置
+.node_cache: &node_cache
+  cache:
+    key: 
+      files:
+        - tools/naming-scanner/package-lock.json
+    paths:
+      - tools/naming-scanner/node_modules/
+
+# 基础配置
+.naming_base: &naming_base
+  image: node:${NODE_VERSION}
+  <<: *node_cache
+  before_script:
+    - cd $NAMING_SCANNER_PATH
+    - npm ci
+    - npm run build
+
+# 环境变量验证
+validate:environment:
+  <<: *naming_base
+  stage: validate
+  script:
+    - npm run validate:env -- --verbose
+  artifacts:
+    when: always
+    reports:
+      junit: validation-env-report.xml
+    paths:
+      - $NAMING_SCANNER_PATH/validation-env-report.json
+    expire_in: 1 week
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+# 测试报告验证
+validate:reports:
+  <<: *naming_base
+  stage: validate
+  script:
+    - npm run validate:reports -- --verbose
+  artifacts:
+    when: always
+    paths:
+      - $NAMING_SCANNER_PATH/validation-reports-report.json
+    expire_in: 1 week
+  allow_failure: true
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+# CI/CD 集成验证
+validate:ci:
+  <<: *naming_base
+  stage: validate
+  script:
+    - npm run validate:ci -- --verbose
+  artifacts:
+    when: always
+    paths:
+      - $NAMING_SCANNER_PATH/validation-ci-report.json
+    expire_in: 1 week
+  allow_failure: true
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+# 完整命名规范验证
+validate:complete:
+  <<: *naming_base
+  stage: validate
+  script:
+    - npm run validate -- --verbose --output validation-complete-report.json --format json
+    - |
+      if [ -f validation-complete-report.json ]; then
+        echo "验证报告生成成功"
+        cat validation-complete-report.json | jq '.summary'
+      fi
+  artifacts:
+    when: always
+    reports:
+      junit: validation-complete-report.xml
+    paths:
+      - $NAMING_SCANNER_PATH/validation-complete-report.json
+    expire_in: 1 month
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+# 代码质量检查（可选）
+quality:lint:
+  image: node:${NODE_VERSION}
+  stage: quality
+  needs: ["validate:complete"]
+  cache:
+    key: 
+      files:
+        - package-lock.json
+    paths:
+      - node_modules/
+  before_script:
+    - npm ci
+  script:
+    - npm run lint
+  allow_failure: true
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "develop"
+
+# 测试执行（可选）
+quality:test:
+  image: node:${NODE_VERSION}
+  stage: quality
+  needs: ["validate:complete"]
+  cache:
+    key: 
+      files:
+        - package-lock.json
+    paths:
+      - node_modules/
+  before_script:
+    - npm ci
+  script:
+    - npm test
+  coverage: '/Lines\s*:\s*(\d+\.\d+)%/'
+  artifacts:
+    when: always
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage/cobertura-coverage.xml
+      junit: junit.xml
+    paths:
+      - coverage/
+    expire_in: 1 week
+  allow_failure: true
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "develop"

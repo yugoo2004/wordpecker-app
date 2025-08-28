@@ -1,0 +1,70 @@
+# GitHub Actions 工作流示例
+# 集成 SeeDream 命名规范验证
+
+name: SeeDream 命名规范验证
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  naming-validation:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      
+    - name: 设置 Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: 安装依赖
+      run: |
+        npm ci
+        cd tools/naming-scanner && npm ci
+        
+    - name: 构建命名扫描工具
+      run: |
+        cd tools/naming-scanner
+        npm run build
+        
+    - name: 运行命名规范验证
+      run: |
+        node scripts/validate-naming.js --output naming-validation-report.md
+        
+    - name: 上传验证报告
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: naming-validation-report
+        path: naming-validation-report.md
+        
+    - name: 环境变量验证
+      run: |
+        cd tools/naming-scanner
+        npm run start -- validate env --output env-validation.json
+        
+    - name: 测试报告验证
+      run: |
+        cd tools/naming-scanner
+        npm run start -- validate reports --output report-validation.json
+        
+    - name: CI 配置验证
+      run: |
+        cd tools/naming-scanner
+        npm run start -- validate ci --output ci-validation.json
+        
+    - name: 上传详细验证结果
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: detailed-validation-results
+        path: |
+          env-validation.json
+          report-validation.json
+          ci-validation.json

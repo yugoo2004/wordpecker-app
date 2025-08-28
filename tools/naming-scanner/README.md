@@ -12,7 +12,7 @@
 
 ## 📋 支持的命名模式
 
-| 类别 | 正确格式 | 错误格式 | 描述 |
+| 类别 | 正确格式 | 常见错误格式 | 描述 |
 |------|----------|----------|------|
 | 环境变量 | `SEEDREAM_*` | `SEEDDREAM_*`, `SEEDRAM_*` | 环境变量前缀 |
 | 配置键值 | `seedream` | `seeddream`, `seedram` | 配置文件中的键值 |
@@ -135,7 +135,7 @@ src/
 import { NamingScanner } from './src/index.js';
 
 const scanner = new NamingScanner({
-  rootPath: './my-project',
+  rootPath: './seedream-project',
   excludePatterns: ['node_modules/**', 'dist/**']
 });
 
@@ -147,7 +147,7 @@ await scanner.saveReport(result, './reports');
 
 ```typescript
 const scanner = new NamingScanner({
-  rootPath: './my-project',
+  rootPath: './seedream-project',
   includePatterns: ['**/*.ts', '**/*.js', '**/*.vue'],
   excludePatterns: ['node_modules/**', '**/*.test.ts'],
   fileTypes: ['.ts', '.js', '.vue', '.json'],
