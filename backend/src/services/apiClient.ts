@@ -157,7 +157,7 @@ export class ApiClient {
     }
 
     // 检查超时错误
-    if (error.message?.includes('timeout')) {
+    if ((error instanceof Error ? error.message : String(error))?.includes('timeout')) {
       return true;
     }
 
@@ -198,12 +198,12 @@ export class ApiClient {
     if (error.request) {
       return {
         code: error.code,
-        message: error.message
+        message: (error instanceof Error ? error.message : String(error))
       };
     }
 
     return {
-      message: error.message
+      message: (error instanceof Error ? error.message : String(error))
     };
   }
 
@@ -289,7 +289,7 @@ export class ApiClient {
         default:
           return new ApiError({
             code: 'NETWORK_ERROR',
-            message: `${this.serviceName} 网络错误: ${error.message}`
+            message: `${this.serviceName} 网络错误: ${(error instanceof Error ? error.message : String(error))}`
           });
       }
     }
@@ -297,7 +297,7 @@ export class ApiClient {
     // 默认错误
     return new ApiError({
       code: 'UNKNOWN_ERROR',
-      message: `${this.serviceName} 未知错误: ${error.message || '请求失败'}`
+      message: `${this.serviceName} 未知错误: ${(error instanceof Error ? error.message : String(error)) || '请求失败'}`
     });
   }
 

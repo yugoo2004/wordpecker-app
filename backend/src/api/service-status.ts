@@ -58,7 +58,7 @@ router.get('/status', (req, res) => {
 
     res.json(response);
   } catch (error: any) {
-    logger.error('获取服务状态失败', { error: error.message });
+    logger.error('获取服务状态失败', { error: (error instanceof Error ? error.message : String(error)) });
     res.status(500).json({
       success: false,
       error: '获取服务状态失败'
@@ -86,7 +86,7 @@ router.post('/ai/reset', (req, res) => {
       data: newStatus
     });
   } catch (error: any) {
-    logger.error('重置 AI 服务失败状态失败', { error: error.message });
+    logger.error('重置 AI 服务失败状态失败', { error: (error instanceof Error ? error.message : String(error)) });
     res.status(500).json({
       success: false,
       error: '重置失败状态失败'
@@ -111,7 +111,7 @@ router.post('/multimodal/reset', (req, res) => {
       data: newStatus
     });
   } catch (error: any) {
-    logger.error('重置多模态服务失败状态失败', { error: error.message });
+    logger.error('重置多模态服务失败状态失败', { error: (error instanceof Error ? error.message : String(error)) });
     res.status(500).json({
       success: false,
       error: '重置失败状态失败'
@@ -139,7 +139,7 @@ router.post('/voice/reset', (req, res) => {
       data: newStatus
     });
   } catch (error: any) {
-    logger.error('重置语音服务失败状态失败', { error: error.message });
+    logger.error('重置语音服务失败状态失败', { error: (error instanceof Error ? error.message : String(error)) });
     res.status(500).json({
       success: false,
       error: '重置失败状态失败'
@@ -177,7 +177,7 @@ router.get('/health', (req, res) => {
       }
     });
   } catch (error: any) {
-    logger.error('健康检查失败', { error: error.message });
+    logger.error('健康检查失败', { error: (error instanceof Error ? error.message : String(error)) });
     res.status(500).json({
       success: false,
       status: 'error',

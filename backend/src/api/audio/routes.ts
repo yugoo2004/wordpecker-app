@@ -83,7 +83,7 @@ router.post('/generate',
     } catch (error) {
       console.error('Audio generation error:', error);
       
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error occurred';
       
       res.status(500).json({
         error: 'Failed to generate audio',
@@ -265,7 +265,7 @@ router.post('/word-pronunciation',
     } catch (error) {
       console.error('Word pronunciation error:', error);
       
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error occurred';
       
       res.status(500).json({
         error: 'Failed to generate word pronunciation',
@@ -331,7 +331,7 @@ router.post('/sentence-pronunciation',
     } catch (error) {
       console.error('Sentence pronunciation error:', error);
       
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error occurred';
       
       res.status(500).json({
         error: 'Failed to generate sentence pronunciation',

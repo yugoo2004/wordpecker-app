@@ -156,16 +156,16 @@ async function testMongoConnection() {
     console.error('\n❌ MongoDB 连接测试失败:');
     
     if (error instanceof Error) {
-      console.error(`   错误信息: ${error.message}`);
+      console.error(`   错误信息: ${(error instanceof Error ? error.message : String(error))}`);
       
       // 提供具体的错误诊断
-      if (error.message.includes('ENOTFOUND')) {
+      if ((error instanceof Error ? error.message : String(error)).includes('ENOTFOUND')) {
         console.error('   🔍 诊断: DNS 解析失败，请检查数据库主机地址');
-      } else if (error.message.includes('ECONNREFUSED')) {
+      } else if ((error instanceof Error ? error.message : String(error)).includes('ECONNREFUSED')) {
         console.error('   🔍 诊断: 连接被拒绝，请检查数据库端口和网络连接');
-      } else if (error.message.includes('Authentication failed')) {
+      } else if ((error instanceof Error ? error.message : String(error)).includes('Authentication failed')) {
         console.error('   🔍 诊断: 认证失败，请检查用户名和密码');
-      } else if (error.message.includes('timeout')) {
+      } else if ((error instanceof Error ? error.message : String(error)).includes('timeout')) {
         console.error('   🔍 诊断: 连接超时，请检查网络连接和防火墙设置');
       }
     }

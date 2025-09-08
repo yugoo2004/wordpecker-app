@@ -6,171 +6,6 @@
     "auditLog": "/home/devbox/project/backend/logs/combined-audit.json",
     "files": [
         {
-            "date": 1755650631270,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-20.log",
-            "hash": "5b7dbc915cc9337cdf3145a2c6a570b624cd3dcad28acc44fb08141f9ea4b7f0"
-        },
-        {
-            "date": 1755759659751,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-21.log",
-            "hash": "64ab42366db1f37fbf435801b9fbbea0f2521497ef3da54bafa71033735d7a1d"
-        },
-        {
-            "date": 1755855897832,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-22.log",
-            "hash": "d680b5beeec6d1418ca4fff5460d6a8d2551759ff1aca11c09d4e8b85963cc4d"
-        },
-        {
-            "date": 1756009627137,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log",
-            "hash": "241819956a807e02866de2acfb4e239f783cc889b59ff682a56f79744800413b"
-        },
-        {
-            "date": 1756045608582,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.1",
-            "hash": "7a1e0e3344cdd3321c8baff80b2b79f1a0bcb89df0568b7be2c4ccf4c93aa89c"
-        },
-        {
-            "date": 1756045613554,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.2",
-            "hash": "a348aaf16849534c7915db27731785af00b3b2c2e205641331f0e2b250084baa"
-        },
-        {
-            "date": 1756045618578,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.3",
-            "hash": "ca390335725f51981e8312df0ba914a02cbad12d57d267404d407173e0b57193"
-        },
-        {
-            "date": 1756045623690,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.4",
-            "hash": "c6d1c427bd6833a860e184827cbbcd6e19fd969e0a82f39996c4ee3c43eb49d5"
-        },
-        {
-            "date": 1756045628874,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.5",
-            "hash": "a57fc72d9d2950efc9f4f832d961d80eca669a8b8f394a06284978597aa2b216"
-        },
-        {
-            "date": 1756045634153,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.6",
-            "hash": "4c1aac8b22695c7ef5ae365cb07b6098d821f9b309fda9e62c6e1e6eeb776cef"
-        },
-        {
-            "date": 1756045638408,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.7",
-            "hash": "1c461898bba8e97041d5d1086649234b767e7d637515f5f3e28fac7cc2240bcc"
-        },
-        {
-            "date": 1756045650054,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.8",
-            "hash": "aa199b474ba6c48c1abe9d44f7494f478972c1355f36a6b75538483fb1c26ea8"
-        },
-        {
-            "date": 1756045653399,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.9",
-            "hash": "e538a5891318cbe6d9d02bea64ccf53055013920663773056698e54f9e01d906"
-        },
-        {
-            "date": 1756045656338,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.10",
-            "hash": "fc0a8c72c675a6567bd88bbf6c4e923c6f6bd56b16afce5153eb7e7476da1d25"
-        },
-        {
-            "date": 1756045659120,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.11",
-            "hash": "6d676323123b37ac52c1c728480bf494eb79bca023b977aa7a7242eae70b8619"
-        },
-        {
-            "date": 1756045662076,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.12",
-            "hash": "e0cbe1e4980ee586ee7c9143ca292bd9fc199f8f3fd7074a6c5eab1df0e51067"
-        },
-        {
-            "date": 1756045665032,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.13",
-            "hash": "052305818193016067bcf22c2d6871437cbe217346baec0aedc19e41d79163f2"
-        },
-        {
-            "date": 1756045667883,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.14",
-            "hash": "8d03eee43d3de0af3a2120515cf0804a1cf93d211fd6fea002c469d69082f943"
-        },
-        {
-            "date": 1756045670765,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.15",
-            "hash": "969d2c98d1a11089de3261ae5bad05f2735e2f9b1711d51389775bd7cbfbcd76"
-        },
-        {
-            "date": 1756045673809,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.16",
-            "hash": "3dd4665980250e817e59fbb8e2195ec554ef391d9d1d658b1b82ea902cd83862"
-        },
-        {
-            "date": 1756045677031,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.17",
-            "hash": "2bb245b2066e3a331e288b38fa66d97f8dfb6139ced0e1016c5b7687ae57e438"
-        },
-        {
-            "date": 1756045680638,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.18",
-            "hash": "f5a7a7216d891f396dc8ec1cce4f3d78bfa6f38d278857125bad5dce918a6b8b"
-        },
-        {
-            "date": 1756045683673,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.19",
-            "hash": "2b6ee687ab5c27360f420eb2efa507a6d6a740d8e71580b458d7c0a8bcdc92e9"
-        },
-        {
-            "date": 1756045686853,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.20",
-            "hash": "5819d179d6d2106c956fc1544e0ff41f65b027003980123571c6972a987017ea"
-        },
-        {
-            "date": 1756045690143,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.21",
-            "hash": "95e6501554466dbe23f8e7b4503bf18c838ca240f62ac2dc16657b7707d96def"
-        },
-        {
-            "date": 1756045720194,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.22",
-            "hash": "1f03b5692b6955ee7b19bbaa2e46988f80b4604d194e03799bab4b8bc096b4aa"
-        },
-        {
-            "date": 1756046933302,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.23",
-            "hash": "fc9400b6e1320965d22da4fcb58a3866874382d1212cd4cb138f79a9335b0f4e"
-        },
-        {
-            "date": 1756046936870,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.24",
-            "hash": "9016dea56e3f3c61a1af3cea8673762b3c1cca5a0e3d5eae1766e8d88e43bd8b"
-        },
-        {
-            "date": 1756046961115,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.25",
-            "hash": "758848c33be8fb50c60053ab927bd13947834b1a905dbee95de07ad52212481b"
-        },
-        {
-            "date": 1756046988948,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.26",
-            "hash": "a18afcfc309e2a520cdaa44565620d7b9c4115811a5ef664bce0938d5e1ded61"
-        },
-        {
-            "date": 1756047244877,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.27",
-            "hash": "f3a01d5c26c8f1f0b9ef5f9f44696c4b35d444cc0400fbca7b6e1a2597980be0"
-        },
-        {
-            "date": 1756047252677,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-24.log.28",
-            "hash": "f8eddcd679a5462080ef3927cc0d4df08a8369b4ff19f62b25dff0da5e43c0a0"
-        },
-        {
-            "date": 1756086274827,
-            "name": "/home/devbox/project/backend/logs/combined-2025-08-25.log",
-            "hash": "1ce87bb7175509e3a8f6cf48730beebb980cc08e828ed76cf6d85a2258f7581c"
-        },
-        {
             "date": 1756113924908,
             "name": "/home/devbox/project/backend/logs/combined-2025-08-25.log.1",
             "hash": "9ab2d08a9b109432330f40a02f2062ee9e1810c3954572d13835564195da35eb"
@@ -309,6 +144,36 @@
             "date": 1756366037348,
             "name": "/home/devbox/project/backend/logs/combined-2025-08-28.log",
             "hash": "d124745caa84b0bc657509f18020f46a8afe03ebd408ea69c6d29e952c30e022"
+        },
+        {
+            "date": 1756437036375,
+            "name": "/home/devbox/project/backend/logs/combined-2025-08-29.log",
+            "hash": "51b7e2a8885530e13af581fd001b6947f866067129d5cbd58f3e133660feaf1d"
+        },
+        {
+            "date": 1756909046321,
+            "name": "/home/devbox/project/backend/logs/combined-2025-09-03.log",
+            "hash": "b2b8b374ddc11e558ea6e2fc1238bdce7830cf7c96e02cfb4703c764599eb624"
+        },
+        {
+            "date": 1756935898945,
+            "name": "/home/devbox/project/backend/logs/combined-2025-09-04.log",
+            "hash": "f015e6ba1d1a3a9b166f90d85ad748eb0bd8ac94f240963fa56d6b45f208b29d"
+        },
+        {
+            "date": 1757032150692,
+            "name": "/home/devbox/project/backend/logs/combined-2025-09-05.log",
+            "hash": "f062ea00e1babe200befc7d92179e0805c1d4707d245011a93dd24c6bd7e9497"
+        },
+        {
+            "date": 1757235489778,
+            "name": "/home/devbox/project/backend/logs/combined-2025-09-07.log",
+            "hash": "dd85a0b38416342ff19becbd142b3c3821f64c2ef7a3ef9af0604a30d2d534f0"
+        },
+        {
+            "date": 1757300631105,
+            "name": "/home/devbox/project/backend/logs/combined-2025-09-08.log",
+            "hash": "0cbb1a0c7f64844c2cf2ba607716866da549053fcaf9dc2b9bf80f5849b0620f"
         }
     ],
     "hashType": "sha256"

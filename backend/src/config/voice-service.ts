@@ -109,7 +109,7 @@ class VoiceServiceManager {
     this.failedProviders.add(provider);
     this.lastFailureTime.set(provider, Date.now());
     logger.error(`语音服务提供商标记为失败: ${provider}`, {
-      error: error.message || error,
+      error: (error instanceof Error ? error.message : String(error)) || error,
       provider,
       cooldownMinutes: this.FAILURE_COOLDOWN / 60000
     });
@@ -427,7 +427,7 @@ class VoiceServiceManager {
       } catch (error: any) {
         lastError = error;
         logger.warn(`语音服务请求失败，尝试切换提供商: ${provider}`, {
-          error: error.message || error,
+          error: (error instanceof Error ? error.message : String(error)) || error,
           provider
         });
         continue;

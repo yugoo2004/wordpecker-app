@@ -40,7 +40,7 @@ async function testImageQualityEnhancements() {
         }
         
       } catch (error) {
-        console.error(`❌ 查询 "${query}" 失败:`, error instanceof Error ? error.message : error);
+        console.error(`❌ 查询 "${query}" 失败:`, error instanceof Error ? (error instanceof Error ? error.message : String(error)) : error);
       }
     }
 
@@ -70,7 +70,7 @@ async function testImageQualityEnhancements() {
         }
         
       } catch (error) {
-        console.error(`❌ 上下文测试 "${test.original}" 失败:`, error instanceof Error ? error.message : error);
+        console.error(`❌ 上下文测试 "${test.original}" 失败:`, error instanceof Error ? (error instanceof Error ? error.message : String(error)) : error);
       }
     }
 
@@ -99,7 +99,7 @@ async function testImageQualityEnhancements() {
       console.log(`${hasQualityInfo ? '✅' : '❌'} 包含质量信息`);
       
     } catch (error) {
-      console.error('❌ 描述生成测试失败:', error instanceof Error ? error.message : error);
+      console.error('❌ 描述生成测试失败:', error instanceof Error ? (error instanceof Error ? error.message : String(error)) : error);
     }
 
     // 测试4: 验证随机查询生成的多样性
@@ -112,7 +112,7 @@ async function testImageQualityEnhancements() {
         randomQueries.push(result.prompt);
         console.log(`${i + 1}. "${result.prompt}"`);
       } catch (error) {
-        console.error(`❌ 随机查询 ${i + 1} 失败:`, error instanceof Error ? error.message : error);
+        console.error(`❌ 随机查询 ${i + 1} 失败:`, error instanceof Error ? (error instanceof Error ? error.message : String(error)) : error);
       }
     }
     

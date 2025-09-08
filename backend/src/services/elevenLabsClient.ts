@@ -272,7 +272,7 @@ export class EnhancedElevenLabsClient {
     }
 
     // 超时错误
-    if (error.message?.includes('timeout')) {
+    if ((error instanceof Error ? error.message : String(error))?.includes('timeout')) {
       return true;
     }
 
@@ -312,15 +312,15 @@ export class EnhancedElevenLabsClient {
       };
     }
 
-    if (error.status && error.message) {
+    if (error.status && (error instanceof Error ? error.message : String(error))) {
       return {
         status: error.status,
-        message: error.message
+        message: (error instanceof Error ? error.message : String(error))
       };
     }
 
     return {
-      message: error.message,
+      message: (error instanceof Error ? error.message : String(error)),
       code: error.code
     };
   }
@@ -376,7 +376,7 @@ export class EnhancedElevenLabsClient {
         default:
           return new ApiError({
             code: 'ELEVENLABS_ERROR',
-            message: `ElevenLabs API 错误: ${error.message || '未知错误'}`,
+            message: `ElevenLabs API 错误: ${(error instanceof Error ? error.message : String(error)) || '未知错误'}`,
             statusCode: status
           });
       }
@@ -405,14 +405,14 @@ export class EnhancedElevenLabsClient {
         default:
           return new ApiError({
             code: 'NETWORK_ERROR',
-            message: `ElevenLabs 网络错误: ${error.message}`
+            message: `ElevenLabs 网络错误: ${(error instanceof Error ? error.message : String(error))}`
           });
       }
     }
 
     return new ApiError({
       code: 'UNKNOWN_ERROR',
-      message: `ElevenLabs 未知错误: ${error.message || '请求失败'}`
+      message: `ElevenLabs 未知错误: ${(error instanceof Error ? error.message : String(error)) || '请求失败'}`
     });
   }
 

@@ -42,7 +42,7 @@ export const generateAiImage = tool({
       };
     } catch (error) {
       logger.error('Error generating image with SeeDream 3.0:', error);
-      throw new Error(`Failed to generate AI image: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      throw new Error(`Failed to generate AI image: ${error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error'}`);
     }
   }
 });

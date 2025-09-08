@@ -198,7 +198,7 @@ export class SeedreamImageService {
       (error) => {
         const errorInfo = {
           status: error.response?.status,
-          message: error.response?.data?.error?.message || error.message,
+          message: error.response?.data?.error?.message || (error instanceof Error ? error.message : String(error)),
           url: error.config?.url
         };
         logger.error('SeeDream API响应错误', errorInfo);
@@ -281,7 +281,7 @@ export class SeedreamImageService {
 
     } catch (error: any) {
       logger.error('SeeDream图像生成失败，尝试降级到Pexels图片', {
-        error: error.message,
+        error: (error instanceof Error ? error.message : String(error)),
         promptLength: prompt.length
       });
       
@@ -309,7 +309,7 @@ export class SeedreamImageService {
         });
         results.push(result);
       } catch (error: any) {
-        logger.warn(`第${i + 1}张图像生成失败`, { error: error.message });
+        logger.warn(`第${i + 1}张图像生成失败`, { error: (error instanceof Error ? error.message : String(error)) });
         // 继续生成其他图像
       }
     }
@@ -417,8 +417,8 @@ export class SeedreamImageService {
       return filePath;
 
     } catch (error: any) {
-      logger.error('图像下载失败', { url, error: error.message });
-      throw new Error(`图像下载失败: ${error.message}`);
+      logger.error('图像下载失败', { url, error: (error instanceof Error ? error.message : String(error)) });
+      throw new Error(`图像下载失败: ${(error instanceof Error ? error.message : String(error))}`);
     }
   }
 
@@ -459,7 +459,7 @@ export class SeedreamImageService {
       return new Error('SeeDream API服务器错误，请稍后重试');
     }
 
-    return new Error(`SeeDream 3.0 API未知错误: ${error.message}`);
+    return new Error(`SeeDream 3.0 API未知错误: ${(error instanceof Error ? error.message : String(error))}`);
   }
 
   /**
@@ -489,7 +489,7 @@ export class SeedreamImageService {
     } catch (error: any) {
       return {
         available: false,
-        error: error.message
+        error: (error instanceof Error ? error.message : String(error))
       };
     }
   }

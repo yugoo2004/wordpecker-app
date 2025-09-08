@@ -253,7 +253,7 @@ class AIServiceManager {
     
     // 基本错误日志
     logger.error(`AI 服务提供商标记为失败: ${provider}`, {
-      error: error.message || error,
+      error: (error instanceof Error ? error.message : String(error)) || error,
       provider,
       cooldownMinutes: this.FAILURE_COOLDOWN / 60000
     });
@@ -272,7 +272,7 @@ class AIServiceManager {
       timestamp: new Date().toISOString(),
       provider,
       errorType: error.constructor?.name || 'Unknown',
-      message: error.message || error,
+      message: (error instanceof Error ? error.message : String(error)) || error,
       stack: error.stack,
       config: {
         provider: AI_CONFIGS[provider]?.provider,
@@ -311,7 +311,7 @@ class AIServiceManager {
       }
       
       // 如果是认证错误
-      if (error.status === 401 || error.message?.includes('auth') || error.message?.includes('key')) {
+      if (error.status === 401 || (error instanceof Error ? error.message : String(error))?.includes('auth') || (error instanceof Error ? error.message : String(error))?.includes('key')) {
         errorDetails.authDiagnostics = {
           suggestion: '请检查VOLCENGINE_ACCESS_KEY_ID和VOLCENGINE_SECRET_ACCESS_KEY是否配置正确',
           hasAccessKeyId: !!environment.ai.doubao.accessKeyId,
@@ -406,7 +406,7 @@ class AIServiceManager {
 
     } catch (error: any) {
       logger.error('多模态聊天完成失败', {
-        error: error.message,
+        error: (error instanceof Error ? error.message : String(error)),
         messagesCount: messages.length
       });
       
@@ -486,7 +486,7 @@ class AIServiceManager {
 
     } catch (error: any) {
       logger.error('图像分析失败', {
-        error: error.message,
+        error: (error instanceof Error ? error.message : String(error)),
         imageUrl: request.imageUrl?.substring(0, 100) + '...',
         analysisType: request.analysisType
       });
@@ -572,7 +572,7 @@ class AIServiceManager {
         this.markProviderAsFailed(config.provider, error);
 
         logger.warn(`AI 服务请求失败，尝试切换提供商: ${config.provider}`, {
-          error: error.message || error,
+          error: (error instanceof Error ? error.message : String(error)) || error,
           provider: config.provider,
           attempt: attempt + 1,
           willRetry: attempt < maxRetries - 1
@@ -607,7 +607,7 @@ class AIServiceManager {
     try {
       return await this.voiceService.generateSpeech(text, options);
     } catch (error: any) {
-      logger.error('语音生成失败', { error: error.message });
+      logger.error('语音生成失败', { error: (error instanceof Error ? error.message : String(error)) });
       throw error;
     }
   }
@@ -655,7 +655,7 @@ class AIServiceManager {
 
     } catch (error: any) {
       logger.error('SeeDream图像生成失败', {
-        error: error.message,
+        error: (error instanceof Error ? error.message : String(error)),
         promptLength: prompt.length
       });
       
@@ -735,7 +735,7 @@ class AIServiceManager {
     try {
       return await this.imageService.generateImage(prompt, options);
     } catch (error: any) {
-      logger.error('图像生成失败', { error: error.message });
+      logger.error('图像生成失败', { error: (error instanceof Error ? error.message : String(error)) });
       throw error;
     }
   }

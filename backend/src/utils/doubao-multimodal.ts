@@ -349,7 +349,7 @@ export class DoubaoResponseParser {
 
     } catch (error: any) {
       logger.error('词汇分析响应解析失败', {
-        error: error.message,
+        error: (error instanceof Error ? error.message : String(error)),
         responseContent: responseContent.substring(0, 200) + '...'
       });
       
@@ -375,7 +375,7 @@ export class DoubaoResponseParser {
 
     } catch (error: any) {
       logger.error('测验生成响应解析失败', {
-        error: error.message,
+        error: (error instanceof Error ? error.message : String(error)),
         responseContent: responseContent.substring(0, 200) + '...'
       });
       return null;

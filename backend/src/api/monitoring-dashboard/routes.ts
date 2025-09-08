@@ -24,7 +24,7 @@ router.get('/overview', async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -44,7 +44,7 @@ router.get('/metrics/realtime', async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -68,7 +68,7 @@ router.get('/metrics/history', async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -88,7 +88,7 @@ router.get('/services/status', async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -110,7 +110,7 @@ router.get('/alerts', async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -132,7 +132,7 @@ router.post('/alerts/rules', async (req, res) => {
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -152,7 +152,7 @@ router.get('/alerts/rules', async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -175,7 +175,7 @@ router.put('/alerts/rules/:id', async (req, res) => {
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -197,7 +197,7 @@ router.delete('/alerts/rules/:id', async (req, res) => {
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -219,7 +219,7 @@ router.post('/alerts/test', async (req, res) => {
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -262,7 +262,7 @@ router.get('/logs/stream', async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -341,7 +341,7 @@ async function getRealtimeMetrics() {
       timestamp: new Date().toISOString()
     };
   } catch (error) {
-    throw new Error(`Failed to read metrics: ${error.message}`);
+    throw new Error(`Failed to read metrics: ${(error instanceof Error ? error.message : String(error))}`);
   }
 }
 
@@ -375,7 +375,7 @@ async function getHistoricalMetrics(period: string, metric: string) {
     
     return data.sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime());
   } catch (error) {
-    throw new Error(`Failed to read historical metrics: ${error.message}`);
+    throw new Error(`Failed to read historical metrics: ${(error instanceof Error ? error.message : String(error))}`);
   }
 }
 
@@ -412,7 +412,7 @@ async function getServicesStatus() {
       }
     };
   } catch (error) {
-    throw new Error(`Failed to get services status: ${error.message}`);
+    throw new Error(`Failed to get services status: ${(error instanceof Error ? error.message : String(error))}`);
   }
 }
 
@@ -437,7 +437,7 @@ async function getSystemdServiceStatus() {
       name: 'wordpecker',
       active: false,
       status: 'inactive',
-      error: error.message
+      error: (error instanceof Error ? error.message : String(error))
     };
   }
 }
@@ -460,7 +460,7 @@ async function getCurrentResourceUsage() {
       timestamp: new Date().toISOString()
     };
   } catch (error) {
-    throw new Error(`Failed to get resource usage: ${error.message}`);
+    throw new Error(`Failed to get resource usage: ${(error instanceof Error ? error.message : String(error))}`);
   }
 }
 
@@ -478,7 +478,7 @@ async function getCpuUsage() {
       status: usage > 80 ? 'critical' : usage > 65 ? 'warning' : 'normal'
     };
   } catch (error) {
-    return { usage: 0, cores: 1, status: 'unknown', error: error.message };
+    return { usage: 0, cores: 1, status: 'unknown', error: (error instanceof Error ? error.message : String(error)) };
   }
 }
 
@@ -504,7 +504,7 @@ async function getMemoryUsage() {
       status: usage > 85 ? 'critical' : usage > 70 ? 'warning' : 'normal'
     };
   } catch (error) {
-    return { total: 0, used: 0, available: 0, usage: 0, status: 'unknown', error: error.message };
+    return { total: 0, used: 0, available: 0, usage: 0, status: 'unknown', error: (error instanceof Error ? error.message : String(error)) };
   }
 }
 
@@ -525,7 +525,7 @@ async function getDiskUsage() {
       status: usage > 85 ? 'critical' : usage > 75 ? 'warning' : 'normal'
     };
   } catch (error) {
-    return { total: '0G', used: '0G', available: '0G', usage: 0, status: 'unknown', error: error.message };
+    return { total: '0G', used: '0G', available: '0G', usage: 0, status: 'unknown', error: (error instanceof Error ? error.message : String(error)) };
   }
 }
 
@@ -638,7 +638,7 @@ async function createAlertRule(rule: any) {
     
     return newRule;
   } catch (error) {
-    throw new Error(`Failed to create alert rule: ${error.message}`);
+    throw new Error(`Failed to create alert rule: ${(error instanceof Error ? error.message : String(error))}`);
   }
 }
 
@@ -681,7 +681,7 @@ async function updateAlertRule(id: string, updates: any) {
     
     return rules[ruleIndex];
   } catch (error) {
-    throw new Error(`Failed to update alert rule: ${error.message}`);
+    throw new Error(`Failed to update alert rule: ${(error instanceof Error ? error.message : String(error))}`);
   }
 }
 
@@ -703,7 +703,7 @@ async function deleteAlertRule(id: string) {
     
     await fs.writeFile(rulesFile, JSON.stringify(filteredRules, null, 2));
   } catch (error) {
-    throw new Error(`Failed to delete alert rule: ${error.message}`);
+    throw new Error(`Failed to delete alert rule: ${(error instanceof Error ? error.message : String(error))}`);
   }
 }
 

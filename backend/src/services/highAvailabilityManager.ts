@@ -277,7 +277,7 @@ export class HighAvailabilityManager extends EventEmitter {
       logger.error('Health check failed:', error);
       return {
         isHealthy: false,
-        issues: [`Health check error: ${error.message}`],
+        issues: [`Health check error: ${(error instanceof Error ? error.message : String(error))}`],
         timestamp: new Date(),
         metrics: null,
         services: { total: 0, healthy: 0, failed: 0 }

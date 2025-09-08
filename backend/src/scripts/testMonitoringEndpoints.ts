@@ -72,7 +72,7 @@ async function testEndpoint(
   } catch (error) {
     const responseTime = Date.now() - startTime;
     console.log(`${method} ${endpoint} - 网络错误 (${responseTime}ms)`);
-    console.log('❌ 请求失败:', error instanceof Error ? error.message : '未知错误');
+    console.log('❌ 请求失败:', error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '未知错误');
     
     return {
       endpoint,
@@ -80,7 +80,7 @@ async function testEndpoint(
       status: 0,
       success: false,
       responseTime,
-      error: error instanceof Error ? error.message : '网络错误'
+      error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '网络错误'
     };
   }
 }

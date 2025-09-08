@@ -37,7 +37,7 @@ router.get('/', async (req: Request, res: Response) => {
       targetLanguage: preferences.targetLanguage
     });
   } catch (error) {
-    res.status(400).json({ error: error instanceof Error ? error.message : 'Failed to fetch preferences' });
+    res.status(400).json({ error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Failed to fetch preferences' });
   }
 });
 
@@ -73,7 +73,7 @@ router.put('/', validate(updatePreferencesSchema), async (req, res) => {
       targetLanguage: preferences.targetLanguage
     });
   } catch (error) {
-    res.status(400).json({ error: error instanceof Error ? error.message : 'Failed to update preferences' });
+    res.status(400).json({ error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Failed to update preferences' });
   }
 });
 

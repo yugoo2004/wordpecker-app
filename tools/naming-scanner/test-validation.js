@@ -1,202 +1,71 @@
 #!/usr/bin/env node
 
 /**
- * 自动化验证器功能测试
+ * 验证器功能测试脚本
  */
 
-import { ValidationRunner } from './dist/validator/validation-runner.js';
-import { EnvironmentValidator } from './dist/validator/environment-validator.js';
-import { ReportValidator } from './dist/validator/report-validator.js';
-import { CIValidator } from './dist/validator/ci-validator.js';
-import * as fs from 'fs/promises';
-import * as path from 'path';
+console.log('🧪 开始验证器功能测试...\n');
 
-async function testValidationSystem() {
-  console.log('🧪 开始自动化验证器功能测试...\n');
-
+async function testValidation() {
   try {
-    // 1. 测试配置创建和加载
-    console.log('1️⃣ 测试配置管理...');
-    
-    const defaultConfig = ValidationRunner.createDefaultConfig();
-    console.log('✅ 默认配置创建成功');
-    
-    const configValidation = ValidationRunner.validateConfig(defaultConfig);
-    if (configValidation.isValid) {
-      console.log('✅ 配置验证通过');
-    } else {
-      console.log('❌ 配置验证失败:', configValidation.errors);
-    }
+    // 动态导入模块
+    const { ValidationRunner } = await import('./dist/validator/validation-runner.js');
+    const { DEFAULT_VALIDATION_CONFIG } = await import('./dist/validator/config.js');
+    const fs = await import('fs/promises');
 
-    // 2. 测试环境变量验证器
-    console.log('\n2️⃣ 测试环境变量验证器...');
-    
-    const envValidator = new EnvironmentValidator(defaultConfig.environment);
-    
-    // 创建测试环境变量文件
-    const testEnvContent = `
-# 正确的环境变量
-SEEDREAM_API_KEY=test_key
-SEEDREAM_BASE_URL=https://api.example.com
+    // 1. 测试验证运行器创建
+    console.log('1️⃣ 测试验证运行器创建...');
+    const runner = new ValidationRunner(DEFAULT_VALIDATION_CONFIG);
+    console.log('✅ 验证运行器创建成功\n');
 
-# 错误的环境变量
+    // 2. 创建测试环境变量文件
+    console.log('2️⃣ 创建测试环境变量文件...');
+    const testEnvContent = `SEEDREAM_API_KEY=test-key
+SEEDREAM_DATABASE_URL=mongodb://localhost
 SEEDDREAM_WRONG_KEY=wrong
-SEEDRAM_ANOTHER_KEY=also_wrong
-
-# 其他环境变量
-NODE_ENV=development
-PORT=3000
-`;
+SEEDRAM_ANOTHER_KEY=also-wrong`;
 
     await fs.writeFile('.env.test', testEnvContent, 'utf-8');
-    
-    try {
-      const envResult = await envValidator.validate(process.cwd());
-      console.log(`✅ 环境变量验证完成: ${envResult.summary.errorCount} 错误, ${envResult.summary.warningCount} 警告`);
-      
-      if (envResult.errors.length > 0) {
-        console.log('   发现的错误:');
-        envResult.errors.slice(0, 3).forEach(error => {
-          console.log(`   - ${error.message}`);
-        });
-      }
-    } finally {
-      // 清理测试文件
-      try {
-        await fs.unlink('.env.test');
-      } catch (error) {
-        // 忽略清理错误
-      }
-    }
+    console.log('✅ 测试环境变量文件已创建\n');
 
-    // 3. 测试报告验证器
-    console.log('\n3️⃣ 测试报告验证器...');
-    
-    const reportValidator = new ReportValidator(defaultConfig.report);
-    
-    // 创建测试报告文件
+    // 3. 创建测试报告文件
+    console.log('3️⃣ 创建测试报告文件...');
     const testReport = {
       timestamp: new Date().toISOString(),
-      version: "3.0.0",
-      serviceName: "SeedRam 3.0", // 故意使用错误名称
-      summary: {
-        total: 10,
-        passed: 8,
-        failed: 2
-      },
-      tests: [
-        {
-          name: "test with SeedDream naming",
-          status: "passed"
-        }
-      ]
+      serviceName: 'SeedDream 3.0',
+      status: 'success',
+      results: [{ name: 'test1', status: 'passed', duration: 100 }],
+      performance: { responseTime: 200, throughput: 1000 }
     };
 
-    await fs.writeFile('test-report.json', JSON.stringify(testReport, null, 2), 'utf-8');
-    
-    try {
-      const reportResult = await reportValidator.validate(process.cwd());
-      console.log(`✅ 报告验证完成: ${reportResult.summary.errorCount} 错误, ${reportResult.summary.warningCount} 警告`);
-      
-      if (reportResult.errors.length > 0) {
-        console.log('   发现的错误:');
-        reportResult.errors.slice(0, 3).forEach(error => {
-          console.log(`   - ${error.message}`);
-        });
-      }
-    } finally {
-      // 清理测试文件
-      try {
-        await fs.unlink('test-report.json');
-      } catch (error) {
-        // 忽略清理错误
-      }
-    }
+    await fs.mkdir('test-reports', { recursive: true });
+    await fs.writeFile('test-reports/test-report.json', JSON.stringify(testReport, null, 2), 'utf-8');
+    console.log('✅ 测试报告文件已创建\n');
 
-    // 4. 测试 CI 验证器
-    console.log('\n4️⃣ 测试 CI 验证器...');
-    
-    const ciValidator = new CIValidator(
-      defaultConfig.ci,
-      envValidator,
-      reportValidator
-    );
+    // 4. 测试环境变量验证
+    console.log('4️⃣ 测试环境变量验证...');
+    const envResult = await runner.runEnvironmentValidation(process.cwd());
+    console.log(`✅ 环境变量验证完成: ${envResult.isValid ? '通过' : '失败'}`);
+    console.log(`   发现 ${envResult.errors.length} 个错误, ${envResult.warnings.length} 个警告\n`);
 
-    // 创建临时测试文件
-    await fs.writeFile('.env.test', testEnvContent, 'utf-8');
-    await fs.writeFile('test-report.json', JSON.stringify(testReport, null, 2), 'utf-8');
-    
-    try {
-      const ciResult = await ciValidator.validate(process.cwd());
-      console.log(`✅ CI 验证完成: ${ciResult.isValid ? '通过' : '失败'}`);
-      console.log(`   总检查: ${ciResult.summary.totalChecks}, 通过: ${ciResult.summary.passedChecks}`);
-    } finally {
-      // 清理测试文件
-      try {
-        await fs.unlink('.env.test');
-        await fs.unlink('test-report.json');
-      } catch (error) {
-        // 忽略清理错误
-      }
-    }
+    // 5. 测试报告验证
+    console.log('5️⃣ 测试报告验证...');
+    const reportResult = await runner.runReportValidation(process.cwd());
+    console.log(`✅ 报告验证完成: ${reportResult.isValid ? '通过' : '失败'}`);
+    console.log(`   发现 ${reportResult.errors.length} 个错误, ${reportResult.warnings.length} 个警告\n`);
 
-    // 5. 测试验证运行器
-    console.log('\n5️⃣ 测试验证运行器...');
-    
-    const runner = new ValidationRunner(defaultConfig);
-    
-    // 创建测试文件
-    await fs.writeFile('.env.test', testEnvContent, 'utf-8');
-    await fs.writeFile('test-report.json', JSON.stringify(testReport, null, 2), 'utf-8');
-    
-    try {
-      const runnerResult = await runner.runAll(process.cwd());
-      console.log(`✅ 验证运行器测试完成: ${runnerResult.isValid ? '通过' : '失败'}`);
-      
-      // 打印摘要
-      ValidationRunner.printSummary(runnerResult);
-      
-    } finally {
-      // 清理测试文件
-      try {
-        await fs.unlink('.env.test');
-        await fs.unlink('test-report.json');
-        await fs.unlink('validation-report.txt');
-      } catch (error) {
-        // 忽略清理错误
-      }
-    }
+    // 6. 测试 CI 验证
+    console.log('6️⃣ 测试 CI 验证...');
+    const ciResult = await runner.runCIValidation(process.cwd());
+    console.log(`✅ CI 验证完成: ${ciResult.isValid ? '通过' : '失败'}`);
+    console.log(`   发现 ${ciResult.errors.length} 个错误, ${ciResult.warnings.length} 个警告\n`);
 
-    // 6. 测试配置文件保存和加载
-    console.log('\n6️⃣ 测试配置文件操作...');
-    
-    const testConfigPath = './test-validation.config.json';
-    
-    try {
-      await ValidationRunner.saveConfig(defaultConfig, testConfigPath);
-      console.log('✅ 配置文件保存成功');
-      
-      const loadedConfig = await ValidationRunner.loadConfig(testConfigPath);
-      console.log('✅ 配置文件加载成功');
-      
-      // 验证加载的配置
-      const loadedValidation = ValidationRunner.validateConfig(loadedConfig);
-      if (loadedValidation.isValid) {
-        console.log('✅ 加载的配置验证通过');
-      } else {
-        console.log('❌ 加载的配置验证失败');
-      }
-      
-    } finally {
-      // 清理测试配置文件
-      try {
-        await fs.unlink(testConfigPath);
-      } catch (error) {
-        // 忽略清理错误
-      }
-    }
+    console.log('🎉 验证器测试完成！');
 
-    console.log('\n🎉 所有验证器测试通过！自动化验证系统功能正常。');
+    // 清理测试文件
+    await fs.unlink('.env.test');
+    await fs.rm('test-reports', { recursive: true, force: true });
+    console.log('🧹 测试文件已清理');
 
   } catch (error) {
     console.error('❌ 测试失败:', error);
@@ -204,5 +73,4 @@ PORT=3000
   }
 }
 
-// 运行测试
-testValidationSystem().catch(console.error);
+testValidation();

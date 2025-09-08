@@ -39,6 +39,36 @@
             "date": 1756366037352,
             "name": "/home/devbox/project/backend/logs/security-2025-08-28.log",
             "hash": "168b95d246e5f3826c3b6052afa885dced7d24d45d13f4488b62b32c5833d47c"
+        },
+        {
+            "date": 1756437036380,
+            "name": "/home/devbox/project/backend/logs/security-2025-08-29.log",
+            "hash": "5a2bc2f6db7640c56ae904109ab647adfe725cf3d0f73c441ca06d0fbf70464f"
+        },
+        {
+            "date": 1756909046327,
+            "name": "/home/devbox/project/backend/logs/security-2025-09-03.log",
+            "hash": "3679d02aa6cebe75153b23107e729b91fb80a9d23069d6a736580457d3b31bdb"
+        },
+        {
+            "date": 1756935898949,
+            "name": "/home/devbox/project/backend/logs/security-2025-09-04.log",
+            "hash": "2fab9a3676baa08e46bccbcc08a59efff6bf921a82e0b0e9f1ced77acf3921d7"
+        },
+        {
+            "date": 1757032151023,
+            "name": "/home/devbox/project/backend/logs/security-2025-09-05.log",
+            "hash": "b713a4d68327ad15573409d6d73e57822391dcdf34d3e4583369f6155c3ded33"
+        },
+        {
+            "date": 1757235489783,
+            "name": "/home/devbox/project/backend/logs/security-2025-09-07.log",
+            "hash": "0698109e1085d23cc50d917cb4cd28d6aef3ba3fd17efa3c0bcd1d7510527478"
+        },
+        {
+            "date": 1757340040052,
+            "name": "/home/devbox/project/backend/logs/security-2025-09-08.log",
+            "hash": "df9fd7f9caa9199e702f12289ca09921476f70c489f79faa383db160ea78ab5c"
         }
     ],
     "hashType": "sha256"

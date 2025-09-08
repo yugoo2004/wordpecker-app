@@ -1,32 +1,30 @@
-# SeeDream 命名规范验证指南
+# SeeDream 命名规范自动化验证指南
 
 ## 概述
 
-本验证系统提供了完整的自动化命名规范检查功能，确保 SeeDream 项目中的所有命名都符合统一标准。
+本验证工具提供了完整的自动化验证解决方案，用于检查 SeeDream 项目中的命名规范一致性。支持环境变量、测试报告格式和 CI/CD 集成的验证。
 
 ## 功能特性
 
 ### 🔍 环境变量验证
-- 检查环境变量前缀一致性 (`SEEDREAM_*`)
-- 识别错误的命名格式 (`SEEDDREAM_*`, `SEEDRAM_*`)
-- 验证环境变量引用的一致性
+- 检查环境变量命名一致性
+- 验证 `SEEDREAM_*` 前缀格式
+- 识别错误的 `SEEDDREAM_*` 和 `SEEDRAM_*` 格式
+- 提供修复建议
 
 ### 📊 测试报告验证
-- 验证测试报告的格式和结构
-- 检查服务名称的正确性
-- 确保报告包含必需的字段
+- 验证测试报告 JSON 格式
+- 检查必需字段完整性
+- 验证服务名称命名规范
+- 架构和数据类型验证
 
-### 🏷️ 通用命名检查
-- 文件命名规范验证
-- 配置文件内容检查
-- 文档中的命名一致性
+### ⚙️ CI/CD 集成验证
+- 检查 CI/CD 配置文件
+- 验证必需的验证步骤
+- 确保命名规范检查已集成
+- 支持 GitHub Actions、GitLab CI、Jenkins
 
-### 🔄 CI/CD 集成
-- GitHub Actions 工作流
-- 多种输出格式 (JSON, JUnit XML, Text)
-- 自动化报告生成
-
-## 快速开始
+## 安装和设置
 
 ### 1. 安装依赖
 
@@ -36,300 +34,415 @@ npm install
 npm run build
 ```
 
-### 2. 基本使用
+### 2. 生成默认配置
 
 ```bash
-# 运行完整验证
-npm run validate
-
-# 仅检查环境变量
-npm run validate:env
-
-# 仅检查测试报告
-npm run validate:reports
-
-# CI/CD 模式
-npm run validate:ci
+npm run start -- init-config --output validation.config.json
 ```
 
-### 3. 命令行工具
+## 使用方法
+
+### 命令行界面
+
+#### 运行所有验证
+```bash
+# 运行所有验证检查
+npm run validate
+
+# 严格模式（警告也会导致失败）
+npm run validate -- --strict
+
+# 输出报告到文件
+npm run validate -- --output validation-report.md
+```
+
+#### 单独验证模块
 
 ```bash
-# 生成配置文件
-node dist/cli-validator.js init
+# 仅验证环境变量
+npm run validate-env
 
+# 仅验证测试报告
+npm run validate-reports
+
+# 仅验证 CI/CD 配置
+npm run validate-ci
+```
+
+#### 使用 CLI 工具
+
+```bash
+# 完整验证
+npx tsx src/cli.ts validate
+
+# 环境变量验证
+npx tsx src/cli.ts validate-env --output env-report.json
+
+# 测试报告验证
+npx tsx src/cli.ts validate-reports --output report-validation.json
+
+# CI/CD 验证
+npx tsx src/cli.ts validate-ci --output ci-validation.json
+```
+
+### 独立验证脚本
+
+项目根目录提供了独立的验证脚本：
+
+```bash
 # 运行完整验证
-node dist/cli-validator.js validate
+node scripts/validate-naming.js
 
-# 显示帮助信息
-node dist/cli-validator.js help
+# 严格模式
+node scripts/validate-naming.js --strict
+
+# 仅验证环境变量
+node scripts/validate-naming.js --env-only
+
+# 仅验证测试报告
+node scripts/validate-naming.js --reports-only
+
+# 仅验证 CI/CD
+node scripts/validate-naming.js --ci-only
+
+# 输出报告
+node scripts/validate-naming.js --output validation-report.md
 ```
 
 ## 配置文件
-
-### 生成默认配置
-
-```bash
-node dist/cli-validator.js init --output validation.config.json
-```
 
 ### 配置文件结构
 
 ```json
 {
   "environment": {
+    "enabled": true,
+    "checkFiles": ["**/.env*"],
     "requiredPrefix": "SEEDREAM_",
-    "allowedPrefixes": ["SEEDREAM_"],
-    "excludePatterns": ["node_modules/**", "dist/**"],
-    "checkFiles": ["**/.env*", "**/src/**/*.ts"]
+    "allowedVariables": ["SEEDREAM_API_KEY"],
+    "forbiddenPatterns": ["SEEDDREAM_*", "SEEDRAM_*"]
   },
-  "report": {
-    "requiredFields": ["serviceName", "version", "timestamp"],
-    "allowedFormats": ["json", "xml"],
-    "schemaValidation": true,
-    "maxFileSize": 10485760
+  "reports": {
+    "enabled": true,
+    "reportPaths": ["**/*test-report*.json"],
+    "requiredFields": ["serviceName", "timestamp"],
+    "formatValidation": true,
+    "schemaValidation": true
   },
   "ci": {
-    "enabledChecks": ["environment", "reports", "naming"],
+    "enabled": true,
+    "configFiles": [".github/workflows/*.yml"],
+    "requiredSteps": ["naming-validation"],
+    "integrationChecks": true
+  },
+  "general": {
+    "strictMode": false,
     "failOnWarnings": false,
-    "outputFormat": "json",
-    "reportPath": "./validation-reports"
+    "outputFormat": "text",
+    "logLevel": "info"
   }
 }
 ```
 
-## CLI 命令参考
+### 配置选项说明
 
-### 完整验证
+#### 环境变量配置 (`environment`)
+- `enabled`: 是否启用环境变量验证
+- `checkFiles`: 要检查的文件模式
+- `requiredPrefix`: 必需的环境变量前缀
+- `allowedVariables`: 允许的环境变量列表
+- `forbiddenPatterns`: 禁止的命名模式
 
-```bash
-node dist/cli-validator.js validate [选项]
+#### 测试报告配置 (`reports`)
+- `enabled`: 是否启用报告验证
+- `reportPaths`: 报告文件路径模式
+- `requiredFields`: 必需的字段列表
+- `formatValidation`: 是否验证格式
+- `schemaValidation`: 是否验证架构
 
-选项:
-  -p, --project <path>     项目路径 (默认: 当前目录)
-  -c, --config <path>      配置文件路径
-  --fail-on-warnings       警告时也失败退出
-  --output <format>        输出格式 (json|junit|text)
-  --report-path <path>     报告输出路径
+#### CI/CD 配置 (`ci`)
+- `enabled`: 是否启用 CI 验证
+- `configFiles`: CI 配置文件模式
+- `requiredSteps`: 必需的验证步骤
+- `integrationChecks`: 是否检查集成状态
+
+## CI/CD 集成
+
+### GitHub Actions
+
+创建 `.github/workflows/naming-validation.yml`:
+
+```yaml
+name: 命名规范验证
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  naming-validation:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 设置 Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: 安装依赖
+      run: |
+        npm ci
+        cd tools/naming-scanner && npm ci && npm run build
+    
+    - name: 运行命名规范验证
+      run: |
+        node scripts/validate-naming.js --output naming-validation-report.md
+    
+    - name: 上传验证报告
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: naming-validation-report
+        path: naming-validation-report.md
 ```
 
-### 环境变量验证
+### GitLab CI
 
-```bash
-node dist/cli-validator.js env [选项]
+在 `.gitlab-ci.yml` 中添加：
 
-选项:
-  -p, --project <path>     项目路径
-  --prefix <prefix>        要求的环境变量前缀
+```yaml
+naming-validation:
+  stage: validate
+  image: node:18
+  
+  before_script:
+    - npm ci
+    - cd tools/naming-scanner && npm ci && npm run build
+    
+  script:
+    - node scripts/validate-naming.js --output naming-validation-report.md
+    
+  artifacts:
+    when: always
+    paths:
+      - naming-validation-report.md
+    expire_in: 1 week
 ```
 
-### 测试报告验证
+### Jenkins
 
-```bash
-node dist/cli-validator.js reports [选项]
-
-选项:
-  -p, --project <path>     项目路径
-  --max-size <size>        最大文件大小 (字节)
+```groovy
+pipeline {
+    agent any
+    
+    stages {
+        stage('命名规范验证') {
+            steps {
+                sh '''
+                    npm ci
+                    cd tools/naming-scanner
+                    npm ci && npm run build
+                    cd ../..
+                    node scripts/validate-naming.js --output naming-validation-report.md
+                '''
+            }
+            post {
+                always {
+                    archiveArtifacts artifacts: 'naming-validation-report.md'
+                }
+            }
+        }
+    }
+}
 ```
 
-### CI/CD 验证
+## 验证规则
 
-```bash
-node dist/cli-validator.js ci [选项]
+### 环境变量命名规则
 
-选项:
-  -p, --project <path>     项目路径
-  --checks <checks>        启用的检查项 (逗号分隔)
-  --fail-on-warnings       警告时也失败退出
-  --output <format>        输出格式
-  --report-path <path>     报告输出路径
-```
+| 正确格式 | 错误格式 | 说明 |
+|---------|---------|------|
+| `SEEDREAM_API_KEY` | `SEEDDREAM_API_KEY` | 前缀应为 SEEDREAM_ |
+| `SEEDREAM_CONFIG` | `SEEDRAM_CONFIG` | 避免缩写形式 |
+| `SEEDREAM_VERSION` | `seedream_version` | 使用大写格式 |
 
-## Shell 脚本使用
+### 测试报告命名规则
 
-项目根目录提供了 `scripts/validate-naming.sh` 脚本：
+| 字段 | 正确格式 | 错误格式 |
+|------|---------|---------|
+| serviceName | "SeeDream 3.0" | "SeedRam 3.0" |
+| appName | "SeeDream API" | "SeedDream API" |
+| 测试名称 | "SeeDream 功能测试" | "SeedRam 功能测试" |
 
-```bash
-# 基本验证
-./scripts/validate-naming.sh
+### CI/CD 集成要求
 
-# CI/CD 模式
-./scripts/validate-naming.sh --ci-mode
-
-# 仅检查环境变量
-./scripts/validate-naming.sh --env-only
-
-# 生成 JUnit 报告
-./scripts/validate-naming.sh --output junit --fail-on-warnings
-```
-
-### 脚本选项
-
-- `-h, --help`: 显示帮助信息
-- `-p, --project PATH`: 项目路径
-- `-c, --config PATH`: 配置文件路径
-- `-o, --output FORMAT`: 输出格式 (json|junit|text)
-- `-r, --report-path PATH`: 报告输出路径
-- `-f, --fail-on-warnings`: 警告时也失败退出
-- `-q, --quiet`: 静默模式
-- `-v, --verbose`: 详细输出模式
-- `--env-only`: 仅检查环境变量
-- `--reports-only`: 仅检查测试报告
-- `--ci-mode`: CI/CD 模式
-- `--install`: 安装验证工具依赖
-
-## GitHub Actions 集成
-
-项目包含了完整的 GitHub Actions 工作流 (`.github/workflows/naming-validation.yml`)：
-
-### 工作流功能
-
-1. **完整验证**: 运行所有命名规范检查
-2. **环境变量检查**: 专门检查环境变量命名
-3. **报告检查**: 验证测试报告格式
-4. **自动评论**: 在 PR 中自动评论验证结果
-
-### 触发条件
-
-- Push 到 main/develop 分支
-- Pull Request 到 main/develop 分支
-- 手动触发
-
-### 报告上传
-
-- 验证报告自动上传为 Artifacts
-- JUnit 格式报告集成到 GitHub 测试结果
-- 失败时自动在 PR 中评论详细信息
+- 必须包含命名验证步骤
+- 建议在 lint 阶段运行
+- 支持生成验证报告
+- 失败时应阻止部署
 
 ## 输出格式
 
-### JSON 格式
+### 文本格式输出
+
+```
+🚀 开始运行自动化验证...
+
+📋 验证环境变量命名一致性...
+✅ 环境变量验证完成: 5/5 通过
+
+📊 验证测试报告格式...
+✅ 测试报告验证完成: 3/3 通过
+
+🔧 验证 CI/CD 集成配置...
+✅ CI/CD 验证完成: 2/2 通过
+
+📊 验证总结:
+   状态: ✅ 通过
+   检查项: 10/10 通过
+   错误: 0 个
+   警告: 2 个
+   耗时: 1250ms
+```
+
+### JSON 格式输出
 
 ```json
 {
-  "timestamp": "2023-12-01T10:30:00Z",
-  "summary": {
-    "totalChecks": 150,
-    "passedChecks": 145,
-    "failedChecks": 5,
-    "errorCount": 3,
-    "warningCount": 2,
-    "executionTime": 1500
-  },
-  "errors": [
+  "isValid": true,
+  "errors": [],
+  "warnings": [
     {
-      "type": "environment-variable-error",
-      "message": "环境变量使用了错误的前缀",
-      "file": ".env.example",
-      "line": 5,
-      "severity": "high",
-      "suggestion": "使用 SEEDREAM_ 前缀"
+      "type": "environment-inconsistency",
+      "message": "变量 API_KEY 在不同文件中使用了不同的格式",
+      "suggestion": "建议统一使用: SEEDREAM_API_KEY"
     }
   ],
-  "warnings": [...],
-  "isValid": false
-}
-```
-
-### JUnit XML 格式
-
-适用于 CI/CD 系统的标准 JUnit XML 格式，可以被大多数 CI/CD 工具识别和展示。
-
-### Text 格式
-
-人类可读的纯文本格式，适用于本地开发和调试。
-
-## 常见问题
-
-### Q: 如何添加新的检查规则？
-
-A: 修改相应的验证器类：
-- 环境变量: `src/validator/environment-validator.ts`
-- 测试报告: `src/validator/report-validator.ts`
-- 通用命名: `src/validator/ci-validator.ts`
-
-### Q: 如何排除特定文件或目录？
-
-A: 在配置文件的 `excludePatterns` 中添加 glob 模式：
-
-```json
-{
-  "environment": {
-    "excludePatterns": [
-      "node_modules/**",
-      "dist/**",
-      "my-special-dir/**"
-    ]
+  "summary": {
+    "totalChecks": 10,
+    "passedChecks": 10,
+    "failedChecks": 0,
+    "warningCount": 2,
+    "duration": 1250
   }
 }
 ```
 
-### Q: 如何自定义环境变量前缀？
+## 故障排除
 
-A: 修改配置文件中的 `requiredPrefix`：
+### 常见问题
 
-```json
-{
-  "environment": {
-    "requiredPrefix": "MYAPP_",
-    "allowedPrefixes": ["MYAPP_", "LEGACY_"]
-  }
-}
-```
+1. **找不到配置文件**
+   ```bash
+   # 生成默认配置
+   npx tsx src/cli.ts init-config
+   ```
 
-### Q: 验证失败时如何调试？
+2. **依赖安装失败**
+   ```bash
+   # 清理并重新安装
+   rm -rf node_modules package-lock.json
+   npm install
+   ```
 
-A: 使用详细模式和查看报告：
+3. **TypeScript 编译错误**
+   ```bash
+   # 重新构建
+   npm run clean && npm run build
+   ```
 
-```bash
-# 详细输出
-./scripts/validate-naming.sh --verbose
+4. **权限错误**
+   ```bash
+   # 确保脚本有执行权限
+   chmod +x scripts/validate-naming.js
+   ```
 
-# 查看详细报告
-cat validation-reports/validation-report-*.json
-```
+### 调试模式
 
-## 开发和扩展
-
-### 添加新的验证器
-
-1. 在 `src/validator/` 目录创建新的验证器类
-2. 实现 `ValidationResult` 接口
-3. 在 `ValidationRunner` 中集成新验证器
-4. 添加相应的 CLI 命令
-
-### 测试验证器
+启用详细日志输出：
 
 ```bash
-# 运行验证器测试
-npm run test:validator
+# 设置日志级别
+export LOG_LEVEL=debug
+npm run validate
 
-# 运行单元测试
-npm test
-```
-
-### 构建和发布
-
-```bash
-# 构建项目
-npm run build
-
-# 清理构建文件
-npm run clean
+# 或使用 CLI 选项
+npx tsx src/cli.ts validate --log-level debug
 ```
 
 ## 最佳实践
 
-1. **定期运行验证**: 在开发过程中定期运行验证
-2. **CI/CD 集成**: 将验证集成到 CI/CD 流程中
-3. **配置管理**: 使用版本控制管理验证配置
-4. **团队协作**: 确保团队成员了解命名规范
-5. **持续改进**: 根据项目需求调整验证规则
+1. **定期运行验证**
+   - 在 pre-commit hook 中集成
+   - 在 CI/CD 流程中自动运行
+   - 定期手动检查
+
+2. **配置管理**
+   - 使用版本控制管理配置文件
+   - 为不同环境创建不同配置
+   - 定期更新验证规则
+
+3. **团队协作**
+   - 在团队中推广命名规范
+   - 提供培训和文档
+   - 建立代码审查流程
+
+4. **持续改进**
+   - 收集验证结果数据
+   - 分析常见问题模式
+   - 优化验证规则和性能
+
+## 扩展开发
+
+### 添加新的验证器
+
+1. 创建验证器类：
+```typescript
+export class CustomValidator {
+  async validate(projectRoot: string): Promise<ValidationResult> {
+    // 实现验证逻辑
+  }
+}
+```
+
+2. 集成到验证运行器：
+```typescript
+// 在 ValidationRunner 中添加
+const customResult = await customValidator.validate(projectRoot);
+```
+
+3. 更新配置类型：
+```typescript
+interface ValidationConfig {
+  // 添加新的配置选项
+  custom: CustomValidationConfig;
+}
+```
+
+### 自定义输出格式
+
+```typescript
+class CustomReporter {
+  generateReport(result: ValidationResult): string {
+    // 实现自定义报告格式
+  }
+}
+```
 
 ## 支持和反馈
 
 如有问题或建议，请：
-1. 查看项目文档
-2. 检查已知问题
-3. 提交 Issue 或 Pull Request
+
+1. 查看本文档的故障排除部分
+2. 检查项目的 GitHub Issues
+3. 联系开发团队
+4. 提交 Pull Request 贡献改进
+
+---
+
+*最后更新: 2024年8月*

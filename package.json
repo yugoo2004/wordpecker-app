@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "express": "^5.1.0",
+    "http-proxy-middleware": "^3.0.5",
+    "pm2": "^6.0.8",
+    "serve": "^14.2.4",
     "sharp": "^0.34.3"
   }
 }

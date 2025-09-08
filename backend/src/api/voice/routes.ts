@@ -88,7 +88,7 @@ router.post('/session',
     } catch (error) {
       console.error('Voice session creation error:', error);
       
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error occurred';
       
       res.status(500).json({
         error: 'Failed to create voice session',

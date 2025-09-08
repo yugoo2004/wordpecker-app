@@ -109,7 +109,7 @@ export const errorLogger = (error: Error, req: Request, res: Response, next: Nex
     url: req.originalUrl,
     error: {
       name: error.name,
-      message: error.message,
+      message: (error instanceof Error ? error.message : String(error)),
       stack: error.stack
     },
     responseTime,
@@ -126,7 +126,7 @@ export const errorLogger = (error: Error, req: Request, res: Response, next: Nex
       method: req.method,
       error: {
         name: error.name,
-        message: error.message,
+        message: (error instanceof Error ? error.message : String(error)),
         code: (error as any).code,
         statusCode: (error as any).statusCode
       },
@@ -174,7 +174,7 @@ export const dbLogger = {
       operation,
       error: {
         name: error.name,
-        message: error.message,
+        message: (error instanceof Error ? error.message : String(error)),
         stack: error.stack
       },
       context,
@@ -209,7 +209,7 @@ export const apiCallLogger = {
         ...logData,
         error: {
           name: error.name,
-          message: error.message
+          message: (error instanceof Error ? error.message : String(error))
         }
       });
     } else if (duration > 5000) { // 超过5秒的API调用

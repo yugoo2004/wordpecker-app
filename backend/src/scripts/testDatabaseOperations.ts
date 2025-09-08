@@ -275,7 +275,7 @@ async function testDatabaseOperations() {
       });
       console.log('❌ 唯一约束测试失败');
     } catch (error) {
-      if (error instanceof Error && error.message.includes('duplicate key')) {
+      if (error instanceof Error && (error instanceof Error ? error.message : String(error)).includes('duplicate key')) {
         console.log('✅ 唯一约束错误处理正常');
       }
     }
@@ -288,7 +288,7 @@ async function testDatabaseOperations() {
       });
       console.log('❌ 验证错误测试失败');
     } catch (error) {
-      if (error instanceof Error && error.message.includes('required')) {
+      if (error instanceof Error && (error instanceof Error ? error.message : String(error)).includes('required')) {
         console.log('✅ 验证错误处理正常');
       }
     }
@@ -343,7 +343,7 @@ async function testDatabaseOperations() {
     console.error('\n❌ 数据库操作测试失败:');
     
     if (error instanceof Error) {
-      console.error(`   错误信息: ${error.message}`);
+      console.error(`   错误信息: ${(error instanceof Error ? error.message : String(error))}`);
       console.error(`   错误堆栈: ${error.stack}`);
     }
     

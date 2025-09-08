@@ -1113,7 +1113,7 @@ export class StockPhotoService {
    * @returns boolean - 是否可以重试
    */
   private isRetryableError(error: Error): boolean {
-    const errorMessage = error.message || '';
+    const errorMessage = (error instanceof Error ? error.message : String(error)) || '';
     
     // 不可重试的错误类型
     const nonRetryableErrors = [
@@ -1177,7 +1177,7 @@ export class StockPhotoService {
    * @returns ImageApiError - 格式化的错误信息
    */
   private createDetailedError(error: any, context: string): ImageApiError {
-    const errorMessage = error.message || '';
+    const errorMessage = (error instanceof Error ? error.message : String(error)) || '';
     
     // 检查 HTTP 状态码错误
     if (errorMessage.includes('401') || errorMessage.includes('Unauthorized')) {

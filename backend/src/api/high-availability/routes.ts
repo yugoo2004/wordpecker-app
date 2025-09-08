@@ -38,7 +38,7 @@ router.post('/start', async (req, res) => {
     logger.error('Failed to start HA management via API:', error);
     res.status(500).json({
       success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
+      error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error',
       timestamp: new Date().toISOString()
     });
   }
@@ -65,7 +65,7 @@ router.post('/stop', async (req, res) => {
     logger.error('Failed to stop HA management via API:', error);
     res.status(500).json({
       success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
+      error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error',
       timestamp: new Date().toISOString()
     });
   }
@@ -90,7 +90,7 @@ router.get('/status', async (req, res) => {
     logger.error('Failed to get HA status via API:', error);
     res.status(500).json({
       success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
+      error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error',
       timestamp: new Date().toISOString()
     });
   }
@@ -117,7 +117,7 @@ router.get('/health', async (req, res) => {
     logger.error('Failed to perform health check via API:', error);
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -142,7 +142,7 @@ router.get('/metrics', async (req, res) => {
     logger.error('Failed to get metrics via API:', error);
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -172,7 +172,7 @@ router.post('/scale-up', async (req, res) => {
     logger.error('Failed to scale up via API:', error);
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -202,7 +202,7 @@ router.post('/scale-down', async (req, res) => {
     logger.error('Failed to scale down via API:', error);
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -241,7 +241,7 @@ router.post('/failover', async (req, res) => {
     logger.error('Failed to trigger failover via API:', error);
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -271,7 +271,7 @@ router.post('/reset-failure/:serviceName', async (req, res) => {
     logger.error('Failed to reset failure state via API:', error);
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -296,7 +296,7 @@ router.get('/load-balancer', async (req, res) => {
     logger.error('Failed to get load balancer status via API:', error);
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -321,7 +321,7 @@ router.get('/failover-manager', async (req, res) => {
     logger.error('Failed to get failover manager status via API:', error);
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }

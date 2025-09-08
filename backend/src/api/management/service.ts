@@ -32,8 +32,8 @@ export class ManagementService {
       const result = await execAsync(command);
       return result;
     } catch (error) {
-      logger.error('PM2命令执行失败', { command, error: error instanceof Error ? error.message : 'Unknown error' });
-      throw new Error(`PM2命令执行失败: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      logger.error('PM2命令执行失败', { command, error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error' });
+      throw new Error(`PM2命令执行失败: ${error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error'}`);
     }
   }
 
@@ -151,8 +151,8 @@ export class ManagementService {
         exec_mode: proc.pm2_env.exec_mode
       }));
     } catch (error) {
-      logger.error('获取服务状态失败', { error: error.message });
-      throw new Error(`获取服务状态失败: ${error.message}`);
+      logger.error('获取服务状态失败', { error: (error instanceof Error ? error.message : String(error)) });
+      throw new Error(`获取服务状态失败: ${(error instanceof Error ? error.message : String(error))}`);
     }
   }
 
@@ -183,8 +183,8 @@ export class ManagementService {
         timestamp: new Date().toISOString()
       };
     } catch (error) {
-      logger.error('获取系统指标失败', { error: error.message });
-      throw new Error(`获取系统指标失败: ${error.message}`);
+      logger.error('获取系统指标失败', { error: (error instanceof Error ? error.message : String(error)) });
+      throw new Error(`获取系统指标失败: ${(error instanceof Error ? error.message : String(error))}`);
     }
   }
 
@@ -203,8 +203,8 @@ export class ManagementService {
       const { stdout } = await execAsync(command);
       return stdout;
     } catch (error) {
-      logger.error('获取PM2日志失败', { error: error.message, service, lines });
-      throw new Error(`获取PM2日志失败: ${error.message}`);
+      logger.error('获取PM2日志失败', { error: (error instanceof Error ? error.message : String(error)), service, lines });
+      throw new Error(`获取PM2日志失败: ${(error instanceof Error ? error.message : String(error))}`);
     }
   }
 
@@ -240,8 +240,8 @@ export class ManagementService {
 
       return logFiles.sort((a, b) => b.modified.getTime() - a.modified.getTime());
     } catch (error) {
-      logger.error('获取日志文件列表失败', { error: error.message });
-      throw new Error(`获取日志文件列表失败: ${error.message}`);
+      logger.error('获取日志文件列表失败', { error: (error instanceof Error ? error.message : String(error)) });
+      throw new Error(`获取日志文件列表失败: ${(error instanceof Error ? error.message : String(error))}`);
     }
   }
 
@@ -264,8 +264,8 @@ export class ManagementService {
       const { stdout } = await execAsync(`tail -n ${lines} "${filePath}"`);
       return stdout;
     } catch (error) {
-      logger.error('读取日志文件失败', { error: error.message, filename, lines });
-      throw new Error(`读取日志文件失败: ${error.message}`);
+      logger.error('读取日志文件失败', { error: (error instanceof Error ? error.message : String(error)), filename, lines });
+      throw new Error(`读取日志文件失败: ${(error instanceof Error ? error.message : String(error))}`);
     }
   }
 
@@ -288,8 +288,8 @@ export class ManagementService {
       const content = await readFile(filePath, 'utf-8');
       return content;
     } catch (error) {
-      logger.error('下载日志文件失败', { error: error.message, filename });
-      throw new Error(`下载日志文件失败: ${error.message}`);
+      logger.error('下载日志文件失败', { error: (error instanceof Error ? error.message : String(error)), filename });
+      throw new Error(`下载日志文件失败: ${(error instanceof Error ? error.message : String(error))}`);
     }
   }
 
@@ -314,8 +314,8 @@ export class ManagementService {
         details: { stdout: stdout.trim(), stderr: stderr.trim() }
       };
     } catch (error) {
-      logger.error('清理日志文件失败', { error: error.message, days });
-      throw new Error(`清理日志文件失败: ${error.message}`);
+      logger.error('清理日志文件失败', { error: (error instanceof Error ? error.message : String(error)), days });
+      throw new Error(`清理日志文件失败: ${(error instanceof Error ? error.message : String(error))}`);
     }
   }
 
@@ -342,8 +342,8 @@ export class ManagementService {
         details: { stdout: stdout.trim(), stderr: stderr.trim() }
       };
     } catch (error) {
-      logger.error('应用部署失败', { error: error.message, version, branch });
-      throw new Error(`应用部署失败: ${error.message}`);
+      logger.error('应用部署失败', { error: (error instanceof Error ? error.message : String(error)), version, branch });
+      throw new Error(`应用部署失败: ${(error instanceof Error ? error.message : String(error))}`);
     }
   }
 }

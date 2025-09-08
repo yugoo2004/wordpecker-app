@@ -30,7 +30,7 @@ import multimodalRoutes from './api/multimodal'; // 豆包1.6多模态API路由
 const app = express();
 
 // 信任代理（用于获取真实IP地址）
-app.set('trust proxy', true);
+// app.set('trust proxy', true); // 暂时禁用避免速率限制错误
 
 // 日志中间件（在其他中间件之前）
 app.use(requestLogger);
@@ -103,7 +103,7 @@ if (process.env.NODE_ENV !== 'test') {
     logger.error('Failed to initialize application', {
       error: {
         name: error.name,
-        message: error.message,
+        message: (error instanceof Error ? error.message : String(error)),
         stack: error.stack
       }
     });

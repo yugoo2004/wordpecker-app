@@ -29,7 +29,7 @@ async function testMoonshotAPI() {
   } catch (error) {
     console.error('❌ API 请求失败:', error);
     if (error instanceof Error) {
-      console.error('错误信息:', error.message);
+      console.error('错误信息:', (error instanceof Error ? error.message : String(error)));
     }
   }
 }

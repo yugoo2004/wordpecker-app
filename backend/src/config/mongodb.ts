@@ -90,7 +90,7 @@ class DatabaseConnectionManager {
     return retryableErrors.some(errorType => 
       error.code === errorType || 
       error.name === errorType ||
-      error.message?.includes(errorType)
+      (error instanceof Error ? error.message : String(error))?.includes(errorType)
     );
   }
 
@@ -126,7 +126,7 @@ class DatabaseConnectionManager {
       
     } catch (error) {
       this.isConnecting = false;
-      const errorMessage = error instanceof Error ? error.message : String(error);
+      const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : String(error);
       
       logger.error(`MongoDB连接失败 (第 ${attempt + 1} 次): ${errorMessage}`);
 
@@ -312,7 +312,7 @@ class DatabaseConnectionManager {
         healthy: false,
         details: {
           status: 'error',
-          error: error instanceof Error ? error.message : String(error)
+          error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : String(error)
         }
       };
     }

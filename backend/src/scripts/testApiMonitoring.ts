@@ -52,7 +52,7 @@ async function testApiUsageStats() {
         // 短暂延迟以模拟真实使用场景
         await new Promise(resolve => setTimeout(resolve, 500));
       } catch (error) {
-        console.log(colors.yellow(`  ⚠️ 调用 ${i + 1} 失败: ${error instanceof Error ? error.message : '未知错误'}`));
+        console.log(colors.yellow(`  ⚠️ 调用 ${i + 1} 失败: ${error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '未知错误'}`));
       }
     }
     
@@ -80,7 +80,7 @@ async function testApiUsageStats() {
     
     return true;
   } catch (error) {
-    console.log(colors.red(`❌ API使用统计测试失败: ${error instanceof Error ? error.message : '未知错误'}`));
+    console.log(colors.red(`❌ API使用统计测试失败: ${error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '未知错误'}`));
     return false;
   }
 }
@@ -124,7 +124,7 @@ async function testPerformanceMetrics() {
     
     return true;
   } catch (error) {
-    console.log(colors.red(`❌ 性能指标测试失败: ${error instanceof Error ? error.message : '未知错误'}`));
+    console.log(colors.red(`❌ 性能指标测试失败: ${error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '未知错误'}`));
     return false;
   }
 }
@@ -167,7 +167,7 @@ async function testQuotaMonitoring() {
     
     return true;
   } catch (error) {
-    console.log(colors.red(`❌ 配额监控测试失败: ${error instanceof Error ? error.message : '未知错误'}`));
+    console.log(colors.red(`❌ 配额监控测试失败: ${error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '未知错误'}`));
     return false;
   }
 }
@@ -230,7 +230,7 @@ async function testSessionStats() {
     
     return true;
   } catch (error) {
-    console.log(colors.red(`❌ 会话统计测试失败: ${error instanceof Error ? error.message : '未知错误'}`));
+    console.log(colors.red(`❌ 会话统计测试失败: ${error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '未知错误'}`));
     return false;
   }
 }
@@ -253,7 +253,7 @@ async function testApiKeyValidation() {
     
     return true;
   } catch (error) {
-    console.log(colors.red(`❌ API密钥验证测试失败: ${error instanceof Error ? error.message : '未知错误'}`));
+    console.log(colors.red(`❌ API密钥验证测试失败: ${error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '未知错误'}`));
     return false;
   }
 }

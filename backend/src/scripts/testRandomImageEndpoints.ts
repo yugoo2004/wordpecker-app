@@ -91,7 +91,7 @@ async function testRandomImageEndpoints() {
           搜索词: categoryImage.prompt
         });
       } catch (error) {
-        console.log(`❌ ${category} 类别图片获取失败:`, error instanceof Error ? error.message : error);
+        console.log(`❌ ${category} 类别图片获取失败:`, error instanceof Error ? (error instanceof Error ? error.message : String(error)) : error);
       }
     }
     
@@ -125,7 +125,7 @@ async function testRandomImageEndpoints() {
       console.log('⚠️ 预期的错误没有发生');
     } catch (error) {
       console.log(`✅ 错误处理正常:`, {
-        错误信息: error instanceof Error ? error.message : '未知错误',
+        错误信息: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '未知错误',
         错误代码: (error as any)?.code || '无代码',
         错误详情: (error as any)?.details || '无详情'
       });

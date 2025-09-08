@@ -125,7 +125,48 @@ jobs:
         name: report-validation-report
         path: |
           vhe: 'npm'
-alidation-reports/
+        cache-dependency-path: 'tools/naming-scanner/package-lock.json'
+        
+    - name: 安装验证工具依赖
+      run: |
+        cd tools/naming-scanner
+        npm ci
+        npm run build
+        
+    - name: 检查环境变量命名
+      run: |
+        cd tools/naming-scanner
+        node dist/cli-validator.js env \
+          --project ../../ \
+          --prefix SEEDREAM_
+
+  report-validation:
+    name: 测试报告检查
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      
+    - name: 设置 Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: 'tools/naming-scanner/package-lock.json'
+        
+    - name: 安装验证工具依赖
+      run: |
+        cd tools/naming-scanner
+        npm ci
+        npm run build
+        
+    - name: 检查测试报告格式
+      run: |
+        cd tools/naming-scanner
+        node dist/cli-validator.js reports \
+          --project ../../ \
+          --max-size 10485760alidation-reports/
           report-validation.json
         retention-days: 30
 

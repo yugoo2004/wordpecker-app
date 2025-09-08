@@ -45,7 +45,7 @@ router.get('/health', async (req: Request, res: Response) => {
     } catch (error) {
       healthStatus.services.database = 'error';
       (healthStatus as any).database_details = {
-        error: error instanceof Error ? error.message : String(error)
+        error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : String(error)
       };
     }
 
@@ -86,7 +86,7 @@ router.get('/health', async (req: Request, res: Response) => {
       status: 'unhealthy',
       timestamp: new Date().toISOString(),
       error: 'Health check failed',
-      message: error instanceof Error ? error.message : 'Unknown error'
+      message: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error'
     });
   }
 });
@@ -194,7 +194,7 @@ router.get('/ready', async (req: Request, res: Response) => {
       errors.push('Database health check failed');
       details.database = {
         status: 'error',
-        error: error instanceof Error ? error.message : 'Unknown error'
+        error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error'
       };
     }
 
@@ -252,7 +252,7 @@ router.get('/ready', async (req: Request, res: Response) => {
     } catch (error) {
       warnings.push('External API connectivity check failed');
       readinessChecks.connectivity = false;
-      details.apis = { error: error instanceof Error ? error.message : 'Unknown error' };
+      details.apis = { error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error' };
     }
 
     const response = {
@@ -275,7 +275,7 @@ router.get('/ready', async (req: Request, res: Response) => {
       ready: false,
       timestamp: new Date().toISOString(),
       error: 'Readiness check failed',
-      message: error instanceof Error ? error.message : 'Unknown error'
+      message: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error'
     });
   }
 });

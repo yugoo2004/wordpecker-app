@@ -35,7 +35,7 @@ const createTestRoutes = () => {
     } catch (error) {
       console.error('❌ 随机图片获取失败:', error);
       
-      const errorMessage = error instanceof Error ? error.message : '获取随机图片失败';
+      const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '获取随机图片失败';
       const errorCode = (error as any)?.code || 'UNKNOWN_ERROR';
       const errorDetails = (error as any)?.details;
       const retryAfter = (error as any)?.retryAfter;
@@ -97,7 +97,7 @@ const createTestRoutes = () => {
     } catch (error) {
       console.error(`❌ 分类随机图片获取失败 (${req.params.category}):`, error);
       
-      const errorMessage = error instanceof Error ? error.message : '获取分类随机图片失败';
+      const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '获取分类随机图片失败';
       const errorCode = (error as any)?.code || 'UNKNOWN_ERROR';
       const errorDetails = (error as any)?.details;
       const retryAfter = (error as any)?.retryAfter;
@@ -207,7 +207,7 @@ const createTestRoutes = () => {
     } catch (error) {
       console.error('❌ API配置验证过程中发生错误:', error);
       
-      const errorMessage = error instanceof Error ? error.message : 'API配置验证失败';
+      const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'API配置验证失败';
       
       res.status(500).json({
         success: false,
@@ -287,7 +287,7 @@ const createTestRoutes = () => {
     } catch (error) {
       console.error('❌ 获取统计信息失败:', error);
       
-      const errorMessage = error instanceof Error ? error.message : '获取统计信息失败';
+      const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '获取统计信息失败';
       
       res.status(500).json({
         success: false,
@@ -365,7 +365,7 @@ const createTestRoutes = () => {
     } catch (error) {
       console.error('❌ 获取性能指标失败:', error);
       
-      const errorMessage = error instanceof Error ? error.message : '获取性能指标失败';
+      const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '获取性能指标失败';
       
       res.status(500).json({
         success: false,
@@ -438,7 +438,7 @@ const createTestRoutes = () => {
     } catch (error) {
       console.error('❌ 获取配额信息失败:', error);
       
-      const errorMessage = error instanceof Error ? error.message : '获取配额信息失败';
+      const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '获取配额信息失败';
       
       res.status(500).json({
         success: false,

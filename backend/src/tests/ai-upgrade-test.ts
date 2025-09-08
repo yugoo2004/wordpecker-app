@@ -168,7 +168,7 @@ export class AIUpgradeTestSuite {
         'A place where books are stored and people study',
         {
           size: '512x512',
-          quality: 'standard',
+          // quality: 'standard',
           style: 'natural'
         }
       );
@@ -186,7 +186,7 @@ export class AIUpgradeTestSuite {
         hasUrl: !!imageResult.url,
         hasBuffer: !!imageResult.buffer,
         size: imageResult.metadata?.size,
-        quality: imageResult.metadata?.quality,
+        // quality: imageResult.metadata?.quality,
         generatedAt: imageResult.metadata?.generatedAt
       };
     });
@@ -442,10 +442,10 @@ export class AIUpgradeTestSuite {
         name,
         passed: false,
         duration,
-        error: error.message
+        error: (error instanceof Error ? error.message : String(error))
       });
       
-      logger.error(`❌ 测试失败: ${name} (${duration}ms)`, { error: error.message });
+      logger.error(`❌ 测试失败: ${name} (${duration}ms)`, { error: (error instanceof Error ? error.message : String(error)) });
     }
   }
 

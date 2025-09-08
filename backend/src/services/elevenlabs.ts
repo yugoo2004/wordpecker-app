@@ -308,10 +308,10 @@ export class ElevenLabsService {
       
       if (error instanceof Error) {
         // Handle specific ElevenLabs errors
-        if (error.message.includes('quota')) {
+        if ((error instanceof Error ? error.message : String(error)).includes('quota')) {
           throw new Error('Audio generation quota exceeded. Please try again later.');
         }
-        if (error.message.includes('voice')) {
+        if ((error instanceof Error ? error.message : String(error)).includes('voice')) {
           throw new Error('Selected voice is not available. Using default voice.');
         }
       }

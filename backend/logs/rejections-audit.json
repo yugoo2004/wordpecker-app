@@ -39,6 +39,36 @@
             "date": 1756366037355,
             "name": "/home/devbox/project/backend/logs/rejections-2025-08-28.log",
             "hash": "cf02ce35641bbeab52ace25bc1e7b03ddd9cb3ba392e37b882020817f11db7ac"
+        },
+        {
+            "date": 1756437036383,
+            "name": "/home/devbox/project/backend/logs/rejections-2025-08-29.log",
+            "hash": "625f9bbf4804566eef00b3c06857f5e8b9232a231a0bd87b39e30e0497f9d276"
+        },
+        {
+            "date": 1756909046330,
+            "name": "/home/devbox/project/backend/logs/rejections-2025-09-03.log",
+            "hash": "40ced32de2fdebc51c644c317f739ff419fdd2570a4cab9703e080e930729348"
+        },
+        {
+            "date": 1756935898952,
+            "name": "/home/devbox/project/backend/logs/rejections-2025-09-04.log",
+            "hash": "0823a3f82b11c26935c128698067100b0005f43f49d9c072069308da10566a64"
+        },
+        {
+            "date": 1757032151136,
+            "name": "/home/devbox/project/backend/logs/rejections-2025-09-05.log",
+            "hash": "b5483a063a5a21dabd711a50d4ddbb073d579e403dcf6feaf8fd36650d9eccae"
+        },
+        {
+            "date": 1757235489785,
+            "name": "/home/devbox/project/backend/logs/rejections-2025-09-07.log",
+            "hash": "3614097f54b8e3bad3c1d0d0e24f2c354dff52c8da0f465414af04e53da34035"
+        },
+        {
+            "date": 1757340040055,
+            "name": "/home/devbox/project/backend/logs/rejections-2025-09-08.log",
+            "hash": "38160a0f81c44fc7e8335813099d09a9fdbabf6dabf634f2deab409d5546d9d5"
         }
     ],
     "hashType": "sha256"

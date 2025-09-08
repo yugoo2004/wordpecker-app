@@ -45,10 +45,10 @@ router.post('/restart', async (req: Request, res: Response) => {
     const result = await managementService.restartService(service);
     res.json(result);
   } catch (error) {
-    logger.error('服务重启失败', { error: error instanceof Error ? error.message : 'Unknown error', service: req.body.service });
+    logger.error('服务重启失败', { error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error', service: req.body.service });
     res.status(500).json({
       success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
+      error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error',
       timestamp: new Date().toISOString()
     });
   }
@@ -67,10 +67,10 @@ router.post('/stop', async (req: Request, res: Response) => {
     const result = await managementService.stopService(service);
     res.json(result);
   } catch (error) {
-    logger.error('服务停止失败', { error: error instanceof Error ? error.message : 'Unknown error', service: req.body.service });
+    logger.error('服务停止失败', { error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error', service: req.body.service });
     res.status(500).json({
       success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
+      error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error',
       timestamp: new Date().toISOString()
     });
   }
@@ -89,10 +89,10 @@ router.post('/start', async (req: Request, res: Response) => {
     const result = await managementService.startService(service);
     res.json(result);
   } catch (error) {
-    logger.error('服务启动失败', { error: error.message, service: req.body.service });
+    logger.error('服务启动失败', { error: (error instanceof Error ? error.message : String(error)), service: req.body.service });
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -111,10 +111,10 @@ router.post('/scale', async (req: Request, res: Response) => {
     const result = await managementService.scaleService(service, instances);
     res.json(result);
   } catch (error) {
-    logger.error('服务扩缩容失败', { error: error.message, service: req.body.service });
+    logger.error('服务扩缩容失败', { error: (error instanceof Error ? error.message : String(error)), service: req.body.service });
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -138,10 +138,10 @@ router.get('/status', async (req: Request, res: Response) => {
       timestamp: new Date().toISOString()
     });
   } catch (error) {
-    logger.error('获取服务状态失败', { error: error.message });
+    logger.error('获取服务状态失败', { error: (error instanceof Error ? error.message : String(error)) });
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -163,10 +163,10 @@ router.get('/metrics', async (req: Request, res: Response) => {
       timestamp: new Date().toISOString()
     });
   } catch (error) {
-    logger.error('获取系统指标失败', { error: error.message });
+    logger.error('获取系统指标失败', { error: (error instanceof Error ? error.message : String(error)) });
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -196,10 +196,10 @@ router.get('/logs/pm2', async (req: Request, res: Response) => {
       timestamp: new Date().toISOString()
     });
   } catch (error) {
-    logger.error('获取PM2日志失败', { error: error.message });
+    logger.error('获取PM2日志失败', { error: (error instanceof Error ? error.message : String(error)) });
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -221,10 +221,10 @@ router.get('/logs/files', async (req: Request, res: Response) => {
       timestamp: new Date().toISOString()
     });
   } catch (error) {
-    logger.error('获取日志文件列表失败', { error: error.message });
+    logger.error('获取日志文件列表失败', { error: (error instanceof Error ? error.message : String(error)) });
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -253,10 +253,10 @@ router.get('/logs/view/:filename', async (req: Request, res: Response) => {
       timestamp: new Date().toISOString()
     });
   } catch (error) {
-    logger.error('查看日志文件失败', { error: error.message, filename: req.params.filename });
+    logger.error('查看日志文件失败', { error: (error instanceof Error ? error.message : String(error)), filename: req.params.filename });
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -282,10 +282,10 @@ router.get('/logs/download/:filename', async (req: Request, res: Response) => {
     
     logger.info('日志文件下载成功', { filename });
   } catch (error) {
-    logger.error('下载日志文件失败', { error: error.message, filename: req.params.filename });
+    logger.error('下载日志文件失败', { error: (error instanceof Error ? error.message : String(error)), filename: req.params.filename });
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -304,10 +304,10 @@ router.delete('/logs/cleanup', async (req: Request, res: Response) => {
     const result = await managementService.cleanupLogs(days);
     res.json(result);
   } catch (error) {
-    logger.error('清理日志文件失败', { error: error.message });
+    logger.error('清理日志文件失败', { error: (error instanceof Error ? error.message : String(error)) });
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -383,10 +383,10 @@ router.get('/logs/tail/:service', async (req: Request, res: Response) => {
     });
     
   } catch (error) {
-    logger.error('获取实时日志失败', { error: error.message, service: req.params.service });
+    logger.error('获取实时日志失败', { error: (error instanceof Error ? error.message : String(error)), service: req.params.service });
     res.status(500).json({
       success: false,
-      error: `获取实时日志失败: ${error.message}`,
+      error: `获取实时日志失败: ${(error instanceof Error ? error.message : String(error))}`,
       timestamp: new Date().toISOString()
     });
   }
@@ -423,12 +423,12 @@ router.post('/ai/disable-fallback', async (req: Request, res: Response) => {
     
   } catch (error) {
     logger.error('AI降级机制禁用失败', { 
-      error: error instanceof Error ? error.message : 'Unknown error',
+      error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error',
       body: req.body 
     });
     res.status(500).json({
       success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
+      error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error',
       timestamp: new Date().toISOString()
     });
   }
@@ -452,11 +452,11 @@ router.post('/ai/enable-fallback', async (req: Request, res: Response) => {
     
   } catch (error) {
     logger.error('AI降级机制启用失败', { 
-      error: error instanceof Error ? error.message : 'Unknown error' 
+      error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error' 
     });
     res.status(500).json({
       success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
+      error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error',
       timestamp: new Date().toISOString()
     });
   }
@@ -485,11 +485,11 @@ router.get('/ai/fallback-status', async (req: Request, res: Response) => {
     
   } catch (error) {
     logger.error('AI降级机制状态查询失败', { 
-      error: error instanceof Error ? error.message : 'Unknown error' 
+      error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error' 
     });
     res.status(500).json({
       success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
+      error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error',
       timestamp: new Date().toISOString()
     });
   }
@@ -521,12 +521,12 @@ router.post('/ai/debug-mode', async (req: Request, res: Response) => {
     
   } catch (error) {
     logger.error('AI调试模式设置失败', { 
-      error: error instanceof Error ? error.message : 'Unknown error',
+      error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error',
       body: req.body 
     });
     res.status(500).json({
       success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
+      error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Unknown error',
       timestamp: new Date().toISOString()
     });
   }
@@ -582,13 +582,13 @@ router.post('/ai/test-volcengine', async (req: Request, res: Response) => {
     }
     
     logger.error('火山引擎连接测试失败', { 
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       stack: error.stack 
     });
     
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       details: {
         errorType: error.constructor?.name || 'Unknown',
         provider: 'doubao',

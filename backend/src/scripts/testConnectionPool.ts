@@ -164,7 +164,7 @@ class ConnectionPoolTester {
 
       } catch (error) {
         this.recordOperation(false, 0);
-        this.stats.errors.push(`Connection ${connectionId}, Operation ${i}: ${error instanceof Error ? error.message : String(error)}`);
+        this.stats.errors.push(`Connection ${connectionId}, Operation ${i}: ${error instanceof Error ? (error instanceof Error ? error.message : String(error)) : String(error)}`);
       }
     }
   }

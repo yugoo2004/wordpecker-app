@@ -25,7 +25,7 @@ const createTestRoutes = () => {
         }
       });
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : '获取随机图片失败';
+      const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '获取随机图片失败';
       const errorCode = (error as any)?.code || 'UNKNOWN_ERROR';
       
       res.status(500).json({
@@ -55,7 +55,7 @@ const createTestRoutes = () => {
         category: category
       });
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : '获取分类随机图片失败';
+      const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '获取分类随机图片失败';
       const errorCode = (error as any)?.code || 'UNKNOWN_ERROR';
       
       res.status(500).json({
@@ -119,7 +119,7 @@ const createTestRoutes = () => {
     } catch (error) {
       console.error(`❌ 获取会话统计失败 (${req.params.sessionId}):`, error);
       
-      const errorMessage = error instanceof Error ? error.message : '获取会话统计失败';
+      const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '获取会话统计失败';
       
       res.status(500).json({
         success: false,
@@ -204,7 +204,7 @@ const createTestRoutes = () => {
     } catch (error) {
       console.error(`❌ 会话管理操作失败 (${req.params.sessionId}):`, error);
       
-      const errorMessage = error instanceof Error ? error.message : '会话管理操作失败';
+      const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '会话管理操作失败';
       
       res.status(500).json({
         success: false,
@@ -305,7 +305,7 @@ const createTestRoutes = () => {
     } catch (error) {
       console.error('❌ 获取会话概览失败:', error);
       
-      const errorMessage = error instanceof Error ? error.message : '获取会话概览失败';
+      const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '获取会话概览失败';
       
       res.status(500).json({
         success: false,

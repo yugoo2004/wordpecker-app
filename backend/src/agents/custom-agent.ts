@@ -189,9 +189,9 @@ export class CustomAgent<TOutput = any> {
     } catch (error: any) {
       logger.error(`Agent ${this.name} 执行失败`, {
         agent: this.name,
-        error: error.message || error
+        error: (error instanceof Error ? error.message : String(error)) || error
       });
-      throw new Error(`Agent ${this.name} 执行失败: ${error.message || error}`);
+      throw new Error(`Agent ${this.name} 执行失败: ${(error instanceof Error ? error.message : String(error)) || error}`);
     }
   }
 

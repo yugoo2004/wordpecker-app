@@ -181,7 +181,7 @@ export class VolcengineTTSService {
       (error) => {
         const errorInfo = {
           status: error.response?.status,
-          message: error.response?.data?.message || error.message,
+          message: error.response?.data?.message || (error instanceof Error ? error.message : String(error)),
           url: error.config?.url
         };
         logger.error('火山引擎TTS响应错误', errorInfo);
@@ -230,7 +230,7 @@ export class VolcengineTTSService {
 
     } catch (error: any) {
       logger.error('火山引擎TTS生成失败', {
-        error: error.message,
+        error: (error instanceof Error ? error.message : String(error)),
         textLength: text.length
       });
       throw error;
@@ -536,7 +536,7 @@ export class VolcengineTTSService {
       return new Error('火山引擎TTS服务器错误，请稍后重试');
     }
 
-    return new Error(`火山引擎TTS未知错误: ${error.message}`);
+    return new Error(`火山引擎TTS未知错误: ${(error instanceof Error ? error.message : String(error))}`);
   }
 
   /**
@@ -566,7 +566,7 @@ export class VolcengineTTSService {
     } catch (error: any) {
       return {
         available: false,
-        error: error.message
+        error: (error instanceof Error ? error.message : String(error))
       };
     }
   }

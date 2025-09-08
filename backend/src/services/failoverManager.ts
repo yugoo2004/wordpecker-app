@@ -139,7 +139,7 @@ export class FailoverManager extends EventEmitter {
 
     } catch (error) {
       logger.error(`Health check failed for ${service.name}:`, error);
-      await this.handleServiceFailure(service, `Health check error: ${error.message}`);
+      await this.handleServiceFailure(service, `Health check error: ${(error instanceof Error ? error.message : String(error))}`);
     }
   }
 
@@ -179,7 +179,7 @@ export class FailoverManager extends EventEmitter {
       return data.status === 'healthy';
       
     } catch (error) {
-      logger.debug(`Backend health check failed: ${error.message}`);
+      logger.debug(`Backend health check failed: ${(error instanceof Error ? error.message : String(error))}`);
       return false;
     }
   }
@@ -201,7 +201,7 @@ export class FailoverManager extends EventEmitter {
       return response.ok;
       
     } catch (error) {
-      logger.debug(`Frontend health check failed: ${error.message}`);
+      logger.debug(`Frontend health check failed: ${(error instanceof Error ? error.message : String(error))}`);
       return false;
     }
   }

@@ -312,7 +312,7 @@ export class OpenAIClient {
     }
 
     // 超时错误
-    if (error.message?.includes('timeout')) {
+    if ((error instanceof Error ? error.message : String(error))?.includes('timeout')) {
       return true;
     }
 
@@ -344,10 +344,10 @@ export class OpenAIClient {
    * 提取 OpenAI 错误信息
    */
   private extractOpenAIErrorInfo(error: any): any {
-    if (error.status && error.message) {
+    if (error.status && (error instanceof Error ? error.message : String(error))) {
       return {
         status: error.status,
-        message: error.message,
+        message: (error instanceof Error ? error.message : String(error)),
         type: error.type,
         code: error.code
       };
@@ -362,7 +362,7 @@ export class OpenAIClient {
     }
 
     return {
-      message: error.message,
+      message: (error instanceof Error ? error.message : String(error)),
       code: error.code
     };
   }
@@ -408,7 +408,7 @@ export class OpenAIClient {
         default:
           return new ApiError({
             code: 'OPENAI_ERROR',
-            message: `OpenAI API 错误: ${error.message || '未知错误'}`,
+            message: `OpenAI API 错误: ${(error instanceof Error ? error.message : String(error)) || '未知错误'}`,
             statusCode: error.status
           });
       }
@@ -437,14 +437,14 @@ export class OpenAIClient {
         default:
           return new ApiError({
             code: 'NETWORK_ERROR',
-            message: `OpenAI 网络错误: ${error.message}`
+            message: `OpenAI 网络错误: ${(error instanceof Error ? error.message : String(error))}`
           });
       }
     }
 
     return new ApiError({
       code: 'UNKNOWN_ERROR',
-      message: `OpenAI 未知错误: ${error.message || '请求失败'}`
+      message: `OpenAI 未知错误: ${(error instanceof Error ? error.message : String(error)) || '请求失败'}`
     });
   }
 

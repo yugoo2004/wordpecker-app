@@ -222,7 +222,7 @@ export class DoubaoService {
       (error) => {
         const errorInfo = {
           status: error.response?.status,
-          message: error.response?.data?.error?.message || error.message,
+          message: error.response?.data?.error?.message || (error instanceof Error ? error.message : String(error)),
           url: error.config?.url
         };
         logger.error('豆包API响应错误', errorInfo);
@@ -314,7 +314,7 @@ export class DoubaoService {
 
     } catch (error: any) {
       logger.error('豆包多模态聊天完成失败', {
-        error: error.message,
+        error: (error instanceof Error ? error.message : String(error)),
         messagesCount: messages.length
       });
       throw error;
@@ -372,7 +372,7 @@ export class DoubaoService {
 
     } catch (error: any) {
       logger.error('豆包图像分析失败', {
-        error: error.message,
+        error: (error instanceof Error ? error.message : String(error)),
         imageUrl: imageUrl.substring(0, 100) + '...'
       });
       throw error;
@@ -434,7 +434,7 @@ export class DoubaoService {
 
     } catch (error: any) {
       logger.error('豆包图像词汇生成失败', {
-        error: error.message,
+        error: (error instanceof Error ? error.message : String(error)),
         targetLanguage,
         difficulty
       });
@@ -530,7 +530,7 @@ export class DoubaoService {
       }
 
     } catch (error: any) {
-      logger.error('豆包流式聊天完成失败', { error: error.message });
+      logger.error('豆包流式聊天完成失败', { error: (error instanceof Error ? error.message : String(error)) });
       throw error;
     }
   }
@@ -575,7 +575,7 @@ export class DoubaoService {
       return new Error('豆包API服务器错误，请稍后重试');
     }
 
-    return new Error(`豆包API未知错误: ${error.message}`);
+    return new Error(`豆包API未知错误: ${(error instanceof Error ? error.message : String(error))}`);
   }
 
   /**
@@ -607,7 +607,7 @@ export class DoubaoService {
     } catch (error: any) {
       return {
         available: false,
-        error: error.message
+        error: (error instanceof Error ? error.message : String(error))
       };
     }
   }

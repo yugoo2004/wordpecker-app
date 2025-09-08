@@ -301,15 +301,15 @@ export class PexelsClient {
       };
     }
 
-    if (error.statusCode && error.message) {
+    if (error.statusCode && (error instanceof Error ? error.message : String(error))) {
       return {
         status: error.statusCode,
-        message: error.message
+        message: (error instanceof Error ? error.message : String(error))
       };
     }
 
     return {
-      message: error.message,
+      message: (error instanceof Error ? error.message : String(error)),
       code: error.code
     };
   }
@@ -372,7 +372,7 @@ export class PexelsClient {
         default:
           return new ApiError({
             code: 'PEXELS_ERROR',
-            message: `Pexels API 错误: ${error.message || '未知错误'}`,
+            message: `Pexels API 错误: ${(error instanceof Error ? error.message : String(error)) || '未知错误'}`,
             statusCode: status
           });
       }
@@ -401,14 +401,14 @@ export class PexelsClient {
         default:
           return new ApiError({
             code: 'NETWORK_ERROR',
-            message: `Pexels 网络错误: ${error.message}`
+            message: `Pexels 网络错误: ${(error instanceof Error ? error.message : String(error))}`
           });
       }
     }
 
     return new ApiError({
       code: 'UNKNOWN_ERROR',
-      message: `Pexels 未知错误: ${error.message || '请求失败'}`
+      message: `Pexels 未知错误: ${(error instanceof Error ? error.message : String(error)) || '请求失败'}`
     });
   }
 

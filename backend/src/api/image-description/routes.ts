@@ -43,7 +43,7 @@ router.post('/start', validate(startExerciseSchema), async (req, res) => {
       instructions: "Look at this image carefully and describe what you see. Include details about objects, people, actions, emotions, colors, and atmosphere. Write in your target language and be as descriptive as you can!"
     });
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Failed to start description exercise';
+    const message = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Failed to start description exercise';
     res.status(400).json({ error: message });
   }
 });
@@ -83,7 +83,7 @@ router.post('/submit', validate(submitDescriptionSchema), async (req, res) => {
       message: 'Great job! Here\'s your personalized feedback and vocabulary recommendations.'
     });
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Failed to analyze description';
+    const message = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Failed to analyze description';
     res.status(400).json({ error: message });
   }
 });
@@ -139,7 +139,7 @@ router.post('/add-words', validate(addWordsSchema), async (req, res) => {
       createdNewList: !!createNewList
     });
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Failed to add words to list';
+    const message = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Failed to add words to list';
     res.status(400).json({ error: message });
   }
 });
@@ -158,7 +158,7 @@ router.get('/history', validate(historyQuerySchema), async (req, res) => {
 
     res.json({ exercises });
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Failed to fetch exercise history';
+    const message = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'Failed to fetch exercise history';
     res.status(400).json({ error: message });
   }
 });
@@ -204,7 +204,7 @@ router.get('/random', validate(randomImageQuerySchema), async (req: Request, res
     console.error('❌ 随机图片获取失败:', error);
     
     // 处理不同类型的错误
-    const errorMessage = error instanceof Error ? error.message : '获取随机图片失败';
+    const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '获取随机图片失败';
     const errorCode = (error as any)?.code || 'UNKNOWN_ERROR';
     const errorDetails = (error as any)?.details;
     const retryAfter = (error as any)?.retryAfter;
@@ -270,7 +270,7 @@ router.get('/random/:category', validate(categoryRandomImageSchema), async (req:
     console.error(`❌ 分类随机图片获取失败 (${req.params.category}):`, error);
     
     // 处理不同类型的错误
-    const errorMessage = error instanceof Error ? error.message : '获取分类随机图片失败';
+    const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '获取分类随机图片失败';
     const errorCode = (error as any)?.code || 'UNKNOWN_ERROR';
     const errorDetails = (error as any)?.details;
     const retryAfter = (error as any)?.retryAfter;
@@ -377,7 +377,7 @@ router.get('/stats', async (req: Request, res: Response) => {
   } catch (error) {
     console.error('❌ 获取统计信息失败:', error);
     
-    const errorMessage = error instanceof Error ? error.message : '获取统计信息失败';
+    const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '获取统计信息失败';
     
     res.status(500).json({
       success: false,
@@ -459,7 +459,7 @@ router.get('/metrics', async (req: Request, res: Response) => {
   } catch (error) {
     console.error('❌ 获取性能指标失败:', error);
     
-    const errorMessage = error instanceof Error ? error.message : '获取性能指标失败';
+    const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '获取性能指标失败';
     
     res.status(500).json({
       success: false,
@@ -535,7 +535,7 @@ router.get('/quota', async (req: Request, res: Response) => {
   } catch (error) {
     console.error('❌ 获取配额信息失败:', error);
     
-    const errorMessage = error instanceof Error ? error.message : '获取配额信息失败';
+    const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '获取配额信息失败';
     
     res.status(500).json({
       success: false,
@@ -569,7 +569,7 @@ router.post('/reset-stats', async (req: Request, res: Response) => {
   } catch (error) {
     console.error('❌ 重置统计数据失败:', error);
     
-    const errorMessage = error instanceof Error ? error.message : '重置统计数据失败';
+    const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '重置统计数据失败';
     
     res.status(500).json({
       success: false,
@@ -658,7 +658,7 @@ router.get('/validate-api', async (req: Request, res: Response) => {
   } catch (error) {
     console.error('❌ API配置验证过程中发生错误:', error);
     
-    const errorMessage = error instanceof Error ? error.message : 'API配置验证失败';
+    const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : 'API配置验证失败';
     
     res.status(500).json({
       success: false,
@@ -729,7 +729,7 @@ router.get('/sessions/:sessionId/stats', validate(sessionStatsQuerySchema), asyn
   } catch (error) {
     console.error(`❌ 获取会话统计失败 (${req.params.sessionId}):`, error);
     
-    const errorMessage = error instanceof Error ? error.message : '获取会话统计失败';
+    const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '获取会话统计失败';
     
     res.status(500).json({
       success: false,
@@ -816,7 +816,7 @@ router.post('/sessions/:sessionId/manage', validate(sessionManagementSchema), as
   } catch (error) {
     console.error(`❌ 会话管理操作失败 (${req.params.sessionId}):`, error);
     
-    const errorMessage = error instanceof Error ? error.message : '会话管理操作失败';
+    const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '会话管理操作失败';
     
     res.status(500).json({
       success: false,
@@ -924,7 +924,7 @@ router.get('/sessions/overview', async (req: Request, res: Response) => {
   } catch (error) {
     console.error('❌ 获取会话概览失败:', error);
     
-    const errorMessage = error instanceof Error ? error.message : '获取会话概览失败';
+    const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '获取会话概览失败';
     
     res.status(500).json({
       success: false,
@@ -1059,7 +1059,7 @@ router.post('/sessions/cleanup', async (req: Request, res: Response) => {
   } catch (error) {
     console.error('❌ 批量清理会话失败:', error);
     
-    const errorMessage = error instanceof Error ? error.message : '批量清理会话失败';
+    const errorMessage = error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '批量清理会话失败';
     
     res.status(500).json({
       success: false,

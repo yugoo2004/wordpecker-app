@@ -43,7 +43,7 @@ async function validateApiMonitoring() {
     results.push({ 
       test: 'API 调用统计功能', 
       passed: false, 
-      details: error instanceof Error ? error.message : '未知错误' 
+      details: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '未知错误' 
     });
     allTestsPassed = false;
   }
@@ -79,7 +79,7 @@ async function validateApiMonitoring() {
     results.push({ 
       test: '配额使用监控功能', 
       passed: false, 
-      details: error instanceof Error ? error.message : '未知错误' 
+      details: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '未知错误' 
     });
     allTestsPassed = false;
   }
@@ -130,7 +130,7 @@ async function validateApiMonitoring() {
     results.push({ 
       test: '性能指标收集机制', 
       passed: false, 
-      details: error instanceof Error ? error.message : '未知错误' 
+      details: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '未知错误' 
     });
     allTestsPassed = false;
   }
@@ -171,7 +171,7 @@ async function validateApiMonitoring() {
     results.push({ 
       test: '统计重置功能', 
       passed: false, 
-      details: error instanceof Error ? error.message : '未知错误' 
+      details: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '未知错误' 
     });
     allTestsPassed = false;
   }
@@ -202,7 +202,7 @@ async function validateApiMonitoring() {
     results.push({ 
       test: '会话管理功能', 
       passed: false, 
-      details: error instanceof Error ? error.message : '未知错误' 
+      details: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '未知错误' 
     });
     allTestsPassed = false;
   }
@@ -227,7 +227,7 @@ async function validateApiMonitoring() {
     results.push({ 
       test: 'API密钥验证功能', 
       passed: false, 
-      details: error instanceof Error ? error.message : '未知错误' 
+      details: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : '未知错误' 
     });
     allTestsPassed = false;
   }

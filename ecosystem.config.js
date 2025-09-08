@@ -10,7 +10,7 @@ module.exports = {
       script: 'npm',
       args: 'start',
       cwd: './backend',
-      instances: 'max', // 使用所有CPU核心，支持动态调整
+      instances: 2, // 限制为2个实例，避免端口冲突
       exec_mode: 'cluster', // 启用cluster模式支持负载均衡
       
       // 生产环境配置
@@ -18,7 +18,7 @@ module.exports = {
         NODE_ENV: 'production',
         PORT: 3000,
         // 性能优化
-        NODE_OPTIONS: '--max-old-space-size=512 --optimize-for-size',
+        NODE_OPTIONS: '--max-old-space-size=512',
         // 日志级别
         LOG_LEVEL: 'info'
       },
@@ -35,7 +35,7 @@ module.exports = {
       watch: false, // 生产环境禁用文件监听以提高性能
       max_memory_restart: '500M', // 内存限制保护
       min_uptime: '10s', // 最小运行时间，避免快速重启循环
-      max_restarts: 10, // 最大重启次数
+      max_restarts: 3, // 降低最大重启次数，避免无限重启
       restart_delay: 4000, // 重启延迟（毫秒）
       
       // 进程监控和健康检查

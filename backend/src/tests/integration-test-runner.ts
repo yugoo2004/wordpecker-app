@@ -55,7 +55,7 @@ class IntegrationTestRunner {
         testFile,
         passed: false,
         duration,
-        error: error instanceof Error ? error.message : String(error)
+        error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : String(error)
       };
     }
   }

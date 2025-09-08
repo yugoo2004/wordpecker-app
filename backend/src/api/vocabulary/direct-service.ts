@@ -67,7 +67,7 @@ Make sure each word is relevant to the context and at the specified difficulty l
       console.error('Error generating vocabulary words:', error);
       
       // 降级到本地词汇生成
-      logger.warn('AI词汇生成失败，使用备用词汇模板', { error: error instanceof Error ? error.message : String(error) });
+      logger.warn('AI词汇生成失败，使用备用词汇模板', { error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : String(error) });
       return await this.generateFallbackWords(count, difficulty, context, baseLanguage, targetLanguage, excludeWords);
     }
   }
@@ -125,7 +125,7 @@ Please respond with a JSON object in this exact format:
       console.error('Error getting word details:', error);
       
       // 降级到基本词汇信息
-      logger.warn('AI词汇详情获取失败，使用默认详情', { word, error: error instanceof Error ? error.message : String(error) });
+      logger.warn('AI词汇详情获取失败，使用默认详情', { word, error: error instanceof Error ? (error instanceof Error ? error.message : String(error)) : String(error) });
       return {
         word,
         meaning: `A ${targetLanguage} word related to ${context}`,

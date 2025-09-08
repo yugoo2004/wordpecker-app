@@ -77,7 +77,7 @@ async function testPexelsApiDirectly() {
         await new Promise(resolve => setTimeout(resolve, 200));
         
       } catch (error) {
-        console.log(`❌ "${query}": 错误 - ${error instanceof Error ? error.message : error}`);
+        console.log(`❌ "${query}": 错误 - ${error instanceof Error ? (error instanceof Error ? error.message : String(error)) : error}`);
       }
     }
     

@@ -58,7 +58,7 @@ router.post('/analyze-image', async (req: Request, res: Response) => {
     const analysisPrompt = DoubaoMultiModalUtils.buildImageDescriptionPrompt(
       analysisType as any,
       targetLanguage,
-      options.difficulty || 'intermediate'
+      'intermediate'
     );
 
     // 执行图像分析
@@ -110,14 +110,14 @@ router.post('/analyze-image', async (req: Request, res: Response) => {
 
   } catch (error: any) {
     logger.error('多模态图像分析失败', {
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       stack: error.stack
     });
 
     res.status(500).json({
       success: false,
       error: '图像分析失败',
-      details: error.message
+      details: (error instanceof Error ? error.message : String(error))
     });
   }
 });
@@ -204,14 +204,14 @@ router.post('/generate-vocabulary', async (req: Request, res: Response) => {
 
   } catch (error: any) {
     logger.error('图像词汇生成失败', {
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       stack: error.stack
     });
 
     res.status(500).json({
       success: false,
       error: '词汇生成失败',
-      details: error.message
+      details: (error instanceof Error ? error.message : String(error))
     });
   }
 });
@@ -298,14 +298,14 @@ router.post('/generate-quiz', async (req: Request, res: Response) => {
 
   } catch (error: any) {
     logger.error('图像测验生成失败', {
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       stack: error.stack
     });
 
     res.status(500).json({
       success: false,
       error: '测验生成失败',
-      details: error.message
+      details: (error instanceof Error ? error.message : String(error))
     });
   }
 });
@@ -380,14 +380,14 @@ router.post('/chat', async (req: Request, res: Response) => {
 
   } catch (error: any) {
     logger.error('多模态聊天失败', {
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       stack: error.stack
     });
 
     res.status(500).json({
       success: false,
       error: '聊天请求失败',
-      details: error.message
+      details: (error instanceof Error ? error.message : String(error))
     });
   }
 });
@@ -454,14 +454,14 @@ router.post('/generate-image', async (req: Request, res: Response) => {
 
   } catch (error: any) {
     logger.error('SeeDream图像生成失败', {
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       stack: error.stack
     });
 
     res.status(500).json({
       success: false,
       error: '图像生成失败',
-      details: error.message
+      details: (error instanceof Error ? error.message : String(error))
     });
   }
 });
@@ -500,11 +500,11 @@ router.get('/health', async (req: Request, res: Response) => {
     res.status(statusCode).json(health);
 
   } catch (error: any) {
-    logger.error('多模态健康检查失败', { error: error.message });
+    logger.error('多模态健康检查失败', { error: (error instanceof Error ? error.message : String(error)) });
 
     res.status(503).json({
       status: 'unhealthy',
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }

@@ -43,7 +43,7 @@ async function validatePexelsConfiguration() {
     }
 
   } catch (error) {
-    console.error('❌ 配置验证失败:', error instanceof Error ? error.message : error);
+    console.error('❌ 配置验证失败:', error instanceof Error ? (error instanceof Error ? error.message : String(error)) : error);
     process.exit(1);
   }
 

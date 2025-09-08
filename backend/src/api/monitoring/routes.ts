@@ -19,7 +19,7 @@ router.get('/dashboard', async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -37,7 +37,7 @@ router.get('/metrics', async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -55,7 +55,7 @@ router.get('/health-status', async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -74,7 +74,7 @@ router.get('/alerts', async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -93,7 +93,7 @@ router.get('/trends', async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -111,7 +111,7 @@ router.get('/alert-config', async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -129,7 +129,7 @@ router.put('/alert-config', async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: error.message,
+      error: (error instanceof Error ? error.message : String(error)),
       timestamp: new Date().toISOString()
     });
   }
@@ -183,7 +183,7 @@ async function collectSystemMetrics() {
       load: loadAverage
     };
   } catch (error) {
-    throw new Error(`收集系统指标失败: ${error.message}`);
+    throw new Error(`收集系统指标失败: ${(error instanceof Error ? error.message : String(error))}`);
   }
 }
 
@@ -298,21 +298,21 @@ async function getHealthStatus() {
     
     return {
       backend: {
-        status: healthData.services?.backend?.status || 'unknown',
-        responseTime: healthData.services?.backend?.response_time_ms || -1,
-        availability: metricsData.services?.backend?.availability_percent || 0,
-        consecutiveFailures: metricsData.services?.backend?.consecutive_failures || 0
+        status: (healthData.services as any)?.backend?.status || 'unknown',
+        responseTime: (healthData.services as any)?.backend?.response_time_ms || -1,
+        availability: (metricsData.services as any)?.backend?.availability_percent || 0,
+        consecutiveFailures: (metricsData.services as any)?.backend?.consecutive_failures || 0
       },
       frontend: {
-        status: healthData.services?.frontend?.status || 'unknown',
-        responseTime: healthData.services?.frontend?.response_time_ms || -1,
-        availability: metricsData.services?.frontend?.availability_percent || 0,
-        consecutiveFailures: metricsData.services?.frontend?.consecutive_failures || 0
+        status: (healthData.services as any)?.frontend?.status || 'unknown',
+        responseTime: (healthData.services as any)?.frontend?.response_time_ms || -1,
+        availability: (metricsData.services as any)?.frontend?.availability_percent || 0,
+        consecutiveFailures: (metricsData.services as any)?.frontend?.consecutive_failures || 0
       },
-      lastCheck: healthData.check_time || new Date().toISOString()
+      lastCheck: (healthData as any).check_time || new Date().toISOString()
     };
   } catch (error) {
-    throw new Error(`获取健康状态失败: ${error.message}`);
+    throw new Error(`获取健康状态失败: ${(error instanceof Error ? error.message : String(error))}`);
   }
 }
 
@@ -485,7 +485,7 @@ async function updateAlertConfiguration(config: any) {
     const configFile = path.join(process.cwd(), '../config/alert-config.json');
     await fs.writeFile(configFile, JSON.stringify(config, null, 2));
   } catch (error) {
-    throw new Error(`更新告警配置失败: ${error.message}`);
+    throw new Error(`更新告警配置失败: ${(error instanceof Error ? error.message : String(error))}`);
   }
 }
 
